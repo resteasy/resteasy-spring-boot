@@ -1,8 +1,12 @@
-[![Build Status](https://travis-ci.org/paypal/resteasy-spring-boot.svg?branch=master)](https://travis-ci.org/paypal/resteasy-spring-boot)
-[![Codacy Badge](https://api.codacy.com/project/badge/grade/4d23b74b13c3464b95f1acdb40b35cd7)](https://www.codacy.com/app/fabiocarvalho777/resteasy-spring-boot)
-[![Codacy Coverage](https://api.codacy.com/project/badge/coverage/4d23b74b13c3464b95f1acdb40b35cd7)](https://www.codacy.com/app/fabiocarvalho777/resteasy-spring-boot)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.paypal.springboot/resteasy-spring-boot-starter/badge.svg?style=flat)](http://search.maven.org/#search|ga|1|g:com.paypal.springboot)
 [![License](http://img.shields.io/:license-Apache%202-red.svg)](http://www.apache.org/licenses/LICENSE-2.0.txt)
+
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ -->
+<!-- Set-up TravisCI, Codacy and deploy a first release with RESTEasy group id and artifact id, then uncomment and adjust accordingly the lines below replacing ?????? by correct values -->
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ -->
+<!-- [![Build Status](https://travis-ci.org/resteasy/resteasy-spring-boot.svg?branch=master)](https://travis-ci.org/resteasy/resteasy-spring-boot) -->
+<!-- [![Codacy Badge](https://api.codacy.com/project/badge/grade/??????)](https://www.codacy.com/app/??????/resteasy-spring-boot) -->
+<!-- [![Codacy Coverage](https://api.codacy.com/project/badge/coverage/??????)](https://www.codacy.com/app/??????/resteasy-spring-boot) -->
+<!-- [![Maven Central](https://maven-badges.herokuapp.com/maven-central/??????/resteasy-spring-boot-starter/badge.svg?style=flat)](http://search.maven.org/#search|ga|1|g:??????) -->
 
 # RESTEasy Spring Boot Starter
 
@@ -72,6 +76,9 @@ Please open an issue using our [GitHub issues](https://github.com/paypal/resteas
 
 ## Contributing
 You are very welcome to contribute to RESTEasy Spring Boot starter! Read our [Contribution guidelines](mds/CONTRIBUTING.md).
+
+## Contacting us
+To contact us, please send an email to fabiocarvalho777@gmail.com.
 
 ## License
 This project is licensed under the [Apache 2 License](License.html).
