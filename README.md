@@ -31,9 +31,9 @@ Add the Maven dependency below to your Spring Boot application pom file.<br>
 
 ``` xml
 <dependency>
-   <groupId>com.paypal.springboot</groupId>
+   <groupId>org.jboss.resteasy</groupId>
    <artifactId>resteasy-spring-boot-starter</artifactId>
-   <version>2.3.4-RELEASE</version>
+   <version>1.0.0-SNAPSHOT</version>
    <scope>runtime</scope>
 </dependency>
 ```
@@ -72,7 +72,7 @@ See [RESTEasy Spring Boot starter release notes](mds/RELEASE_NOTES.md).
   - **resteasy-spring-boot-starter-test**: Integration tests for the RESTEasy Spring Boot Starter project.
 
 ## Reporting an issue
-Please open an issue using our [GitHub issues](https://github.com/paypal/resteasy-spring-boot/issues) page.
+Please open an issue using our [GitHub issues](https://github.com/resteasy/resteasy-spring-boot/issues) page.
 
 ## Contributing
 You are very welcome to contribute to RESTEasy Spring Boot starter! Read our [Contribution guidelines](mds/CONTRIBUTING.md).

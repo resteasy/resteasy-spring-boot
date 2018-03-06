@@ -9,7 +9,7 @@
     <name>${project.artifactId}</name>
 
     <description>Integration test project for RESTEasy Spring Boot starter</description>
-    <url>https://github.com/paypal/resteasy-spring-boot</url>
+    <url>https://github.com/resteasy/resteasy-spring-boot</url>
 
     <licenses>
         <license>
@@ -26,9 +26,9 @@
         </developer>
     </developers>
     <scm>
-        <connection>scm:git:git@github.com:paypal/resteasy-spring-boot.git</connection>
-        <developerConnection>scm:git:git@github.com:paypal/resteasy-spring-boot.git</developerConnection>
-        <url>git@github.com:paypal/resteasy-spring-boot.git</url>
+        <connection>scm:git:git@github.com:resteasy/resteasy-spring-boot.git</connection>
+        <developerConnection>scm:git:git@github.com:resteasy/resteasy-spring-boot.git</developerConnection>
+        <url>git@github.com:resteasy/resteasy-spring-boot.git</url>
     </scm>
     <distributionManagement>
         <snapshotRepository>
