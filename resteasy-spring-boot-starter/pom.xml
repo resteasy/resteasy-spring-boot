@@ -257,7 +257,7 @@
                         <haltOnFailure>true</haltOnFailure>
                         <regexes>
                             <regex>
-                                <pattern>com.paypal.springboot.resteasy.JaxrsApplicationScanner</pattern>
+                                <pattern>org.jboss.resteasy.springboot.JaxrsApplicationScanner</pattern>
                                 <lineRate>80</lineRate>
                                 <branchRate>65</branchRate>
                             </regex>
