@@ -3,7 +3,7 @@ sudo: required
 
 jdk:
   - oraclejdk8
-  - oraclejdk9
+#  - oraclejdk9
 
 install: mvn install
 
@@ -14,4 +14,4 @@ after_success:
   # Uploading Cobertura report to Codacy
   - java -cp ccr.jar com.codacy.CodacyCoverageReporter -l Java -r ./resteasy-spring-boot-starter/target/site/cobertura/coverage.xml --projectToken $CODACY_PROJECT_TOKEN
   # Deploying SNAPSHOT artifacts to Maven Central
-  - mvn -B -f ./resteasy-spring-boot-starter/pom.xml -s ./resteasy-spring-boot-starter/settings.xml -DskipTests=true -Dcobertura.skip deploy
+#  - mvn -B -f ./resteasy-spring-boot-starter/pom.xml -s ./resteasy-spring-boot-starter/settings.xml -DskipTests=true -Dcobertura.skip deploy
