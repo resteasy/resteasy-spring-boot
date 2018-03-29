@@ -3,6 +3,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>org.jboss</groupId>
+        <artifactId>jboss-parent</artifactId>
+        <version>26</version>
+        <relativePath/>
+    </parent>
     <groupId>org.jboss.resteasy</groupId>
     <artifactId>resteasy-spring-boot-starter</artifactId>
     <version>1.0.0-SNAPSHOT</version>
@@ -48,6 +54,9 @@
         <resteasy.version>3.1.4.Final</resteasy.version>
         <coverage.line>80</coverage.line>
         <coverage.branch>80</coverage.branch>
+        <version.surefire.plugin>2.19.1</version.surefire.plugin>
+        <modular.jdk.args/>
+        <modular.jdk.props/>
     </properties>
 
     <dependencies>
@@ -92,7 +101,11 @@
             <artifactId>javax.servlet-api</artifactId>
             <version>3.1.0</version>
         </dependency>
-
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>javax.annotation-api</artifactId>
+            <version>1.2</version>
+        </dependency>
 
         <!-- Test dependencies -->
         <dependency>
@@ -104,48 +117,65 @@
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>6.1.1</version>
+            <version>6.13.1</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>1.10.19</version>
+            <version>2.17.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.powermock</groupId>
             <artifactId>powermock-core</artifactId>
-            <version>1.6.6</version>
+            <version>2.0.0-beta.5</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.powermock</groupId>
-            <artifactId>powermock-api-mockito</artifactId>
-            <version>1.6.5</version>
+            <artifactId>powermock-api-mockito2</artifactId>
+            <version>2.0.0-beta.5</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.powermock</groupId>
             <artifactId>powermock-module-testng-common</artifactId>
-            <version>1.6.5</version>
+            <version>2.0.0-beta.5</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.powermock</groupId>
             <artifactId>powermock-module-testng</artifactId>
-            <version>1.6.5</version>
+            <version>2.0.0-beta.5</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.powermock</groupId>
             <artifactId>powermock-reflect</artifactId>
-            <version>1.6.5</version>
+            <version>2.0.0-beta.5</version>
             <scope>test</scope>
         </dependency>
+        
     </dependencies>
 
     <profiles>
+	    <profile>
+	      <id>JDK9</id>
+	      <activation>
+	        <jdk>[9,)</jdk>
+	      </activation>
+	      <properties>
+	        <modular.jdk.args>
+	          --add-modules=java.se
+	        </modular.jdk.args>
+	        <modular.jdk.props>
+	          --add-opens java.xml/jdk.xml.internal=ALL-UNNAMED
+	        </modular.jdk.props>
+	        <!--modular.jdk.props>-Dsun.util.logging.disableCallerCheck=true -Dsun.reflect.debugModuleAccessChecks=true -Djaxb.debug=true</modular.jdk.props-->
+	      </properties>
+	    </profile>
+    
         <!-- Added for Fortify Support -->
         <profile>
             <id>fortify</id>
@@ -209,6 +239,53 @@
                 </plugins>
             </build>
         </profile>
+        <profile>
+            <id>cobertura</id>
+            <activation>
+                <jdk>[,1.9)</jdk>
+            </activation>
+            <build>
+                <plugins>
+                <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>cobertura-maven-plugin</artifactId>
+                <configuration>
+                    <check>
+                        <lineRate>${coverage.line}</lineRate>
+                        <packageLineRate>${coverage.line}</packageLineRate>
+                        <totalLineRate>${coverage.line}</totalLineRate>
+                        <branchRate>${coverage.branch}</branchRate>
+                        <packageBranchRate>${coverage.branch}</packageBranchRate>
+                        <totalBranchRate>${coverage.branch}</totalBranchRate>
+                        <haltOnFailure>true</haltOnFailure>
+                        <regexes>
+                            <regex>
+                                <pattern>org.jboss.resteasy.springboot.JaxrsApplicationScanner</pattern>
+                                <lineRate>80</lineRate>
+                                <branchRate>65</branchRate>
+                            </regex>
+                        </regexes>
+                    </check>
+                    <formats>
+                        <format>html</format>
+                        <format>xml</format>
+                    </formats>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>clean</goal>
+                            <goal>cobertura</goal>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                </plugin>
+                    
+                </plugins>
+            </build>
+        </profile>
     </profiles>
 
     <build>
@@ -242,43 +319,15 @@
             </plugins>
         </pluginManagement>
         <plugins>
+        
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>cobertura-maven-plugin</artifactId>
-                <version>2.7</version>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
-                    <check>
-                        <lineRate>${coverage.line}</lineRate>
-                        <packageLineRate>${coverage.line}</packageLineRate>
-                        <totalLineRate>${coverage.line}</totalLineRate>
-                        <branchRate>${coverage.branch}</branchRate>
-                        <packageBranchRate>${coverage.branch}</packageBranchRate>
-                        <totalBranchRate>${coverage.branch}</totalBranchRate>
-                        <haltOnFailure>true</haltOnFailure>
-                        <regexes>
-                            <regex>
-                                <pattern>org.jboss.resteasy.springboot.JaxrsApplicationScanner</pattern>
-                                <lineRate>80</lineRate>
-                                <branchRate>65</branchRate>
-                            </regex>
-                        </regexes>
-                    </check>
-                    <formats>
-                        <format>html</format>
-                        <format>xml</format>
-                    </formats>
+                    <argLine>${modular.jdk.args} ${modular.jdk.props}</argLine>
                 </configuration>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>clean</goal>
-                            <goal>cobertura</goal>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
+        
         </plugins>
    </build>
 
