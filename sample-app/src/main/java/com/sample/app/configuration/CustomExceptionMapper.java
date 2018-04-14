@@ -1,5 +1,6 @@
-package com.sample.app;
+package com.sample.app.configuration;
 
+import com.sample.app.bean.CustomSingletonBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -21,7 +22,6 @@ public class CustomExceptionMapper implements ExceptionMapper<NotFoundException>
     @Autowired
     private CustomSingletonBean customSingletonBean;
 
-    @Override
     public Response toResponse(NotFoundException exception) {
 
         // This will cause a NPE if this bean couldn't be injected,

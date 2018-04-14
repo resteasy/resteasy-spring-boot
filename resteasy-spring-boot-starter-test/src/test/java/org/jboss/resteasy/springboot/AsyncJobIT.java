@@ -5,7 +5,6 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.springframework.boot.SpringApplication;
 import org.springframework.util.SocketUtils;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -13,7 +12,6 @@ import java.util.Properties;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.notNullValue;
-import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.isEmptyString;
 
@@ -32,12 +30,12 @@ public class AsyncJobIT {
         RestAssured.port = appPort;
 
         Properties properties = new Properties();
-        properties.put("server.context-parameters.resteasy.async.job.service.enabled", true);
+        properties.put("server.servlet.context-parameters.resteasy.async.job.service.enabled", true);
 
         SpringApplication app = new SpringApplication(Application.class);
         app.setDefaultProperties(properties);
         app.addListeners(new LogbackTestApplicationListener());
-        app.run("--server.port=" + appPort).registerShutdownHook();
+        app.run("--server.port=" + appPort);
     }
 
     @Test
@@ -60,12 +58,6 @@ public class AsyncJobIT {
     public void fireAndForgetRequestTest() {
         Response response = given().body("is there anybody out there?").post("/echo?oneway=true");
         response.then().statusCode(202).body(isEmptyString());
-    }
-
-    @AfterClass
-    public void shuttingDownApplication() {
-        Response response = given().basePath("/").post("/shutdown");
-        response.then().statusCode(200).body("message", equalTo("Shutting down, bye..."));
     }
 
 }
