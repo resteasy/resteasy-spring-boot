@@ -30,6 +30,12 @@
             <organization>PayPal</organization>
             <organizationUrl>http://www.paypal.com</organizationUrl>
         </developer>
+        <developer>
+            <name>Alessio Soldano</name>
+            <email>alessio.soldano@jboss.com</email>
+            <organization>Red Hat</organization>
+            <organizationUrl>http://www.redhat.com</organizationUrl>
+        </developer>
     </developers>
     <scm>
         <connection>scm:git:git@github.com:resteasy/resteasy-spring-boot.git</connection>
@@ -37,15 +43,17 @@
         <url>git@github.com:resteasy/resteasy-spring-boot.git</url>
     </scm>
     <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
         <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <id>jboss-releases-repository</id>
+            <name>JBoss Releases Repository</name>
+            <url>https://repository.jboss.org/nexus/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
+
+    <issueManagement>
+        <system>JIRA</system>
+        <url>http://jira.jboss.com/jira/browse/RESTEASY</url>
+    </issueManagement>
 
     <properties>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
