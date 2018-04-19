@@ -1,4 +1,4 @@
-[![License](http://img.shields.io/:license-Apache%202-red.svg)](http://www.apache.org/licenses/LICENSE-2.0.txt)
+[![License](http://img.shields.io/:license-Apache%202-green.svg)](http://www.apache.org/licenses/LICENSE-2.0.txt)
 
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ -->
 <!-- Set-up TravisCI, Codacy and deploy a first release with RESTEasy group id and artifact id, then uncomment and adjust accordingly the lines below replacing ?????? by correct values -->
@@ -10,9 +10,7 @@
 
 # RESTEasy Spring Boot Starter
 
-There was no RESTEasy Spring Boot starter out there, so PayPal team decided to create one and share it with the community.<br>
-
-This Spring Boot starter is fully functional, has ZERO PayPal specific code on it, and can be used normally by any regular Spring Boot application that wants to have REST endpoints and prefers RESTEasy as the JAX-RS implementation.
+This Spring Boot starter can be used by any regular Spring Boot application that wants to have REST endpoints and prefers RESTEasy as the JAX-RS implementation.
 
 Also, this RESTEasy Spring Boot starter integrates with Spring as expected, which means every JAX-RS REST resource that is also a Spring bean will be automatically auto-scanned, integrated, and available.
 
@@ -24,6 +22,8 @@ Also, this RESTEasy Spring Boot starter integrates with Spring as expected, whic
 * Leverages and supports RESTEasy configuration
 * Supports RESTEasy Asynchronous Job Service
 
+*This project has been kindly donated by PayPal. Please refer to https://github.com/paypal/resteasy-spring-boot for old versions.*
+
 ## Quick start
 
 ### Adding POM dependency
@@ -33,7 +33,7 @@ Add the Maven dependency below to your Spring Boot application pom file.<br>
 <dependency>
    <groupId>org.jboss.resteasy</groupId>
    <artifactId>resteasy-spring-boot-starter</artifactId>
-   <version>1.0.0-SNAPSHOT</version>
+   <version>1.0.0.Beta1</version>
    <scope>runtime</scope>
 </dependency>
 ```
@@ -62,9 +62,6 @@ Notice that JAX-RS resources can be singleton or request scoped, while JAX-RS pr
 ### Further information
 See [How to use RESTEasy Spring Boot Starter](mds/USAGE.md).
 
-## Release notes
-See [RESTEasy Spring Boot starter release notes](mds/RELEASE_NOTES.md).
-
 ## Projects
 
   - **sample-app**: A simple Spring Boot application that exposes JAX-RS endpoints as Spring beans using RESTEasy via this RESTEasy Spring Boot starter.
@@ -72,13 +69,10 @@ See [RESTEasy Spring Boot starter release notes](mds/RELEASE_NOTES.md).
   - **resteasy-spring-boot-starter-test**: Integration tests for the RESTEasy Spring Boot Starter project.
 
 ## Reporting an issue
-Please open an issue using our [GitHub issues](https://github.com/resteasy/resteasy-spring-boot/issues) page.
-
-## Contributing
-You are very welcome to contribute to RESTEasy Spring Boot starter! Read our [Contribution guidelines](mds/CONTRIBUTING.md).
+Please open an issue using [JIRA](https://issues.jboss.org/browse/RESTEASY) (be sure to set *Spring / Spring Boot* in the *Component/s* field).
 
 ## Contacting us
-To contact us, please send an email to fabiocarvalho777@gmail.com.
+To contact us, please use RESTEasy [mailing lists](http://resteasy.jboss.org/mailinglists).
 
 ## License
 This project is licensed under the [Apache 2 License](License.html).
