@@ -1,15 +1,14 @@
-package com.sample.app;
+package com.sample.app.enpoint.echo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.validation.constraints.NotEmpty;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-
-import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  * Echo REST endpoint class

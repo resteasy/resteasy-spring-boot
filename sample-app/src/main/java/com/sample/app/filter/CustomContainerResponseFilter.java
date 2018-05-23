@@ -1,5 +1,6 @@
-package com.sample.app;
+package com.sample.app.filter;
 
+import com.sample.app.bean.CustomSingletonBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -23,7 +24,6 @@ public class CustomContainerResponseFilter implements ContainerResponseFilter {
     @Autowired
     private CustomSingletonBean customSingletonBean;
 
-    @Override
     public void filter(ContainerRequestContext requestContext, ContainerResponseContext responseContext) throws IOException {
 
         // This will cause a NPE if this bean couldn't be injected,

@@ -1,6 +1,12 @@
-endpoints:
-  shutdown:
-    enabled: true
 management:
-  security:
-    enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: health,info,shutdown
+  endpoint:
+    shutdown:
+      enabled: true
+logging:
+  level:
+    org:
+      springframework: info
