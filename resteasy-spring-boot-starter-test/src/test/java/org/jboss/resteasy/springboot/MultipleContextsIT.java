@@ -6,7 +6,6 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.springframework.boot.SpringApplication;
 import org.springframework.util.SocketUtils;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -39,7 +38,8 @@ public class MultipleContextsIT {
     @Test
     public void test() {
         Properties properties = new Properties();
-        properties.put("spring.jmx.enabled", false);
+        properties.put("management.endpoint.shutdown.enabled", "true");
+        properties.put("management.endpoints.web.exposure.include", "health,info,shutdown");
 
         SpringApplication app1 = new SpringApplication(Application.class);
         app1.setDefaultProperties(properties);
@@ -58,17 +58,6 @@ public class MultipleContextsIT {
 
         response = given().port(app2Port).body("is there anybody out there?").post("/echo");
         response.then().statusCode(200).body("timestamp", notNullValue()).body("echoText", equalTo("I don't want to echo anything today"));
-    }
-
-    @AfterClass
-    public void shuttingDownApplication() {
-        Response response;
-
-        response = given().port(app1Port).basePath("/").post("/shutdown");
-        response.then().statusCode(200).body("message", equalTo("Shutting down, bye..."));
-
-        response = given().port(app2Port).basePath("/").post("/shutdown");
-        response.then().statusCode(200).body("message", equalTo("Shutting down, bye..."));
     }
 
 }

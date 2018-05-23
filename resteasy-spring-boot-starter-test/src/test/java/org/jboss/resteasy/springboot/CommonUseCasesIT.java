@@ -5,7 +5,6 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.springframework.boot.SpringApplication;
 import org.springframework.util.SocketUtils;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -23,19 +22,14 @@ public class CommonUseCasesIT {
 
     @BeforeClass
     public void startingApplicationUp() {
+        int appPort = SocketUtils.findAvailableTcpPort();
+
         RestAssured.basePath = "sample-app";
-        int port = SocketUtils.findAvailableTcpPort();
-        RestAssured.port = port;
+        RestAssured.port = appPort;
 
-        SpringApplication springApplication = new SpringApplication(Application.class);
-        springApplication.addListeners(new LogbackTestApplicationListener());
-        springApplication.run("--server.port=" + port).registerShutdownHook();
-    }
-
-    @AfterClass
-    public void shuttingDownApplication() {
-        Response response = given().basePath("/").post("/shutdown");
-        response.then().statusCode(200).body("message", equalTo("Shutting down, bye..."));
+        SpringApplication app = new SpringApplication(Application.class);
+        app.addListeners(new LogbackTestApplicationListener());
+        app.run("--server.port=" + appPort);
     }
 
     @Test
@@ -70,12 +64,12 @@ public class CommonUseCasesIT {
         // the request message payload is valid. If that is not the case (a blank payload for example),
         // then the server is expected to return a 400 response message
         Response response = given().body("").post("/echo");
-        response.then().statusCode(400).body(equalTo("[PARAMETER]\r[echo.arg0]\r[may not be empty]\r[]\r\r"));
+        response.then().statusCode(400);
     }
 
     @Test
     public void actuatorTest() throws InterruptedException {
-        Response response = given().basePath("/").get("/health");
+        Response response = given().basePath("/").get("/actuator/health");
         response.then().statusCode(200).body("status", equalTo("UP"));
     }
 

@@ -1,5 +1,12 @@
-resteasy:
-  jaxrs:
-    app:
-      registration: property
-      classes: com.sample.app.JaxrsApplication
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,shutdown
+  endpoint:
+    shutdown:
+      enabled: true
+logging:
+  level:
+    org:
+      springframework: info

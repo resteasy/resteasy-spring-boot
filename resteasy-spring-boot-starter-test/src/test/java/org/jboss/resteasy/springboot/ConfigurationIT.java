@@ -1,11 +1,13 @@
 package org.jboss.resteasy.springboot;
 
 import com.sample.app.Application;
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import org.springframework.beans.BeansException;
 import org.springframework.boot.SpringApplication;
 import org.springframework.util.SocketUtils;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.Properties;
@@ -22,28 +24,28 @@ import static org.hamcrest.CoreMatchers.notNullValue;
  */
 public class ConfigurationIT {
 
+    private Properties properties;
+
     private int configureAndStartApp(Properties properties) {
         return configureAndStartApp(properties, true);
     }
 
     private int configureAndStartApp(Properties properties, boolean assertPerfectLog) {
-        SpringApplication springApplication = new SpringApplication(Application.class);
-        if (assertPerfectLog) {
-            springApplication.addListeners(new LogbackTestApplicationListener());
-        }
+
+        int appPort = SocketUtils.findAvailableTcpPort();
+
+        RestAssured.basePath = "sample-app";
+        RestAssured.port = appPort;
+
+        SpringApplication app = new SpringApplication(Application.class);
+
         if (properties != null) {
-            springApplication.setDefaultProperties(properties);
+            app.setDefaultProperties(properties);
         }
 
-        int port = SocketUtils.findAvailableTcpPort();
-        springApplication.run("--server.port=" + port).registerShutdownHook();
+        app.run("--server.port=" + appPort);
 
-        return port;
-    }
-
-    private void appShutdown(int port) {
-        Response response = given().basePath("/").port(port).post("/shutdown");
-        response.then().statusCode(200).body("message", equalTo("Shutting down, bye..."));
+        return appPort;
     }
 
     private void assertResourceFound(int port, String basePath) {
@@ -58,19 +60,6 @@ public class ConfigurationIT {
 
     @Test
     public void implicitAutoTest() {
-        int port = configureAndStartApp(null);
-
-        assertResourceFound(port, "sample-app");
-        assertResourceNotFound(port, "sample-app-test");
-        assertResourceNotFound(port, "/");
-
-        appShutdown(port);
-    }
-
-    @Test
-    public void explicitAutoTest() {
-        Properties properties = new Properties();
-        properties.put("resteasy.jaxrs.app.registration", "auto");
 
         int port = configureAndStartApp(properties);
 
@@ -78,12 +67,31 @@ public class ConfigurationIT {
         assertResourceNotFound(port, "sample-app-test");
         assertResourceNotFound(port, "/");
 
-        appShutdown(port);
+    }
+
+    @Test
+    public void explicitAutoTest() {
+
+        int port = configureAndStartApp(properties);
+
+        assertResourceFound(port, "sample-app");
+        assertResourceNotFound(port, "sample-app-test");
+        assertResourceNotFound(port, "/");
+
+    }
+
+    @BeforeClass
+    public void before() {
+
+        properties = new Properties();
+        properties.put("management.endpoint.shutdown.enabled", "true");
+        properties.put("management.endpoints.web.exposure.include", "health,info,shutdown");
+
     }
 
     @Test
     public void beansTest() {
-        Properties properties = new Properties();
+
         properties.put("resteasy.jaxrs.app.registration", "beans");
 
         int port = configureAndStartApp(properties);
@@ -91,15 +99,12 @@ public class ConfigurationIT {
         assertResourceFound(port, "sample-app");
         assertResourceNotFound(port, "sample-app-test");
         assertResourceNotFound(port, "/");
-
-        appShutdown(port);
     }
 
     @Test
     public void propertySpringBeanClassTest() {
-        Properties properties = new Properties();
         properties.put("resteasy.jaxrs.app.registration", "property");
-        properties.put("resteasy.jaxrs.app.classes", "com.sample.app.JaxrsApplication");
+        properties.put("resteasy.jaxrs.app.classes", "com.sample.app.configuration.JaxrsApplication");
 
         int port = configureAndStartApp(properties);
 
@@ -107,12 +112,10 @@ public class ConfigurationIT {
         assertResourceNotFound(port, "sample-app-test");
         assertResourceNotFound(port, "/");
 
-        appShutdown(port);
     }
 
     @Test
     public void propertyNonSpringBeanClassTest() {
-        Properties properties = new Properties();
         properties.put("resteasy.jaxrs.app.registration", "property");
         properties.put("resteasy.jaxrs.app.classes", "com.test.NonSpringBeanJaxrsApplication");
 
@@ -122,12 +125,10 @@ public class ConfigurationIT {
         assertResourceFound(port, "sample-app-test");
         assertResourceNotFound(port, "/");
 
-        appShutdown(port);
     }
 
     @Test
     public void invalidClassTest() {
-        Properties properties = new Properties();
         properties.put("resteasy.jaxrs.app.registration", "property");
         properties.put("resteasy.jaxrs.app.classes", "com.foor.bar.NonExistentApplicationClass");
 
@@ -135,7 +136,7 @@ public class ConfigurationIT {
             configureAndStartApp(properties, false);
 
             Assert.fail("Expected exception, due to class not found, has not been thrown");
-        } catch (BeansException ex) {
+        } catch (Exception ex) {
             Assert.assertEquals(ex.getCause().getClass(), ClassNotFoundException.class);
             Assert.assertEquals(ex.getCause().getMessage(), "com.foor.bar.NonExistentApplicationClass");
         }
@@ -143,7 +144,6 @@ public class ConfigurationIT {
 
     @Test
     public void scanningTest() {
-        Properties properties = new Properties();
         properties.put("resteasy.jaxrs.app.registration", "scanning");
 
         int port = configureAndStartApp(properties);
@@ -153,7 +153,6 @@ public class ConfigurationIT {
         assertResourceFound(port, "sample-app-test-two");
         assertResourceNotFound(port, "/");
 
-        appShutdown(port);
     }
 
 }
