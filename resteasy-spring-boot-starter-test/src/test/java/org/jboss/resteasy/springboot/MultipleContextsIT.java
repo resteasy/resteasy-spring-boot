@@ -1,19 +1,22 @@
 package org.jboss.resteasy.springboot;
 
-import com.sample.app.Application;
-import com.test.multicontexttest.MultiContextTestApp;
-import io.restassured.RestAssured;
-import io.restassured.response.Response;
-import org.springframework.boot.SpringApplication;
-import org.springframework.util.SocketUtils;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
-
-import java.util.Properties;
-
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.Matchers.equalTo;
+
+import java.util.Properties;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.util.SocketUtils;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+import com.sample.app.Application;
+import com.test.multicontexttest.MultiContextTestApp;
+
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
 
 /**
  * This test assures that the RESTEasy and Spring integration, promoted by the starter,
@@ -38,8 +41,7 @@ public class MultipleContextsIT {
     @Test
     public void test() {
         Properties properties = new Properties();
-        properties.put("management.endpoint.shutdown.enabled", "true");
-        properties.put("management.endpoints.web.exposure.include", "health,info,shutdown");
+        properties.put("spring.jmx.enabled", false);
 
         SpringApplication app1 = new SpringApplication(Application.class);
         app1.setDefaultProperties(properties);
@@ -58,6 +60,17 @@ public class MultipleContextsIT {
 
         response = given().port(app2Port).body("is there anybody out there?").post("/echo");
         response.then().statusCode(200).body("timestamp", notNullValue()).body("echoText", equalTo("I don't want to echo anything today"));
+    }
+
+    @AfterClass
+    public void shuttingDownApplication() {
+        Response response;
+
+        response = given().port(app1Port).basePath("/").contentType("application/json").post("/actuator/shutdown");
+        response.then().statusCode(200).body("message", equalTo("Shutting down, bye..."));
+
+        response = given().port(app2Port).basePath("/").contentType("application/json").post("/actuator/shutdown");
+        response.then().statusCode(200).body("message", equalTo("Shutting down, bye..."));
     }
 
 }

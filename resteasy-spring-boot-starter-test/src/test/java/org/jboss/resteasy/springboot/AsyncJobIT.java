@@ -1,19 +1,22 @@
 package org.jboss.resteasy.springboot;
 
-import com.sample.app.Application;
-import io.restassured.RestAssured;
-import io.restassured.response.Response;
-import org.springframework.boot.SpringApplication;
-import org.springframework.util.SocketUtils;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
-
-import java.util.Properties;
-
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.isEmptyString;
+
+import java.util.Properties;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.util.SocketUtils;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+import com.sample.app.Application;
+
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
 
 /**
  * Integration tests for RESTEasy Asynchronous Job Service
@@ -35,7 +38,7 @@ public class AsyncJobIT {
         SpringApplication app = new SpringApplication(Application.class);
         app.setDefaultProperties(properties);
         app.addListeners(new LogbackTestApplicationListener());
-        app.run("--server.port=" + appPort);
+        app.run("--server.port=" + appPort).registerShutdownHook();
     }
 
     @Test
@@ -58,6 +61,12 @@ public class AsyncJobIT {
     public void fireAndForgetRequestTest() {
         Response response = given().body("is there anybody out there?").post("/echo?oneway=true");
         response.then().statusCode(202).body(isEmptyString());
+    }
+
+    @AfterClass
+    public void shuttingDownApplication() {
+        Response response = given().basePath("/").contentType("application/json").post("/actuator/shutdown");
+        response.then().statusCode(200).body("message", equalTo("Shutting down, bye..."));
     }
 
 }

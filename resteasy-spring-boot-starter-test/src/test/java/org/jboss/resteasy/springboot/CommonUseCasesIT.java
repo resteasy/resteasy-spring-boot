@@ -1,16 +1,20 @@
 package org.jboss.resteasy.springboot;
 
-import com.sample.app.Application;
-import io.restassured.RestAssured;
-import io.restassured.response.Response;
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.hasItems;
+import static org.hamcrest.CoreMatchers.notNullValue;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.util.SocketUtils;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static io.restassured.RestAssured.given;
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.notNullValue;
+import com.sample.app.Application;
+
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
 
 /**
  * This is an integration test based on a simple sample application and
@@ -22,14 +26,19 @@ public class CommonUseCasesIT {
 
     @BeforeClass
     public void startingApplicationUp() {
-        int appPort = SocketUtils.findAvailableTcpPort();
-
         RestAssured.basePath = "sample-app";
-        RestAssured.port = appPort;
+        int port = SocketUtils.findAvailableTcpPort();
+        RestAssured.port = port;
 
-        SpringApplication app = new SpringApplication(Application.class);
-        app.addListeners(new LogbackTestApplicationListener());
-        app.run("--server.port=" + appPort);
+        SpringApplication springApplication = new SpringApplication(Application.class);
+        springApplication.addListeners(new LogbackTestApplicationListener());
+        springApplication.run("--server.port=" + port).registerShutdownHook();
+    }
+
+    @AfterClass
+    public void shuttingDownApplication() {
+        Response response = given().basePath("/").contentType("application/json").post("/actuator/shutdown");
+        response.then().statusCode(200).body("message", equalTo("Shutting down, bye..."));
     }
 
     @Test
@@ -63,8 +72,8 @@ public class CommonUseCasesIT {
         // Notice that the endpoint we are sending a request to uses Bean Validations to assure
         // the request message payload is valid. If that is not the case (a blank payload for example),
         // then the server is expected to return a 400 response message
-        Response response = given().body("").post("/echo");
-        response.then().statusCode(400);
+        Response response = given().body("").accept("application/json").post("/echo");
+        response.then().statusCode(400).body("parameterViolations.message", hasItems("must not be empty"));
     }
 
     @Test
