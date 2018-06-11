@@ -7,7 +7,7 @@ Add the Maven dependency below to your Spring Boot application pom file.<br>
 <dependency>
    <groupId>org.jboss.resteasy</groupId>
    <artifactId>resteasy-spring-boot-starter</artifactId>
-   <version>1.0.0.Final</version>
+   <version>2.0.0.Beta1</version>
    <scope>runtime</scope>
 </dependency>
 ```
