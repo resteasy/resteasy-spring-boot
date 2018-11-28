@@ -59,7 +59,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <springboot.version>2.1.2.RELEASE</springboot.version>
-        <resteasy.version>3.6.1.Final</resteasy.version>
+        <resteasy.version>3.6.2.Final</resteasy.version>
         <coverage.line>80</coverage.line>
         <coverage.branch>80</coverage.branch>
         <modular.jdk.args/>
@@ -122,12 +122,6 @@
             <groupId>org.glassfish</groupId>
             <artifactId>javax.json</artifactId>
             <version>1.1.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse</groupId>
-            <artifactId>yasson</artifactId>
-            <version>1.0.1</version>
-            <scope>runtime</scope>
         </dependency>
     
         <!-- Test dependencies -->
