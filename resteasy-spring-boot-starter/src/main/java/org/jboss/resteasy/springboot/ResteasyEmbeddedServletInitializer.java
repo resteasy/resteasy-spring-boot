@@ -41,6 +41,8 @@ public class ResteasyEmbeddedServletInitializer implements BeanFactoryPostProces
     // available only for .properties files, but not for YAML files. It should be finally removed in a future major release.
     private static final String JAXRS_APP_CLASSES_PROPERTY_LEGACY = "resteasy.jaxrs.app";
 
+    private static final String JAXRS_DEFAULT_PATH = "resteasy.jaxrs.defaultPath";
+
     private Set<Class<? extends Application>> applications = new HashSet<Class<? extends Application>>();
     private Set<Class<?>> allResources = new HashSet<Class<?>>();
     private Set<Class<?>> providers = new HashSet<Class<?>>();
@@ -247,7 +249,6 @@ public class ResteasyEmbeddedServletInitializer implements BeanFactoryPostProces
             logger.warn("No JAX-RS resource Spring beans have been found");
         }
         if (applications.size() == 0) {
-            logger.info("No JAX-RS Application classes have been found. A default, one mapped to '/', will be registered.");
             registerDefaultJaxrsApp(beanFactory);
             return;
         }
@@ -277,7 +278,12 @@ public class ResteasyEmbeddedServletInitializer implements BeanFactoryPostProces
      */
     private void registerDefaultJaxrsApp(ConfigurableListableBeanFactory beanFactory) {
         BeanDefinitionRegistry registry = (BeanDefinitionRegistry) beanFactory;
-        GenericBeanDefinition applicationServletBean = createApplicationServlet(Application.class, "/");
+        ConfigurableEnvironment configurableEnvironment = beanFactory.getBean(ConfigurableEnvironment.class);
+        String path = configurableEnvironment.getProperty(JAXRS_DEFAULT_PATH, "/");
+        GenericBeanDefinition applicationServletBean =
+                createApplicationServlet(Application.class, path);
+
+        logger.info("No JAX-RS Application classes have been found. A default, one mapped to '{}', will be registered.", path);
         registry.registerBeanDefinition(Application.class.getName(), applicationServletBean);
     }
 

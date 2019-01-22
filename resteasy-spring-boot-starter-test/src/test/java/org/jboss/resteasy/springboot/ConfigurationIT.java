@@ -165,6 +165,18 @@ public class ConfigurationIT {
         ctxAndPort.ctx.close();
     }
 
+    @Test
+    public void noJaxrsApplicationAndImplicitAutoWithDefaultPathTest() {
+        final Properties properties = new Properties();
+        properties.put("resteasy.jaxrs.defaultPath", "/testpath");
+        final CtxAndPort ctxAndPort = configureAndStartApp(properties, com.sample.app2.Application.class);
+
+        // since there is no jax-rs application class, we expect the app to respond on the root path
+        assertResourceFound(ctxAndPort.port, "/testpath");
+
+        ctxAndPort.ctx.close();
+    }
+
     private static class CtxAndPort {
         final ConfigurableApplicationContext ctx;
         final int port;
