@@ -1,51 +1,47 @@
 package org.jboss.resteasy.springboot;
 
-import static io.restassured.RestAssured.given;
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.notNullValue;
-
-import java.util.Properties;
-
+import io.restassured.response.Response;
 import org.springframework.beans.BeansException;
-import org.springframework.boot.SpringApplication;
+import org.springframework.boot.WebApplicationType;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.util.SocketUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.sample.app.Application;
+import java.util.Properties;
 
-import io.restassured.response.Response;
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.notNullValue;
 
 /**
- * This is an integration test based on a simple sample application (see sample-app project).
+ * Integration test that tests a couple sample application (see sample-app and sample-app-no-jaxrs-application).
  * This class test possible configurations to register JAX-RS application classes.
  *
  * @author facarvalho
  */
 public class ConfigurationIT {
 
-    private int configureAndStartApp(Properties properties) {
-        return configureAndStartApp(properties, true);
+    private CtxAndPort configureAndStartApp(Properties properties, Class springBootApplicationClass) {
+        return configureAndStartApp(properties, true, springBootApplicationClass);
     }
 
-    private int configureAndStartApp(Properties properties, boolean assertPerfectLog) {
-        SpringApplication springApplication = new SpringApplication(Application.class);
+    private CtxAndPort configureAndStartApp(Properties properties, boolean assertPerfectLog,
+                                            Class springBootApplicationClass) {
+        final SpringApplicationBuilder builder = new SpringApplicationBuilder(springBootApplicationClass);
+        builder.web(WebApplicationType.SERVLET);
         if (assertPerfectLog) {
-            springApplication.addListeners(new LogbackTestApplicationListener());
+            builder.listeners(new LogbackTestApplicationListener());
         }
         if (properties != null) {
-            springApplication.setDefaultProperties(properties);
+            builder.properties(properties);
         }
 
-        int port = SocketUtils.findAvailableTcpPort();
-        springApplication.run("--server.port=" + port).registerShutdownHook();
+        final int port = SocketUtils.findAvailableTcpPort();
+        final ConfigurableApplicationContext ctx = builder.run("--server.port=" + port);
 
-        return port;
-    }
-
-    private void appShutdown(int port) {
-        Response response = given().basePath("/").port(port).contentType("application/json").post("/actuator/shutdown");
-        response.then().statusCode(200).body("message", equalTo("Shutting down, bye..."));
+        return new CtxAndPort(ctx, port);
     }
 
     private void assertResourceFound(int port, String basePath) {
@@ -60,81 +56,81 @@ public class ConfigurationIT {
 
     @Test
     public void implicitAutoTest() {
-        int port = configureAndStartApp(null);
+        final CtxAndPort ctxAndPort = configureAndStartApp(null, com.sample.app.Application.class);
 
-        assertResourceFound(port, "sample-app");
-        assertResourceNotFound(port, "sample-app-test");
-        assertResourceNotFound(port, "/");
+        assertResourceFound(ctxAndPort.port, "sample-app");
+        assertResourceNotFound(ctxAndPort.port, "sample-app-test");
+        assertResourceNotFound(ctxAndPort.port, "/");
 
-        appShutdown(port);
+        ctxAndPort.ctx.close();
     }
 
     @Test
     public void explicitAutoTest() {
-        Properties properties = new Properties();
+        final Properties properties = new Properties();
         properties.put("resteasy.jaxrs.app.registration", "auto");
 
-        int port = configureAndStartApp(properties);
+        final CtxAndPort ctxAndPort = configureAndStartApp(properties, com.sample.app.Application.class);
 
-        assertResourceFound(port, "sample-app");
-        assertResourceNotFound(port, "sample-app-test");
-        assertResourceNotFound(port, "/");
+        assertResourceFound(ctxAndPort.port, "sample-app");
+        assertResourceNotFound(ctxAndPort.port, "sample-app-test");
+        assertResourceNotFound(ctxAndPort.port, "/");
 
-        appShutdown(port);
+        ctxAndPort.ctx.close();
     }
 
     @Test
     public void beansTest() {
-        Properties properties = new Properties();
+        final Properties properties = new Properties();
         properties.put("resteasy.jaxrs.app.registration", "beans");
 
-        int port = configureAndStartApp(properties);
+        final CtxAndPort ctxAndPort = configureAndStartApp(properties, com.sample.app.Application.class);
 
-        assertResourceFound(port, "sample-app");
-        assertResourceNotFound(port, "sample-app-test");
-        assertResourceNotFound(port, "/");
+        assertResourceFound(ctxAndPort.port, "sample-app");
+        assertResourceNotFound(ctxAndPort.port, "sample-app-test");
+        assertResourceNotFound(ctxAndPort.port, "/");
 
-        appShutdown(port);
+        ctxAndPort.ctx.close();
     }
 
     @Test
     public void propertySpringBeanClassTest() {
-        Properties properties = new Properties();
+        final Properties properties = new Properties();
         properties.put("resteasy.jaxrs.app.registration", "property");
         properties.put("resteasy.jaxrs.app.classes", "com.sample.app.configuration.JaxrsApplication");
 
-        int port = configureAndStartApp(properties);
+        final CtxAndPort ctxAndPort = configureAndStartApp(properties, com.sample.app.Application.class);
 
-        assertResourceFound(port, "sample-app");
-        assertResourceNotFound(port, "sample-app-test");
-        assertResourceNotFound(port, "/");
+        assertResourceFound(ctxAndPort.port, "sample-app");
+        assertResourceNotFound(ctxAndPort.port, "sample-app-test");
+        assertResourceNotFound(ctxAndPort.port, "/");
 
-        appShutdown(port);
+        ctxAndPort.ctx.close();
     }
 
     @Test
     public void propertyNonSpringBeanClassTest() {
-        Properties properties = new Properties();
+        final Properties properties = new Properties();
         properties.put("resteasy.jaxrs.app.registration", "property");
         properties.put("resteasy.jaxrs.app.classes", "com.test.NonSpringBeanJaxrsApplication");
 
-        int port = configureAndStartApp(properties);
+        final CtxAndPort ctxAndPort = configureAndStartApp(properties, com.sample.app.Application.class);
 
-        assertResourceNotFound(port, "sample-app");
-        assertResourceFound(port, "sample-app-test");
-        assertResourceNotFound(port, "/");
+        assertResourceNotFound(ctxAndPort.port, "sample-app");
+        assertResourceFound(ctxAndPort.port, "sample-app-test");
+        assertResourceNotFound(ctxAndPort.port, "/");
 
-        appShutdown(port);
+        ctxAndPort.ctx.close();
     }
 
     @Test
     public void invalidClassTest() {
-        Properties properties = new Properties();
+        final Properties properties = new Properties();
         properties.put("resteasy.jaxrs.app.registration", "property");
         properties.put("resteasy.jaxrs.app.classes", "com.foor.bar.NonExistentApplicationClass");
 
         try {
-            configureAndStartApp(properties, false);
+            configureAndStartApp(properties, false, com.sample.app.Application.class);
 
             Assert.fail("Expected exception, due to class not found, has not been thrown");
         } catch (BeansException ex) {
@@ -145,17 +141,39 @@ public class ConfigurationIT {
 
     @Test
     public void scanningTest() {
-        Properties properties = new Properties();
+        final Properties properties = new Properties();
         properties.put("resteasy.jaxrs.app.registration", "scanning");
 
-        int port = configureAndStartApp(properties);
+        final CtxAndPort ctxAndPort = configureAndStartApp(properties, com.sample.app.Application.class);
 
-        assertResourceFound(port, "sample-app");
-        assertResourceFound(port, "sample-app-test");
-        assertResourceFound(port, "sample-app-test-two");
-        assertResourceNotFound(port, "/");
+        // we expect that the scanning will only find jax-rs application classes that are located
+        // under the package that the main Spring Boot application class is found
+        assertResourceFound(ctxAndPort.port, "sample-app");
+        assertResourceFound(ctxAndPort.port, "sample-app-test-two");
+        assertResourceNotFound(ctxAndPort.port, "/");
 
-        appShutdown(port);
+        ctxAndPort.ctx.close();
+    }
+
+    @Test
+    public void noJaxrsApplicationAndImplicitAutoTest() {
+        final CtxAndPort ctxAndPort = configureAndStartApp(null, com.sample.app2.Application.class);
+
+        // since there is no jax-rs application class, we expect the app to respond on the root path
+        assertResourceFound(ctxAndPort.port, "/");
+
+        ctxAndPort.ctx.close();
+    }
+
+    private static class CtxAndPort {
+        final ConfigurableApplicationContext ctx;
+        final int port;
+
+
+        CtxAndPort(ConfigurableApplicationContext ctx, int port) {
+            this.port = port;
+            this.ctx = ctx;
+        }
     }
 
 }

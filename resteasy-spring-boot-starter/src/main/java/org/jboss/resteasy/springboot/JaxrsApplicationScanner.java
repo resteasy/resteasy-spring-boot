@@ -8,9 +8,7 @@ import org.springframework.core.type.filter.AssignableTypeFilter;
 import org.springframework.util.ClassUtils;
 
 import javax.ws.rs.core.Application;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Helper class to scan the classpath under the specified packages
@@ -22,14 +20,19 @@ public abstract class JaxrsApplicationScanner {
 
     private static final Logger logger = LoggerFactory.getLogger(JaxrsApplicationScanner.class);
 
-    private static Set<Class<? extends Application>> applications;
+    private static Map<String, Set<Class<? extends Application>>> packagesToClassesMap = new HashMap<>();
 
     public static Set<Class<? extends Application>> getApplications(List<String> packagesToBeScanned) {
-        if(applications == null) {
-            applications = findJaxrsApplicationClasses(packagesToBeScanned);
+        final String packagesKey = createPackagesKey(packagesToBeScanned);
+        if(!packagesToClassesMap.containsKey(packagesKey)) {
+            packagesToClassesMap.put(packagesKey, findJaxrsApplicationClasses(packagesToBeScanned));
         }
 
-        return applications;
+        return packagesToClassesMap.get(packagesKey);
+    }
+
+    private static String createPackagesKey(List<String> packagesToBeScanned) {
+        return String.join(",", packagesToBeScanned);
     }
 
     /*
