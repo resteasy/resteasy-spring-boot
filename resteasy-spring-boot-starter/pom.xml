@@ -58,7 +58,7 @@
     <properties>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <springboot.version>2.0.4.RELEASE</springboot.version>
+        <springboot.version>2.1.2.RELEASE</springboot.version>
         <resteasy.version>3.6.1.Final</resteasy.version>
         <coverage.line>80</coverage.line>
         <coverage.branch>80</coverage.branch>
