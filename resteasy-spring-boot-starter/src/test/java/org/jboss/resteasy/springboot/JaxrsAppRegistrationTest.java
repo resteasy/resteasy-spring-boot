@@ -216,7 +216,12 @@ public class JaxrsAppRegistrationTest extends PowerMockTestCase {
         ResteasyEmbeddedServletInitializer resteasyEmbeddedServletInitializer = new ResteasyEmbeddedServletInitializer();
         resteasyEmbeddedServletInitializer.postProcessBeanFactory(beanFactory);
 
-        verify(beanFactory, VerificationModeFactory.times(getAppsProperty ? 2 : 1)).getBean(ConfigurableEnvironment.class);
+        if(getAppsProperty) {
+            verify(beanFactory, VerificationModeFactory.atLeast(2)).getBean(ConfigurableEnvironment.class);
+        } else {
+            verify(beanFactory, VerificationModeFactory.times(1)).getBean(ConfigurableEnvironment.class);
+        }
+        
         verify(beanFactory, VerificationModeFactory.times(findSpringBeans ? 1 : 0)).getBeansOfType(Application.class, true, false);
         verify(beanFactory, VerificationModeFactory.times(1)).getBeanNamesForAnnotation(Path.class);
         verify(beanFactory, VerificationModeFactory.times(1)).getBeanNamesForAnnotation(Provider.class);
