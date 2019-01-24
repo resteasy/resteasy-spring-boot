@@ -106,12 +106,6 @@
             <version>2.3.0</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.eclipse</groupId>
-            <artifactId>yasson</artifactId>
-            <version>1.0.1</version>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
 
     <profiles>
