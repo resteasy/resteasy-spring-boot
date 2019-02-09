@@ -1,14 +1,17 @@
 package com.sample.app.enpoint.echo;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
 import javax.validation.constraints.NotEmpty;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.sample.app.configuration.FeatureEnabled;
 
 /**
  * Echo REST endpoint class
@@ -36,6 +39,15 @@ public class Echo {
     @Produces({ MediaType.APPLICATION_JSON })
     public EchoMessage echo(@NotEmpty String echoText) {
         return echoer.createEchoMessage(echoText);
+    }
+
+    @GET
+    @Path("/greet")
+    @Consumes({ MediaType.TEXT_PLAIN })
+    @Produces({ MediaType.APPLICATION_JSON })
+    @FeatureEnabled
+    public EchoMessage greet() {
+        return echoer.createEchoMessage("Hello world!");
     }
 
 }

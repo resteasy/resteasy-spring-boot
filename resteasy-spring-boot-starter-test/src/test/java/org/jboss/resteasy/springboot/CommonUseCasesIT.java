@@ -1,9 +1,7 @@
 package org.jboss.resteasy.springboot;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.hasItems;
-import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.hamcrest.CoreMatchers.*;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.util.SocketUtils;
@@ -80,6 +78,14 @@ public class CommonUseCasesIT {
     public void actuatorTest() throws InterruptedException {
         Response response = given().basePath("/").get("/actuator/health");
         response.then().statusCode(200).body("status", equalTo("UP"));
+    }
+
+    @Test
+    public void autowiredBeanTest() {
+        given().get("/echo/greet")
+                .then()
+                .log().all()
+                .statusCode(200).body("echoText", equalTo("Hello world!"));
     }
 
 }
