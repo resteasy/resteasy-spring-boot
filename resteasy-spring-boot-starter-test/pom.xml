@@ -177,6 +177,10 @@
                 <configuration>
                     <argLine>${modular.jdk.args} ${modular.jdk.props}</argLine>
                     <forkMode>always</forkMode>
+                    <systemPropertyVariables>
+                        <user.language>en</user.language>
+                        <user.region>GB</user.region>
+                    </systemPropertyVariables>
                 </configuration>
                 <executions>
                     <execution>
