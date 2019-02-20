@@ -42,6 +42,7 @@ public class ResteasyEmbeddedServletInitializer implements BeanFactoryPostProces
     private static final String JAXRS_APP_CLASSES_PROPERTY_LEGACY = "resteasy.jaxrs.app";
 
     private static final String JAXRS_DEFAULT_PATH = "resteasy.jaxrs.defaultPath";
+    private static final String SERVLET_MAPPING_PREFIX = "resteasy.servlet.mapping.prefix";
 
     private Set<Class<? extends Application>> applications = new HashSet<Class<? extends Application>>();
     private Set<Class<?>> allResources = new HashSet<Class<?>>();
@@ -255,16 +256,24 @@ public class ResteasyEmbeddedServletInitializer implements BeanFactoryPostProces
 
         BeanDefinitionRegistry registry = (BeanDefinitionRegistry) beanFactory;
 
+        ConfigurableEnvironment configurableEnvironment = beanFactory.getBean(ConfigurableEnvironment.class);
+        String servletMappingPrefix = configurableEnvironment.getProperty(SERVLET_MAPPING_PREFIX);
+
+        if (servletMappingPrefix != null) {
+            logger.info("resteasy.servlet.mapping.prefix specified. JAX-RS Applications will be mapped to {}", servletMappingPrefix);
+        }
+
         for (Class<? extends Application> applicationClass : applications) {
             ApplicationPath path = AnnotationUtils.findAnnotation(applicationClass, ApplicationPath.class);
-            if (path == null) {
+            if (path == null && servletMappingPrefix == null) {
                 logger.warn("JAX-RS Application class {} has no ApplicationPath annotation, so it will not be registered", applicationClass.getName());
                 continue;
             }
 
             logger.debug("registering JAX-RS application class " + applicationClass.getName());
 
-            GenericBeanDefinition applicationServletBean = createApplicationServlet(applicationClass, path.value());
+            String effectivePath = servletMappingPrefix != null ? servletMappingPrefix : path.value();
+            GenericBeanDefinition applicationServletBean = createApplicationServlet(applicationClass, effectivePath);
             registry.registerBeanDefinition(applicationClass.getName(), applicationServletBean);
         }
 
