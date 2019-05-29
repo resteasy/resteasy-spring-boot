@@ -187,5 +187,4 @@ public class ConfigurationIT {
             this.ctx = ctx;
         }
     }
-
 }
