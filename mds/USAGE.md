@@ -63,7 +63,7 @@ __Important notes__
 1. When no JAX-RS Application is configured, the property `resteasy.jaxrs.defaultPath` can be used to define the base path. It defaults to `/` if not set
 
 #### RESTEasy configuration
-RESTEasy offers a few configuration switches, [as seen here](http://docs.jboss.org/resteasy/docs/3.1.0.Final/userguide/html_single/index.html#configuration_switches), and they are set as Servlet context init parameters. In Spring Boot, Servlet context init parameters are defined via Spring Boot `application.properties` file, using the property prefix `server.servlet.context-parameters.*` (search for it in [Spring Boot reference guide](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/)).</br>
+RESTEasy offers a few configuration switches, [as seen here](http://docs.jboss.org/resteasy/docs/3.1.1.Final-SNAPSHOT/userguide/html_single/index.html#configuration_switches), and they are set as Servlet context init parameters. In Spring Boot, Servlet context init parameters are defined via Spring Boot `application.properties` file, using the property prefix `server.servlet.context-parameters.*` (search for it in [Spring Boot reference guide](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/)).</br>
 
 As an example, to set RESTEasy property `resteasy.role.based.security` to `true`, just add the property bellow to Spring Boot `application.properties` file.
 
