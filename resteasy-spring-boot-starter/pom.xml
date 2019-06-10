@@ -37,18 +37,12 @@
             <organizationUrl>http://www.redhat.com</organizationUrl>
         </developer>
     </developers>
+
     <scm>
         <connection>scm:git:git@github.com:resteasy/resteasy-spring-boot.git</connection>
         <developerConnection>scm:git:git@github.com:resteasy/resteasy-spring-boot.git</developerConnection>
         <url>git@github.com:resteasy/resteasy-spring-boot.git</url>
     </scm>
-    <distributionManagement>
-        <repository>
-            <id>jboss-releases-repository</id>
-            <name>JBoss Releases Repository</name>
-            <url>https://repository.jboss.org/nexus/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
 
     <issueManagement>
         <system>JIRA</system>
@@ -59,7 +53,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <springboot.version>2.1.5.RELEASE</springboot.version>
-        <resteasy.version>3.7.0.Final</resteasy.version>
+        <resteasy.version>4.0.0.Final</resteasy.version>
         <coverage.line>80</coverage.line>
         <coverage.branch>80</coverage.branch>
         <modular.jdk.args/>
@@ -79,7 +73,12 @@
         </dependency>
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-jaxrs</artifactId>
+            <artifactId>resteasy-core</artifactId>
+            <version>${resteasy.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-core-spi</artifactId>
             <version>${resteasy.version}</version>
         </dependency>
         <dependency>
