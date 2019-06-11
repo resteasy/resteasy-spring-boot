@@ -3,7 +3,6 @@ package org.jboss.resteasy.springboot;
 import org.jboss.resteasy.core.AsynchronousDispatcher;
 import org.jboss.resteasy.core.ResourceMethodRegistry;
 import org.jboss.resteasy.core.SynchronousDispatcher;
-import org.jboss.resteasy.core.providerfactory.ResteasyProviderFactoryImpl;
 import org.jboss.resteasy.plugins.server.servlet.ListenerBootstrap;
 import org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap;
 import org.jboss.resteasy.plugins.spring.SpringBeanProcessor;
@@ -40,7 +39,7 @@ public class ResteasyAutoConfiguration {
     @Bean
     @Qualifier("ResteasyProviderFactory")
     public static BeanFactoryPostProcessor springBeanProcessor() {
-        ResteasyProviderFactory resteasyProviderFactory = new ResteasyProviderFactoryImpl();
+        ResteasyProviderFactory resteasyProviderFactory = ResteasyProviderFactory.newInstance();
         ResourceMethodRegistry resourceMethodRegistry = new ResourceMethodRegistry(resteasyProviderFactory);
 
         SpringBeanProcessor springBeanProcessor = new SpringBeanProcessor();
