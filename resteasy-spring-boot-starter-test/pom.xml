@@ -43,6 +43,14 @@
         <url>git@github.com:resteasy/resteasy-spring-boot.git</url>
     </scm>
 
+    <distributionManagement>
+        <repository>
+            <id>jboss-releases-repository</id>
+            <name>JBoss Releases Repository</name>
+            <url>https://repository.jboss.org/nexus/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
     <issueManagement>
         <system>JIRA</system>
         <url>http://jira.jboss.com/jira/browse/RESTEASY</url>
@@ -103,20 +111,20 @@
 
     <profiles>
         <profile>
-	      <id>JDK9</id>
-	      <activation>
-	        <jdk>[9,)</jdk>
-	      </activation>
-	      <properties>
-	        <modular.jdk.args>
-	          --add-modules=java.se
-	        </modular.jdk.args>
-	        <modular.jdk.props>
-	          --add-opens java.xml/jdk.xml.internal=ALL-UNNAMED
-	        </modular.jdk.props>
-	        <!--modular.jdk.props>-Dsun.util.logging.disableCallerCheck=true -Dsun.reflect.debugModuleAccessChecks=true -Djaxb.debug=true</modular.jdk.props-->
-	      </properties>
-	    </profile>
+            <id>JDK9</id>
+            <activation>
+                <jdk>[9,)</jdk>
+            </activation>
+            <properties>
+                <modular.jdk.args>
+                    --add-modules=java.se
+                </modular.jdk.args>
+                <modular.jdk.props>
+                    --add-opens java.xml/jdk.xml.internal=ALL-UNNAMED
+                </modular.jdk.props>
+                <!--modular.jdk.props>-Dsun.util.logging.disableCallerCheck=true -Dsun.reflect.debugModuleAccessChecks=true -Djaxb.debug=true</modular.jdk.props-->
+            </properties>
+        </profile>
         <!-- Added for Fortify Support -->
         <profile>
             <id>fortify</id>
@@ -203,6 +211,6 @@
                 </configuration>
             </plugin>
         </plugins>
-   </build>
+    </build>
 
 </project>
