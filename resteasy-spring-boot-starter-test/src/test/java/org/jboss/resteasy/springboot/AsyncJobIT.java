@@ -11,6 +11,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.util.SocketUtils;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 import com.sample.app.Application;
@@ -23,6 +24,7 @@ import io.restassured.response.Response;
  *
  * @author facarvalho
  */
+@Ignore
 public class AsyncJobIT {
 
     @BeforeClass

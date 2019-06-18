@@ -7,6 +7,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.util.SocketUtils;
 import org.testng.Assert;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 import java.util.Properties;
@@ -140,6 +141,7 @@ public class ConfigurationIT {
     }
 
     @Test
+    @Ignore
     public void scanningTest() {
         final Properties properties = new Properties();
         properties.put("resteasy.jaxrs.app.registration", "scanning");
