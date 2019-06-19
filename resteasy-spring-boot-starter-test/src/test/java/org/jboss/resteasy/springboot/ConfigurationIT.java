@@ -141,7 +141,6 @@ public class ConfigurationIT {
     }
 
     @Test
-    @Ignore
     public void scanningTest() {
         final Properties properties = new Properties();
         properties.put("resteasy.jaxrs.app.registration", "scanning");
