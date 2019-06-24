@@ -24,7 +24,6 @@ import io.restassured.response.Response;
  *
  * @author facarvalho
  */
-@Ignore
 public class AsyncJobIT {
 
     @BeforeClass
@@ -49,6 +48,7 @@ public class AsyncJobIT {
         response.then().statusCode(200).body("timestamp", notNullValue()).body("echoText", equalTo("is there anybody out there?"));
     }
 
+    @Ignore
     @Test
     public void asyncRequestTest() {
         Response response = given().body("is there anybody out there?").post("/echo?asynch=true");
@@ -59,6 +59,7 @@ public class AsyncJobIT {
         response.then().statusCode(200).body("timestamp", notNullValue()).body("echoText", equalTo("is there anybody out there?"));
     }
 
+    @Ignore
     @Test
     public void fireAndForgetRequestTest() {
         Response response = given().body("is there anybody out there?").post("/echo?oneway=true");
