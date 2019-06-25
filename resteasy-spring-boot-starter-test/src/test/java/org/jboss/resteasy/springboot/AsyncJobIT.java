@@ -33,11 +33,9 @@ public class AsyncJobIT {
         RestAssured.basePath = "sample-app";
         RestAssured.port = appPort;
 
-        Properties properties = new Properties();
-        properties.put("server.servlet.context-parameters.resteasy.async.job.service.enabled", true);
+        System.setProperty("resteasy.async.job.service.enabled", "true");
 
         SpringApplication app = new SpringApplication(Application.class);
-        app.setDefaultProperties(properties);
         app.addListeners(new LogbackTestApplicationListener());
         app.run("--server.port=" + appPort).registerShutdownHook();
     }
@@ -48,7 +46,6 @@ public class AsyncJobIT {
         response.then().statusCode(200).body("timestamp", notNullValue()).body("echoText", equalTo("is there anybody out there?"));
     }
 
-    @Ignore
     @Test
     public void asyncRequestTest() {
         Response response = given().body("is there anybody out there?").post("/echo?asynch=true");
@@ -59,7 +56,6 @@ public class AsyncJobIT {
         response.then().statusCode(200).body("timestamp", notNullValue()).body("echoText", equalTo("is there anybody out there?"));
     }
 
-    @Ignore
     @Test
     public void fireAndForgetRequestTest() {
         Response response = given().body("is there anybody out there?").post("/echo?oneway=true");
