@@ -33,9 +33,11 @@ public class AsyncJobIT {
         RestAssured.basePath = "sample-app";
         RestAssured.port = appPort;
 
-        System.setProperty("resteasy.async.job.service.enabled", "true");
+        Properties properties = new Properties();
+        properties.put("server.servlet.context-parameters.resteasy.async.job.service.enabled", true);
 
         SpringApplication app = new SpringApplication(Application.class);
+        app.setDefaultProperties(properties);
         app.addListeners(new LogbackTestApplicationListener());
         app.run("--server.port=" + appPort).registerShutdownHook();
     }

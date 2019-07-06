@@ -2,7 +2,9 @@ package org.jboss.resteasy.springboot;
 
 import org.jboss.resteasy.core.AsynchronousDispatcher;
 import org.jboss.resteasy.core.ResourceMethodRegistry;
+import org.jboss.resteasy.core.ResteasyContext;
 import org.jboss.resteasy.core.SynchronousDispatcher;
+import org.jboss.resteasy.microprofile.config.ServletContextConfigSource;
 import org.jboss.resteasy.plugins.server.servlet.ListenerBootstrap;
 import org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap;
 import org.jboss.resteasy.plugins.spring.SpringBeanProcessor;
@@ -66,7 +68,7 @@ public class ResteasyAutoConfiguration {
 
             public void contextInitialized(ServletContextEvent sce) {
                 ServletContext servletContext = sce.getServletContext();
-
+                ResteasyContext.pushContext(ServletContext.class, servletContext);
                 ListenerBootstrap config = new ListenerBootstrap(servletContext);
 
                 ResteasyProviderFactory resteasyProviderFactory = springBeanProcessor.getProviderFactory();
