@@ -62,7 +62,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <springboot.version>2.1.6.RELEASE</springboot.version>
-        <resteasy.version>4.1.1-SNAPSHOT</resteasy.version>
+        <resteasy.version>4.1.0.Final</resteasy.version>
         <coverage.line>60</coverage.line>
         <coverage.branch>60</coverage.branch>
         <coverage.lineRate>60</coverage.lineRate>
