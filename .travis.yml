@@ -6,7 +6,7 @@ jdk:
   - openjdk9
   - openjdk10
 
-install: mvn -B -fae install
+install: echo $JAVA_HOME && which javac && mvn -B -fae install
 
 after_success:
   # Installing Codacy code coverage reporter upload tool
