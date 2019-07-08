@@ -95,8 +95,12 @@ public class ResteasyAutoConfiguration {
             }
 
             public void contextDestroyed(ServletContextEvent sce) {
-                if (deployment != null) {
-                    deployment.stop();
+                try {
+                    if (deployment != null) {
+                        deployment.stop();
+                    }
+                } finally {
+                    ResteasyContext.popContextData(ServletContext.class);
                 }
             }
         };
