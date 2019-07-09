@@ -1,12 +1,14 @@
 package org.jboss.resteasy.springboot;
 
 import org.jboss.resteasy.core.AsynchronousDispatcher;
-import org.jboss.resteasy.core.Dispatcher;
 import org.jboss.resteasy.core.ResourceMethodRegistry;
+import org.jboss.resteasy.core.ResteasyContext;
 import org.jboss.resteasy.core.SynchronousDispatcher;
+import org.jboss.resteasy.microprofile.config.ServletContextConfigSource;
 import org.jboss.resteasy.plugins.server.servlet.ListenerBootstrap;
 import org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap;
 import org.jboss.resteasy.plugins.spring.SpringBeanProcessor;
+import org.jboss.resteasy.spi.Dispatcher;
 import org.jboss.resteasy.spi.Registry;
 import org.jboss.resteasy.spi.ResteasyDeployment;
 import org.jboss.resteasy.spi.ResteasyProviderFactory;
@@ -39,7 +41,7 @@ public class ResteasyAutoConfiguration {
     @Bean
     @Qualifier("ResteasyProviderFactory")
     public static BeanFactoryPostProcessor springBeanProcessor() {
-        ResteasyProviderFactory resteasyProviderFactory = new ResteasyProviderFactory();
+        ResteasyProviderFactory resteasyProviderFactory = ResteasyProviderFactory.newInstance();
         ResourceMethodRegistry resourceMethodRegistry = new ResourceMethodRegistry(resteasyProviderFactory);
 
         SpringBeanProcessor springBeanProcessor = new SpringBeanProcessor();
@@ -66,7 +68,7 @@ public class ResteasyAutoConfiguration {
 
             public void contextInitialized(ServletContextEvent sce) {
                 ServletContext servletContext = sce.getServletContext();
-
+                ResteasyContext.pushContext(ServletContext.class, servletContext);
                 ListenerBootstrap config = new ListenerBootstrap(servletContext);
 
                 ResteasyProviderFactory resteasyProviderFactory = springBeanProcessor.getProviderFactory();
@@ -93,8 +95,12 @@ public class ResteasyAutoConfiguration {
             }
 
             public void contextDestroyed(ServletContextEvent sce) {
-                if (deployment != null) {
-                    deployment.stop();
+                try {
+                    if (deployment != null) {
+                        deployment.stop();
+                    }
+                } finally {
+                    ResteasyContext.popContextData(ServletContext.class);
                 }
             }
         };

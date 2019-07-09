@@ -11,7 +11,7 @@
     </parent>
     <groupId>org.jboss.resteasy</groupId>
     <artifactId>resteasy-spring-boot-starter</artifactId>
-    <version>3.1.1.Final-SNAPSHOT</version>
+    <version>4.0.0.Final-SNAPSHOT</version>
     <name>${project.artifactId}</name>
 
     <description>A Spring Boot starter for RESTEasy</description>
@@ -37,11 +37,13 @@
             <organizationUrl>http://www.redhat.com</organizationUrl>
         </developer>
     </developers>
+
     <scm>
         <connection>scm:git:git@github.com:resteasy/resteasy-spring-boot.git</connection>
         <developerConnection>scm:git:git@github.com:resteasy/resteasy-spring-boot.git</developerConnection>
         <url>git@github.com:resteasy/resteasy-spring-boot.git</url>
     </scm>
+
     <distributionManagement>
         <repository>
             <id>jboss-releases-repository</id>
@@ -49,6 +51,7 @@
             <url>https://repository.jboss.org/nexus/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
+
 
     <issueManagement>
         <system>JIRA</system>
@@ -59,9 +62,11 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <springboot.version>2.1.6.RELEASE</springboot.version>
-        <resteasy.version>3.7.0.Final</resteasy.version>
-        <coverage.line>80</coverage.line>
-        <coverage.branch>80</coverage.branch>
+        <resteasy.version>4.1.0.Final</resteasy.version>
+        <coverage.line>60</coverage.line>
+        <coverage.branch>60</coverage.branch>
+        <coverage.lineRate>60</coverage.lineRate>
+        <coverage.branchRate>60</coverage.branchRate>
         <modular.jdk.args/>
         <modular.jdk.props/>
     </properties>
@@ -79,7 +84,12 @@
         </dependency>
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-jaxrs</artifactId>
+            <artifactId>resteasy-core</artifactId>
+            <version>${resteasy.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-core-spi</artifactId>
             <version>${resteasy.version}</version>
         </dependency>
         <dependency>
@@ -123,7 +133,7 @@
             <artifactId>javax.json</artifactId>
             <version>1.1.2</version>
         </dependency>
-    
+
         <!-- Test dependencies -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -188,22 +198,22 @@
     </dependencies>
 
     <profiles>
-	    <profile>
-	      <id>JDK9</id>
-	      <activation>
-	        <jdk>[9,)</jdk>
-	      </activation>
-	      <properties>
-	        <modular.jdk.args>
-	          --add-modules=java.se
-	        </modular.jdk.args>
-	        <modular.jdk.props>
-	          --add-opens java.xml/jdk.xml.internal=ALL-UNNAMED
-	        </modular.jdk.props>
-	        <!--modular.jdk.props>-Dsun.util.logging.disableCallerCheck=true -Dsun.reflect.debugModuleAccessChecks=true -Djaxb.debug=true</modular.jdk.props-->
-	      </properties>
-	    </profile>
-    
+        <profile>
+            <id>JDK9</id>
+            <activation>
+                <jdk>[9,)</jdk>
+            </activation>
+            <properties>
+                <modular.jdk.args>
+                    --add-modules=java.se
+                </modular.jdk.args>
+                <modular.jdk.props>
+                    --add-opens java.xml/jdk.xml.internal=ALL-UNNAMED
+                </modular.jdk.props>
+                <!--modular.jdk.props>-Dsun.util.logging.disableCallerCheck=true -Dsun.reflect.debugModuleAccessChecks=true -Djaxb.debug=true</modular.jdk.props-->
+            </properties>
+        </profile>
+
         <!-- Added for Fortify Support -->
         <profile>
             <id>fortify</id>
@@ -274,42 +284,42 @@
             </activation>
             <build>
                 <plugins>
-                <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>cobertura-maven-plugin</artifactId>
-                <configuration>
-                    <check>
-                        <lineRate>${coverage.line}</lineRate>
-                        <packageLineRate>${coverage.line}</packageLineRate>
-                        <totalLineRate>${coverage.line}</totalLineRate>
-                        <branchRate>${coverage.branch}</branchRate>
-                        <packageBranchRate>${coverage.branch}</packageBranchRate>
-                        <totalBranchRate>${coverage.branch}</totalBranchRate>
-                        <haltOnFailure>true</haltOnFailure>
-                        <regexes>
-                            <regex>
-                                <pattern>org.jboss.resteasy.springboot.JaxrsApplicationScanner</pattern>
-                                <lineRate>80</lineRate>
-                                <branchRate>65</branchRate>
-                            </regex>
-                        </regexes>
-                    </check>
-                    <formats>
-                        <format>html</format>
-                        <format>xml</format>
-                    </formats>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>clean</goal>
-                            <goal>cobertura</goal>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                </plugin>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>cobertura-maven-plugin</artifactId>
+                        <configuration>
+                            <check>
+                                <lineRate>${coverage.line}</lineRate>
+                                <packageLineRate>${coverage.line}</packageLineRate>
+                                <totalLineRate>${coverage.line}</totalLineRate>
+                                <branchRate>${coverage.branch}</branchRate>
+                                <packageBranchRate>${coverage.branch}</packageBranchRate>
+                                <totalBranchRate>${coverage.branch}</totalBranchRate>
+                                <haltOnFailure>true</haltOnFailure>
+                                <regexes>
+                                    <regex>
+                                        <pattern>org.jboss.resteasy.springboot.JaxrsApplicationScanner</pattern>
+                                        <lineRate>${coverage.lineRate}</lineRate>
+                                        <branchRate>${coverage.branchRate}</branchRate>
+                                    </regex>
+                                </regexes>
+                            </check>
+                            <formats>
+                                <format>html</format>
+                                <format>xml</format>
+                            </formats>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>clean</goal>
+                                    <goal>cobertura</goal>
+                                    <goal>check</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
                 </plugins>
             </build>
         </profile>
@@ -346,7 +356,7 @@
             </plugins>
         </pluginManagement>
         <plugins>
-        
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -354,9 +364,9 @@
                     <argLine>${modular.jdk.args} ${modular.jdk.props}</argLine>
                 </configuration>
             </plugin>
-        
+
         </plugins>
-   </build>
+    </build>
 
     <reporting>
         <plugins>
