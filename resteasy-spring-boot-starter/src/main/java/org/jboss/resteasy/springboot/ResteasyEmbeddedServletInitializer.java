@@ -34,13 +34,6 @@ public class ResteasyEmbeddedServletInitializer implements BeanFactoryPostProces
     private static final String JAXRS_APP_CLASSES_DEFINITION_PROPERTY = "resteasy.jaxrs.app.registration";
     private static final String JAXRS_APP_CLASSES_PROPERTY = "resteasy.jaxrs.app.classes";
 
-    // This is how JAXRS_APP_CLASSES_PROPERTY was named originally. It conflicted with "resteasy.jaxrs.app.registration"
-    // in case of YAML files, since registration was a child of app from an YAML perspective, which is not allowed.
-    // Because of that its name was changed (the ".classes" suffix was added).
-    // This legacy property has not been removed though, to keep backward compatibility, but it is marked as deprecated. It will be
-    // available only for .properties files, but not for YAML files. It should be finally removed in a future major release.
-    private static final String JAXRS_APP_CLASSES_PROPERTY_LEGACY = "resteasy.jaxrs.app";
-
     private static final String JAXRS_DEFAULT_PATH = "resteasy.jaxrs.defaultPath";
     private static final String SERVLET_MAPPING_PREFIX = "resteasy.servlet.mapping.prefix";
 
@@ -155,12 +148,8 @@ public class ResteasyEmbeddedServletInitializer implements BeanFactoryPostProces
         ConfigurableEnvironment configurableEnvironment = beanFactory.getBean(ConfigurableEnvironment.class);
         String jaxrsAppsProperty = configurableEnvironment.getProperty(JAXRS_APP_CLASSES_PROPERTY);
         if(jaxrsAppsProperty == null) {
-            jaxrsAppsProperty = configurableEnvironment.getProperty(JAXRS_APP_CLASSES_PROPERTY_LEGACY);
-            if(jaxrsAppsProperty == null) {
-                logger.info("No JAX-RS Application set via property {}", JAXRS_APP_CLASSES_PROPERTY);
-                return;
-            }
-            logger.warn("Property {} has been set. Notice that this property has been deprecated and will be removed soon. Please replace it by property {}", JAXRS_APP_CLASSES_PROPERTY_LEGACY, JAXRS_APP_CLASSES_PROPERTY);
+             logger.info("No JAX-RS Application set via property {}", JAXRS_APP_CLASSES_PROPERTY);
+             return;
         } else {
             logger.info("Property {} has been set to {}", JAXRS_APP_CLASSES_PROPERTY, jaxrsAppsProperty);
         }

@@ -35,7 +35,6 @@ public class JaxrsAppRegistrationTest extends PowerMockTestCase {
 
     private static final String DEFINITION_PROPERTY = "resteasy.jaxrs.app.registration";
     private static final String APP_CLASSES_PROPERTY = "resteasy.jaxrs.app.classes";
-    private static final String APP_CLASSES_PROPERTY_LEGACY = "resteasy.jaxrs.app";
 
     private static Set<Class> allPossibleAppClasses;
 
@@ -105,19 +104,6 @@ public class JaxrsAppRegistrationTest extends PowerMockTestCase {
         ConfigurableEnvironment configurableEnvironmentMock = mock(ConfigurableEnvironment.class);
         when(configurableEnvironmentMock.getProperty(DEFINITION_PROPERTY)).thenReturn("property");
         when(configurableEnvironmentMock.getProperty(APP_CLASSES_PROPERTY)).thenReturn("org.jboss.resteasy.springboot.sample.TestApplication3, org.jboss.resteasy.springboot.sample.TestApplication4,org.jboss.resteasy.springboot.sample.TestApplication2");
-
-        Set<Class> expectedRegisteredAppClasses = new HashSet<Class>();
-        expectedRegisteredAppClasses.add(TestApplication2.class);
-        expectedRegisteredAppClasses.add(TestApplication4.class);
-
-        test(configurableEnvironmentMock, expectedRegisteredAppClasses);
-    }
-
-    @Test
-    public void legacyPropertyTest() {
-        ConfigurableEnvironment configurableEnvironmentMock = mock(ConfigurableEnvironment.class);
-        when(configurableEnvironmentMock.getProperty(DEFINITION_PROPERTY)).thenReturn("property");
-        when(configurableEnvironmentMock.getProperty(APP_CLASSES_PROPERTY_LEGACY)).thenReturn("org.jboss.resteasy.springboot.sample.TestApplication3, org.jboss.resteasy.springboot.sample.TestApplication4,org.jboss.resteasy.springboot.sample.TestApplication2");
 
         Set<Class> expectedRegisteredAppClasses = new HashSet<Class>();
         expectedRegisteredAppClasses.add(TestApplication2.class);
