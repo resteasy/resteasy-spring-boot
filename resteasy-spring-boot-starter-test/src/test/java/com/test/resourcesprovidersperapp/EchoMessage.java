@@ -1,4 +1,4 @@
-package com.test.multicontexttest;
+package com.test.resourcesprovidersperapp;
 
 /**
  * A simple echo message, containing the text to be echoed

@@ -1,4 +1,4 @@
-package com.test.multicontexttest;
+package com.test.resourcesprovidersperapp;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -15,11 +15,7 @@ import javax.ws.rs.core.MediaType;
  * Created by facarvalho on 12/7/15.
  */
 @Path("/echo")
-@Component
-public class Echo {
-
-    @Autowired
-    private EchoMessageCreator echoer;
+public class EchoV1 {
 
     /**
      * Receives a simple POST request message containing as payload
@@ -34,7 +30,7 @@ public class Echo {
     @Consumes({ MediaType.TEXT_PLAIN })
     @Produces({ MediaType.APPLICATION_JSON })
     public EchoMessage echo(String echoText) {
-        return echoer.createEchoMessage(echoText);
+        return new EchoMessage("echoed v1 -> " + echoText);
     }
 
 }
