@@ -27,19 +27,23 @@ public class ResourcesAndProvidersPerAppIT {
 
     @BeforeClass
     public void startingApplicationUp() {
-        RestAssured.basePath = "resourcesproviders";
+        RestAssured.basePath = "/resourcesproviders/";
         int port = SocketUtils.findAvailableTcpPort();
         RestAssured.port = port;
-
+        System.out.println("::: " + port);
         SpringApplication springApplication = new SpringApplication(ResoucesAndProvidersPerApp.class);
         springApplication.run("--server.port=" + port).registerShutdownHook();
+//        try {
+//            Thread.currentThread().join();
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
     }
 
     @AfterClass
     public void shuttingDownApplication() {
-        Response response = given().basePath("/").post("/shutdown");
-        response.then().statusCode(200).body("message", equalTo("Shutting down, bye..."));
-    }
+        Response response = given().basePath("/").contentType("application/json").post("/actuator/shutdown");
+        response.then().statusCode(200).body("message", equalTo("Shutting down, bye..."));    }
 
     @Test
     public void echoSucceeds() {
