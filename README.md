@@ -29,11 +29,11 @@ Also, this RESTEasy Spring Boot starter integrates with Spring as expected, whic
 ### Adding POM dependency
 Add the Maven dependency below to your Spring Boot application pom file.<br>
 
-``` xml
+```xml
 <dependency>
    <groupId>org.jboss.resteasy</groupId>
    <artifactId>resteasy-spring-boot-starter</artifactId>
-   <version>2.0.1.Final-SNAPSHOT</version>
+   <version>3.1.2.Final-SNAPSHOT</version>
    <scope>runtime</scope>
 </dependency>
 ```
@@ -42,7 +42,7 @@ Add the Maven dependency below to your Spring Boot application pom file.<br>
 Just define your JAX-RS application class (a subclass of [Application](http://docs.oracle.com/javaee/7/api/javax/ws/rs/core/Application.html)) as a Spring bean, and it will be automatically registered. See the example below.
 See section _JAX-RS application registration methods_ in [How to use RESTEasy Spring Boot Starter](mds/USAGE.md) for further information.
 
-``` java
+```java
 package com.sample.app;
 
 import org.springframework.stereotype.Component;
