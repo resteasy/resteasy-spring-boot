@@ -4,9 +4,6 @@
 <!-- Set-up TravisCI, Codacy and deploy a first release with RESTEasy group id and artifact id, then uncomment and adjust accordingly the lines below replacing ?????? by correct values -->
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ -->
 [![Build Status](https://travis-ci.org/resteasy/resteasy-spring-boot.svg?branch=master)](https://travis-ci.org/resteasy/resteasy-spring-boot)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b30b165246e64b0a8b920acb389333bc)](https://www.codacy.com/app/asoldano/resteasy-spring-boot)
-[![Codacy Coverage Badge](https://api.codacy.com/project/badge/Coverage/b30b165246e64b0a8b920acb389333bc)](https://www.codacy.com/app/asoldano/resteasy-spring-boot)
-<!-- [![Maven Central](https://maven-badges.herokuapp.com/maven-central/??????/resteasy-spring-boot-starter/badge.svg?style=flat)](http://search.maven.org/#search|ga|1|g:??????) -->
 
 # RESTEasy Spring Boot Starter
 
