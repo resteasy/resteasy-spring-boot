@@ -452,52 +452,6 @@
                 </plugins>
             </build>
         </profile>
-        <profile>
-            <id>cobertura</id>
-            <activation>
-                <jdk>[,1.9)</jdk>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>cobertura-maven-plugin</artifactId>
-                        <configuration>
-                            <check>
-                                <lineRate>${coverage.line}</lineRate>
-                                <packageLineRate>${coverage.line}</packageLineRate>
-                                <totalLineRate>${coverage.line}</totalLineRate>
-                                <branchRate>${coverage.branch}</branchRate>
-                                <packageBranchRate>${coverage.branch}</packageBranchRate>
-                                <totalBranchRate>${coverage.branch}</totalBranchRate>
-                                <haltOnFailure>true</haltOnFailure>
-                                <regexes>
-                                    <regex>
-                                        <pattern>org.jboss.resteasy.springboot.JaxrsApplicationScanner</pattern>
-                                        <lineRate>${coverage.lineRate}</lineRate>
-                                        <branchRate>${coverage.branchRate}</branchRate>
-                                    </regex>
-                                </regexes>
-                            </check>
-                            <formats>
-                                <format>html</format>
-                                <format>xml</format>
-                            </formats>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>clean</goal>
-                                    <goal>cobertura</goal>
-                                    <goal>check</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
     </profiles>
 
     <build>
@@ -559,15 +513,4 @@
             </plugin>
         </plugins>
     </build>
-
-    <reporting>
-        <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>cobertura-maven-plugin</artifactId>
-                <version>2.7</version>
-            </plugin>
-        </plugins>
-    </reporting>
-
 </project>
