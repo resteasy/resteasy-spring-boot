@@ -1,5 +1,9 @@
 package org.jboss.resteasy.springboot;
 
+import javax.servlet.ServletContext;
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+
 import org.jboss.resteasy.core.AsynchronousDispatcher;
 import org.jboss.resteasy.core.Dispatcher;
 import org.jboss.resteasy.core.ResourceMethodRegistry;
@@ -15,14 +19,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import javax.servlet.ServletContext;
-import javax.servlet.ServletContextEvent;
-import javax.servlet.ServletContextListener;
 
 /**
  * This is the main class that configures this Resteasy Sring Boot starter
@@ -37,6 +38,12 @@ public class ResteasyAutoConfiguration {
     private static Logger logger = LoggerFactory.getLogger(ResteasyAutoConfiguration.class);
 
     @Bean
+    @ConditionalOnProperty(name="resteasy.jaxrs.scan-packages")
+    public static JAXRSResourcesAndProvidersScannerPostProcessor providerScannerPostProcessor() {
+        return new JAXRSResourcesAndProvidersScannerPostProcessor();
+    }
+    
+    @Bean
     @Qualifier("ResteasyProviderFactory")
     public static BeanFactoryPostProcessor springBeanProcessor() {
         ResteasyProviderFactory resteasyProviderFactory = new ResteasyProviderFactory();
@@ -44,7 +51,7 @@ public class ResteasyAutoConfiguration {
 
         SpringBeanProcessor springBeanProcessor = new SpringBeanProcessor();
         springBeanProcessor.setProviderFactory(resteasyProviderFactory);
-        springBeanProcessor.setRegistry(resourceMethodRegistry);
+        springBeanProcessor.setRegistry(resourceMethodRegistry);               
 
         logger.debug("SpringBeanProcessor has been created");
 
