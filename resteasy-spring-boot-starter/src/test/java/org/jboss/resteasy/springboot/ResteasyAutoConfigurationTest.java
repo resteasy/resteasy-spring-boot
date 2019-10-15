@@ -66,10 +66,7 @@ public class ResteasyAutoConfigurationTest {
         Assert.assertNotNull(servletContextDispatcher);
         Assert.assertNotNull(servletContextRegistry);
 
-        // Exercising fully cobertura branch coverage
         servletContextListener.contextDestroyed(sce);
-        ServletContextListener servletContextListener2 = resteasyAutoConfiguration.resteasyBootstrapListener(beanFactoryPostProcessor);
-        servletContextListener2.contextDestroyed(sce);
     }
 
 
