@@ -64,10 +64,6 @@
         <springboot.version>2.2.0.RELEASE</springboot.version>
         <resteasy.version>4.3.1.Final</resteasy.version>
         <resteasy.jackson.version>2.10.0</resteasy.jackson.version>
-        <coverage.line>60</coverage.line>
-        <coverage.branch>60</coverage.branch>
-        <coverage.lineRate>60</coverage.lineRate>
-        <coverage.branchRate>60</coverage.branchRate>
         <modular.jdk.args/>
         <modular.jdk.props/>
     </properties>
