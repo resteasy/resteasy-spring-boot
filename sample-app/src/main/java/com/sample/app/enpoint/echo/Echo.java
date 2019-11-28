@@ -32,10 +32,9 @@ public class Echo {
      * @return
      */
     @POST
-    @Consumes({ MediaType.TEXT_PLAIN })
-    @Produces({ MediaType.APPLICATION_JSON })
-    public EchoMessage echo(@NotEmpty String echoText) {
+    @Consumes({MediaType.TEXT_PLAIN})
+    @Produces({MediaType.APPLICATION_JSON})
+    public EchoMessage echo(@NotEmpty(message = "must not be empty") String echoText) {
         return echoer.createEchoMessage(echoText);
     }
-
 }
