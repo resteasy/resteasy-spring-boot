@@ -41,8 +41,8 @@ public class LogbackTestApplicationListener implements SmartApplicationListener 
             Level level = event.getLevel();
             if ((level.equals(Level.WARN) || level.equals(Level.ERROR))
                     && !event.getMessage().startsWith(SCANNING_WARNING)
-            && !event.getMessage().startsWith("InetAddress.getLocalHost")
-            && !event.getLoggerName().equals("org.apache.tomcat.util.modeler.Registry")) {
+            && !event.getMessage().startsWith("InetAddress.getLocalHost") // On MacOS Java 11 it sometimes generate relative warning so we ignore it.
+            && !event.getLoggerName().equals("org.apache.tomcat.util.modeler.Registry")) { // Tomcat generate relative warnings when the servers are started/stoped multiple times during tests.
                 warningOrErrorFound = true;
                 Assert.fail(event.getFormattedMessage());
             }
