@@ -14,6 +14,8 @@ import org.springframework.context.event.SmartApplicationListener;
 import org.springframework.core.Ordered;
 import org.testng.Assert;
 
+import java.net.InetAddress;
+
 /**
  * The Spring application listener registers a Logback appender
  * which allows inspecting every log statement looking for warning
