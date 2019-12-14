@@ -1,6 +1,5 @@
 package org.jboss.resteasy.springboot;
 
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.springframework.beans.BeansException;
 import org.springframework.boot.WebApplicationType;
