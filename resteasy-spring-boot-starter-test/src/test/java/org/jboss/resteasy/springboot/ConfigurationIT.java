@@ -1,5 +1,6 @@
 package org.jboss.resteasy.springboot;
 
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.springframework.beans.BeansException;
 import org.springframework.boot.WebApplicationType;
@@ -9,6 +10,7 @@ import org.springframework.util.SocketUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import javax.ws.rs.core.MediaType;
 import java.util.Properties;
 
 import static io.restassured.RestAssured.given;
@@ -30,6 +32,7 @@ public class ConfigurationIT {
     private CtxAndPort configureAndStartApp(Properties properties, boolean assertPerfectLog,
                                             Class springBootApplicationClass) {
         final SpringApplicationBuilder builder = new SpringApplicationBuilder(springBootApplicationClass);
+
         builder.web(WebApplicationType.SERVLET);
         if (assertPerfectLog) {
             builder.listeners(new LogbackTestApplicationListener());
@@ -39,13 +42,15 @@ public class ConfigurationIT {
         }
 
         final int port = SocketUtils.findAvailableTcpPort();
+
         final ConfigurableApplicationContext ctx = builder.run("--server.port=" + port);
+        ctx.registerShutdownHook();
 
         return new CtxAndPort(ctx, port);
     }
 
     private void assertResourceFound(int port, String basePath) {
-        Response response = given().basePath(basePath).port(port).body("is there anybody out there?").post("/echo");
+        Response response = given().basePath(basePath).port(port).body("is there anybody out there?").contentType(MediaType.TEXT_PLAIN).post("/echo");
         response.then().statusCode(200).body("timestamp", notNullValue()).body("echoText", equalTo("is there anybody out there?"));
     }
 
@@ -62,7 +67,7 @@ public class ConfigurationIT {
         assertResourceNotFound(ctxAndPort.port, "sample-app-test");
         assertResourceNotFound(ctxAndPort.port, "/");
 
-        ctxAndPort.ctx.close();
+        shutdownCtx(ctxAndPort);
     }
 
     @Test
@@ -76,7 +81,12 @@ public class ConfigurationIT {
         assertResourceNotFound(ctxAndPort.port, "sample-app-test");
         assertResourceNotFound(ctxAndPort.port, "/");
 
-        ctxAndPort.ctx.close();
+        shutdownCtx(ctxAndPort);
+    }
+
+    private void shutdownCtx(CtxAndPort ctxAndPort) {
+        Response response = given().port(ctxAndPort.port).basePath("/").contentType("application/json").post("/actuator/shutdown");
+        response.then().statusCode(200).body("message", equalTo("Shutting down, bye..."));
     }
 
     @Test
@@ -90,7 +100,7 @@ public class ConfigurationIT {
         assertResourceNotFound(ctxAndPort.port, "sample-app-test");
         assertResourceNotFound(ctxAndPort.port, "/");
 
-        ctxAndPort.ctx.close();
+        shutdownCtx(ctxAndPort);
     }
 
     @Test
@@ -105,7 +115,7 @@ public class ConfigurationIT {
         assertResourceNotFound(ctxAndPort.port, "sample-app-test");
         assertResourceNotFound(ctxAndPort.port, "/");
 
-        ctxAndPort.ctx.close();
+        shutdownCtx(ctxAndPort);
     }
 
     @Test
@@ -120,7 +130,7 @@ public class ConfigurationIT {
         assertResourceFound(ctxAndPort.port, "sample-app-test");
         assertResourceNotFound(ctxAndPort.port, "/");
 
-        ctxAndPort.ctx.close();
+        shutdownCtx(ctxAndPort);
     }
 
     @Test
@@ -152,7 +162,7 @@ public class ConfigurationIT {
         assertResourceFound(ctxAndPort.port, "sample-app-test-two");
         assertResourceNotFound(ctxAndPort.port, "/");
 
-        ctxAndPort.ctx.close();
+        shutdownCtx(ctxAndPort);
     }
 
     @Test
@@ -162,7 +172,8 @@ public class ConfigurationIT {
         // since there is no jax-rs application class, we expect the app to respond on the root path
         assertResourceFound(ctxAndPort.port, "/");
 
-        ctxAndPort.ctx.close();
+        // this test is special so we manually shutdown the server here
+        ctxAndPort.ctx.stop();
     }
 
     @Test
@@ -174,7 +185,7 @@ public class ConfigurationIT {
         // since there is no jax-rs application class, we expect the app to respond on the root path
         assertResourceFound(ctxAndPort.port, "/testpath");
 
-        ctxAndPort.ctx.close();
+        shutdownCtx(ctxAndPort);
     }
 
     private static class CtxAndPort {
