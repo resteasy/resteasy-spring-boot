@@ -1,8 +1,5 @@
 [![License](http://img.shields.io/:license-Apache%202-green.svg)](http://www.apache.org/licenses/LICENSE-2.0.txt)
 
-<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ -->
-<!-- Set-up TravisCI, Codacy and deploy a first release with RESTEasy group id and artifact id, then uncomment and adjust accordingly the lines below replacing ?????? by correct values -->
-<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ -->
 [![Build Status](https://travis-ci.org/resteasy/resteasy-spring-boot.svg?branch=master)](https://travis-ci.org/resteasy/resteasy-spring-boot)
 
 # RESTEasy Spring Boot Starter
