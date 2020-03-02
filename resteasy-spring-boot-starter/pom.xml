@@ -62,7 +62,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <springboot.version>2.2.2.RELEASE</springboot.version>
-        <resteasy.version>4.4.1.Final</resteasy.version>
+        <resteasy.version>4.5.1.Final</resteasy.version>
         <resteasy.jackson.version>2.10.1</resteasy.jackson.version>
         <modular.jdk.args/>
         <modular.jdk.props/>
