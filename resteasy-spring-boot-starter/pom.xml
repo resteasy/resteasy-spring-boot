@@ -11,7 +11,7 @@
     </parent>
     <groupId>org.jboss.resteasy</groupId>
     <artifactId>resteasy-spring-boot-starter</artifactId>
-    <version>3.4.0.Final</version>
+    <version>3.4.1.Final-SNAPSHOT</version>
     <name>${project.artifactId}</name>
 
     <description>A Spring Boot starter for RESTEasy</description>
@@ -61,6 +61,7 @@
         <springboot.version>2.2.5.RELEASE</springboot.version>
         <resteasy.version>3.11.2.Final</resteasy.version>
         <resteasy.jackson.version>2.10.3</resteasy.jackson.version>
+        <jboss-logging.ver>3.4.0.Final</jboss-logging.ver>
         <modular.jdk.args/>
         <modular.jdk.props/>
     </properties>
@@ -333,7 +334,7 @@
         <dependency>
             <groupId>org.jboss.logging</groupId>
             <artifactId>jboss-logging</artifactId>
-            <version>3.4.0.Final</version>
+            <version>${jboss-logging.ver}</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
