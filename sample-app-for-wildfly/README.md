@@ -1,17 +1,19 @@
-# Sample application
+# Sample application for Wildfly Deployment
 
-This is a super simple JAX-RS RESTEasy Spring Boot application just to exercise RESTEasy Spring Boot starter.<br>
+This example is same with `sample-app` but it's for deploying to Wildfly Java EE Full & Web Distribution.
 
-## Starting the application
+Firstly you should follow the RESTEasy document to upgrade the RESTEasy modules inside Wildfly:
 
-You can start the application as you for any other regular Spring Boot application. For example:
+> TODO
 
-1. From the command line, under the sample application project, run `mvn spring-boot:run`
-1. From your favorite IDE, run class `com.test.Application`
+Then start the Wildfly server and deploy the project WAR file:
+
+> TODO
+
 
 ## Testing it
 
-Send a **POST** request message, containing the payload below, to [http://localhost:8080/sample-app/echo](http://localhost:8080/sample-app/echo).
+Send a **POST** request message, containing the payload below, to FIXME [http://localhost:8080/sample-app/echo](http://localhost:8080/sample-app/echo).
 
 ```
     is there anybody out there?
