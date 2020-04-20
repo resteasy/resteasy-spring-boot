@@ -2,19 +2,17 @@
 
 This example is same with `sample-app` but it's for deploying to Wildfly Java EE Full & Web Distribution.
 
-Firstly you should check the `RESTEasy` dependency version used in this example by run the following command under this example's source code directory:
+First you should package this sample:
 
 ```bash
-$ mvn dependency:tree | grep resteasy
-...
-[INFO] |  +- org.jboss.resteasy:resteasy-core:jar:4.5.3.Final:runtime
+$ mvn package
 ```
 
-From above output we can see this example is currently using `resteasy-core:4.5.3.Final`, it means we need to upgrade Wildfly modules 
+And it will generate the WAR file:
 
-follow the RESTEasy document to upgrade the RESTEasy modules inside Wildfly:
-
-* [RESTEASY-2554 Update section "Upgrading RESTEasy within WildFly" #2349](https://github.com/resteasy/Resteasy/pull/2349/files#diff-671eaa22e461edb2367f5dab7fe4c112R251)
+```txt
+works/resteasy-spring-boot/sample-app-for-wildfly/target/sample-app.war
+```
 
 Then start the Wildfly server:
 
