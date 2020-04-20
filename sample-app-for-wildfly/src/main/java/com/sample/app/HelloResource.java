@@ -1,6 +1,5 @@
 package com.sample.app;
 
-import com.sample.app.EchoBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -16,7 +15,6 @@ public class HelloResource {
 
     @GET
     public String get() {
-//        return bean.echo("Hello, world!");
-        return "Hello, world!";
+        return bean.echo("Hello, world!");
     }
 }
