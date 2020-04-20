@@ -1,6 +1,6 @@
 # Sample application for Wildfly Deployment
 
-This example is same with `sample-app` but it's for deploying to Wildfly Java EE Full & Web Distribution.
+This example is for deploying to Wildfly Java EE Full & Web Distribution.
 
 First you should package this sample:
 
