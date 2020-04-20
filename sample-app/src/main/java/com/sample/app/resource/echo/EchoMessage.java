@@ -1,4 +1,4 @@
-package com.sample.app.enpoint.echo;
+package com.sample.app.resource.echo;
 
 /**
  * A simple echo message, containing the text to be echoed

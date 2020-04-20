@@ -1,4 +1,4 @@
-package com.sample.app.enpoint.echo;
+package com.sample.app.resource.echo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

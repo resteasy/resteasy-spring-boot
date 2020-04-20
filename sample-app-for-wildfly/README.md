@@ -41,7 +41,7 @@ In the command line console, use the `deploy` command to deploy this sample's WA
 
 ## Testing it
 
-Send a **POST** request message, containing the payload below, to FIXME [http://localhost:8080/sample-app/echo](http://localhost:8080/sample-app/echo).
+Send a **POST** request message, containing the payload below, to FIXME [http://localhost:8080/sample-app/echo](http://localhost:8080/sample-app/rest/hello).
 
 ```
     is there anybody out there?

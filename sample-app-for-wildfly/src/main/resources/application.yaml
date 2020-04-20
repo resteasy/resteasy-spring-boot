@@ -2,7 +2,7 @@ resteasy:
   jaxrs:
     app:
       registration: property
-      classes: com.sample.app.configuration.JaxrsApplication
+      classes: com.sample.app.Application
 management:
   endpoints:
     web:
