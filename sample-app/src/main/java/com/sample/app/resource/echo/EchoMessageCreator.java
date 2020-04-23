@@ -1,4 +1,4 @@
-package com.sample.app.enpoint.echo;
+package com.sample.app.resource.echo;
 
 import org.springframework.stereotype.Component;
 
