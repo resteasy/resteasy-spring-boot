@@ -30,7 +30,7 @@ Add the Maven dependency below to your Spring Boot application pom file.<br>
 <dependency>
    <groupId>org.jboss.resteasy</groupId>
    <artifactId>resteasy-spring-boot-starter</artifactId>
-   <version>3.5.0.Final</version>
+   <version>3.5.1.Final-SNAPSHOT</version>
    <scope>runtime</scope>
 </dependency>
 ```
