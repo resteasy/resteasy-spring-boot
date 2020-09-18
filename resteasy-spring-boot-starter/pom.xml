@@ -5,13 +5,13 @@
 
     <parent>
         <groupId>org.jboss</groupId>
-        <artifactId>jboss-parent</artifactId>
+        <artifactId>jboss-parent</artifactId>git
         <version>26</version>
         <relativePath/>
     </parent>
     <groupId>org.jboss.resteasy</groupId>
     <artifactId>resteasy-spring-boot-starter</artifactId>
-    <version>3.6.2.Final</version>
+    <version>3.6.3.Final-SNAPSHOT</version>
     <name>${project.artifactId}</name>
 
     <description>A Spring Boot starter for RESTEasy</description>
