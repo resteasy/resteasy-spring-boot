@@ -5,7 +5,7 @@
 
     <groupId>org.jboss.resteasy</groupId>
     <artifactId>spring-boot-sample-app</artifactId>
-    <version>4.6.3.Final</version>
+    <version>4.6.4.Final</version>
     <packaging>jar</packaging>
 
     <description>Simple test application for the Resteasy Spring Boot starter</description>
@@ -15,7 +15,7 @@
         <java.version>1.8</java.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <resteasy.version>4.5.7.Final</resteasy.version>
+        <resteasy.version>4.5.8.Final</resteasy.version>
         <springboot.version>2.3.2.RELEASE</springboot.version>
 
     </properties>
