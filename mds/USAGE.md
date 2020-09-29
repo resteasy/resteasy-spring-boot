@@ -8,15 +8,15 @@ Add the Maven dependency below to your Spring Boot application pom file.<br>
 <dependency>
    <groupId>org.jboss.resteasy</groupId>
    <artifactId>resteasy-spring-boot-starter</artifactId>
-   <version>4.6.2.Final</version>
+   <version>4.6.4.Final</version>
    <scope>runtime</scope>
 </dependency>
 ```
 
 #### Registering JAX-RS application classes
 
-Just define your JAX-RS application class (a subclass of [Application](http://docs.oracle.com/javaee/7/api/javax/ws/rs/core/Application.html)) as a Spring bean, and it will be automatically registered. See the example below.
-See section [JAX-RS application registration methods](#jax-rs-application-registration-methods) for further information.
+Just define your JAX-RS application class (a subclass of [Application](https://github.com/eclipse-ee4j/jaxrs-api/blob/master/jaxrs-api/src/main/java/jakarta/ws/rs/core/Application.java)) as a Spring bean, and it will be automatically registered. See the example below.
+See section [JAX-RS Application, Resources and Sub-Resources](https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest/jaxrs-resources.html) for further information.
 
 ``` java
 package com.sample.app;
@@ -40,7 +40,7 @@ Notice that JAX-RS resources can be singleton or request scoped, while JAX-RS pr
 
 #### JAX-RS application registration methods
 
-JAX-RS applications are defined via sub-classes of [Application](http://docs.oracle.com/javaee/7/api/javax/ws/rs/core/Application.html). One or more JAX-RS applications can be registered, and there are three different methods to do so:
+JAX-RS applications are defined via sub-classes of [Application](https://github.com/eclipse-ee4j/jaxrs-api/blob/master/jaxrs-api/src/main/java/jakarta/ws/rs/core/Application.java). One or more JAX-RS applications can be registered, and there are three different methods to do so:
 
 1. By having them defined as Spring beans.
 2. By setting property `resteasy.jaxrs.app.classes` via Spring Boot configuration file (properties or YAML). This property should contain a comma separated list of JAX-RS sub-classes.
@@ -69,7 +69,7 @@ and replaced `resteasy.jaxrs.app.classes`.  Property `resteasy.jaxrs.app` has be
 
 #### RESTEasy configuration
 
-RESTEasy offers a few configuration switches, [as seen here](http://docs.jboss.org/resteasy/docs/3.1.1.Final-SNAPSHOT/userguide/html_single/index.html#configuration_switches), and they are set as Servlet context init parameters. In Spring Boot, Servlet context init parameters are defined via Spring Boot `application.properties` file, using the property prefix `server.servlet.context-parameters.*` (search for it in [Spring Boot reference guide](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/)).</br>
+RESTEasy offers a few configuration switches, [as seen here](https://docs.jboss.org/resteasy/docs/4.5.8.Final/userguide/html_single/index.html#configuration_switches), and they are set as Servlet context init parameters. In Spring Boot, Servlet context init parameters are defined via Spring Boot `application.properties` file, using the property prefix `server.servlet.context-parameters.*` (search for it in [Spring Boot reference guide](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/)).</br>
 
 As an example, to set RESTEasy property `resteasy.role.based.security` to `true`, just add the property bellow to Spring Boot `application.properties` file.
 
