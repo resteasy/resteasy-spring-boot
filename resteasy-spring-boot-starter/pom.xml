@@ -11,7 +11,7 @@
     </parent>
     <groupId>org.jboss.resteasy</groupId>
     <artifactId>resteasy-spring-boot-starter</artifactId>
-    <version>3.6.3.Final-SNAPSHOT</version>
+    <version>3.7.0.Final</version>
     <name>${project.artifactId}</name>
 
     <description>A Spring Boot starter for RESTEasy</description>
