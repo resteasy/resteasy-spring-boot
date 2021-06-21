@@ -1,6 +1,5 @@
 [![License](http://img.shields.io/:license-Apache%202-green.svg)](http://www.apache.org/licenses/LICENSE-2.0.txt)
-
-[![Build Status](https://travis-ci.org/resteasy/resteasy-spring-boot.svg?branch=master)](https://travis-ci.org/resteasy/resteasy-spring-boot)
+[![Github CI](https://github.com/resteasy/resteasy-spring-boot/actions/workflows/maven.yml/badge.svg)](https://github.com/resteasy/resteasy-spring-boot/actions)
 
 # RESTEasy Spring Boot Starter
 
