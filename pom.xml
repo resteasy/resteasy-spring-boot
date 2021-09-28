@@ -7,7 +7,7 @@
 
     <groupId>org.jboss.resteasy</groupId>
     <artifactId>resteasy-spring-boot-starter-parent</artifactId>
-    <version>4.9.0.Final</version>
+    <version>4.9.1.Final</version>
     <packaging>pom</packaging>
 
     <modules>
