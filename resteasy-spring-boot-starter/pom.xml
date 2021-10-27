@@ -68,6 +68,7 @@
         <jboss-logging.ver>3.4.0.Final</jboss-logging.ver>
         <ver.mockito>4.0.0</ver.mockito>
         <ver.powermock>2.0.9</ver.powermock>
+        <ver.objenesis>3.2</ver.objenesis>
         <modular.jdk.args/>
         <modular.jdk.props/>
     </properties>
@@ -322,7 +323,7 @@
         <dependency>
             <groupId>org.powermock</groupId>
             <artifactId>powermock-api-mockito2</artifactId>
-            <version>2.0.0-beta.5</version>
+            <version>${ver.powermock}</version>
             <scope>test</scope>
             <exclusions>
                 <exclusion>
@@ -334,7 +335,7 @@
         <dependency>
             <groupId>org.powermock</groupId>
             <artifactId>powermock-module-testng-common</artifactId>
-            <version>2.0.0-beta.5</version>
+            <version>${ver.powermock}</version>
             <scope>test</scope>
             <exclusions>
                 <exclusion>
@@ -346,7 +347,7 @@
         <dependency>
             <groupId>org.powermock</groupId>
             <artifactId>powermock-module-testng</artifactId>
-            <version>2.0.0-beta.5</version>
+            <version>${ver.powermock}</version>
             <scope>test</scope>
             <exclusions>
                 <exclusion>
@@ -358,7 +359,7 @@
         <dependency>
             <groupId>org.powermock</groupId>
             <artifactId>powermock-reflect</artifactId>
-            <version>2.0.0-beta.5</version>
+            <version>${ver.powermock}</version>
             <scope>test</scope>
             <exclusions>
                 <exclusion>
@@ -369,11 +370,19 @@
                     <groupId>net.bytebuddy</groupId>
                     <artifactId>byte-buddy-agent</artifactId>
                 </exclusion>
-
+                <exclusion>
+                    <groupId>org.objenesis</groupId>
+                    <artifactId>objenesis</artifactId>
+                </exclusion>
             </exclusions>
         </dependency>
 
         <!-- Shared Dependencies -->
+        <dependency>
+            <groupId>org.objenesis</groupId>
+            <artifactId>objenesis</artifactId>
+            <version>${ver.objenesis}</version>
+        </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
