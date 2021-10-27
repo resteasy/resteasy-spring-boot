@@ -5,7 +5,7 @@
 
     <groupId>org.jboss.resteasy</groupId>
     <artifactId>spring-boot-sample-app</artifactId>
-    <version>5.0.0.Alpha1</version>
+    <version>5.0.0.Beta1</version>
     <packaging>jar</packaging>
 
     <description>Simple test application for the Resteasy Spring Boot starter</description>
