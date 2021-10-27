@@ -67,6 +67,7 @@
         <resteasy.jackson.version>2.12.3</resteasy.jackson.version>
         <jboss-logging.ver>3.4.0.Final</jboss-logging.ver>
         <ver.mockito>4.0.0</ver.mockito>
+        <ver.powermock>2.0.9</ver.powermock>
         <modular.jdk.args/>
         <modular.jdk.props/>
     </properties>
@@ -301,7 +302,7 @@
         <dependency>
             <groupId>org.powermock</groupId>
             <artifactId>powermock-core</artifactId>
-            <version>2.0.0-beta.5</version>
+            <version>${ver.powermock}</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.mockito</groupId>
