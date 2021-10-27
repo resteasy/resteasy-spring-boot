@@ -66,6 +66,7 @@
         <resteasy.spring.version>1.0.0.Final</resteasy.spring.version>
         <resteasy.jackson.version>2.12.3</resteasy.jackson.version>
         <jboss-logging.ver>3.4.0.Final</jboss-logging.ver>
+        <ver.mockito>4.0.0</ver.mockito>
         <modular.jdk.args/>
         <modular.jdk.props/>
     </properties>
@@ -294,7 +295,7 @@
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>2.23.4</version>
+            <version>${ver.mockito}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
