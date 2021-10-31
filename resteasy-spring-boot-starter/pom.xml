@@ -66,7 +66,7 @@
         <resteasy.spring.version>1.0.0.Final</resteasy.spring.version>
         <resteasy.jackson.version>2.12.3</resteasy.jackson.version>
         <jboss-logging.ver>3.4.0.Final</jboss-logging.ver>
-        <ver.mockito>4.0.0</ver.mockito>
+        <ver.mockito>3.12.4</ver.mockito>
         <ver.powermock>2.0.9</ver.powermock>
         <ver.objenesis>3.2</ver.objenesis>
         <modular.jdk.args/>
