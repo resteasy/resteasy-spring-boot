@@ -58,8 +58,8 @@
     <properties>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <springboot.version>2.4.9</springboot.version>
-        <resteasy.version>3.15.1.Final</resteasy.version>
+        <springboot.version>2.5.7</springboot.version>
+        <resteasy.version>3.15.3.Final</resteasy.version>
         <resteasy.jackson.version>2.10.5</resteasy.jackson.version>
         <jboss-logging.ver>3.4.0.Final</jboss-logging.ver>
         <modular.jdk.args/>
