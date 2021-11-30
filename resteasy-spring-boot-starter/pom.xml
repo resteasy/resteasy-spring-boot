@@ -11,7 +11,7 @@
     </parent>
     <groupId>org.jboss.resteasy</groupId>
     <artifactId>resteasy-spring-boot-starter</artifactId>
-    <version>4.9.1.Final</version>
+    <version>4.9.2.Final</version>
     <name>${project.artifactId}</name>
 
     <description>A Spring Boot starter for RESTEasy</description>
@@ -61,8 +61,8 @@
     <properties>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <springboot.version>2.5.5</springboot.version>
-        <resteasy.version>4.7.2.Final</resteasy.version>
+        <springboot.version>2.5.7</springboot.version>
+        <resteasy.version>4.7.3.Final</resteasy.version>
         <resteasy.jackson.version>2.12.3</resteasy.jackson.version>
         <jboss-logging.ver>3.4.0.Final</jboss-logging.ver>
         <modular.jdk.args/>
