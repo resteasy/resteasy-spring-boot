@@ -6,7 +6,7 @@
 
     <groupId>org.jboss.resteasy</groupId>
     <artifactId>spring-boot-sample-app-no-jaxrs-application</artifactId>
-    <version>5.0.0.Beta1</version>
+    <version>5.0.0.Final</version>
     <packaging>jar</packaging>
 
     <description>Simple test application for the Resteasy Spring Boot starter that contains no JAX-RS application class</description>
@@ -16,8 +16,8 @@
         <java.version>1.8</java.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <resteasy.version>5.0.0.Beta3</resteasy.version>
-        <springboot.version>2.5.6</springboot.version>
+        <resteasy.version>5.0.0.Final</resteasy.version>
+        <springboot.version>2.5.7</springboot.version>
     </properties>
 
     <dependencyManagement>
