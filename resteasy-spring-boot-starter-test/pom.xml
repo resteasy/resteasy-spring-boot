@@ -4,14 +4,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.jboss</groupId>
-        <artifactId>jboss-parent</artifactId>
-        <version>26</version>
-        <relativePath/>
+        <groupId>org.jboss.resteasy</groupId>
+        <artifactId>resteasy-spring-boot-starter-parent</artifactId>
+        <version>5.0.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
-    <groupId>org.jboss.resteasy</groupId>
+
     <artifactId>resteasy-spring-boot-starter-test</artifactId>
-    <version>5.0.1-SNAPSHOT</version>
     <name>${project.artifactId}</name>
 
     <description>Integration test project for RESTEasy Spring Boot starter</description>
