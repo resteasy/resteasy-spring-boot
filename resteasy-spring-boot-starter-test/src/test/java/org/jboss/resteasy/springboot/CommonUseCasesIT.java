@@ -11,7 +11,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import com.sample.app.Application;
+import com.sample.app.MyApp;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
@@ -30,7 +30,7 @@ public class CommonUseCasesIT {
         int port = SocketUtils.findAvailableTcpPort();
         RestAssured.port = port;
 
-        SpringApplication springApplication = new SpringApplication(Application.class);
+        SpringApplication springApplication = new SpringApplication(MyApp.class);
         springApplication.addListeners(new LogbackTestApplicationListener());
         springApplication.run("--server.port=" + port).registerShutdownHook();
     }

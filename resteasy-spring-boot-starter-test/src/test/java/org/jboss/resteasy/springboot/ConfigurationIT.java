@@ -61,7 +61,7 @@ public class ConfigurationIT {
 
     @Test
     public void implicitAutoTest() {
-        final CtxAndPort ctxAndPort = configureAndStartApp(null, com.sample.app.Application.class);
+        final CtxAndPort ctxAndPort = configureAndStartApp(null, com.sample.app.MyApp.class);
 
         assertResourceFound(ctxAndPort.port, "sample-app");
         assertResourceNotFound(ctxAndPort.port, "sample-app-test");
@@ -75,7 +75,7 @@ public class ConfigurationIT {
         final Properties properties = new Properties();
         properties.put("resteasy.jaxrs.app.registration", "auto");
 
-        final CtxAndPort ctxAndPort = configureAndStartApp(properties, com.sample.app.Application.class);
+        final CtxAndPort ctxAndPort = configureAndStartApp(properties, com.sample.app.MyApp.class);
 
         assertResourceFound(ctxAndPort.port, "sample-app");
         assertResourceNotFound(ctxAndPort.port, "sample-app-test");
@@ -94,7 +94,7 @@ public class ConfigurationIT {
         final Properties properties = new Properties();
         properties.put("resteasy.jaxrs.app.registration", "beans");
 
-        final CtxAndPort ctxAndPort = configureAndStartApp(properties, com.sample.app.Application.class);
+        final CtxAndPort ctxAndPort = configureAndStartApp(properties, com.sample.app.MyApp.class);
 
         assertResourceFound(ctxAndPort.port, "sample-app");
         assertResourceNotFound(ctxAndPort.port, "sample-app-test");
@@ -109,7 +109,7 @@ public class ConfigurationIT {
         properties.put("resteasy.jaxrs.app.registration", "property");
         properties.put("resteasy.jaxrs.app.classes", "com.sample.app.configuration.JaxrsApplication");
 
-        final CtxAndPort ctxAndPort = configureAndStartApp(properties, com.sample.app.Application.class);
+        final CtxAndPort ctxAndPort = configureAndStartApp(properties, com.sample.app.MyApp.class);
 
         assertResourceFound(ctxAndPort.port, "sample-app");
         assertResourceNotFound(ctxAndPort.port, "sample-app-test");
@@ -124,7 +124,7 @@ public class ConfigurationIT {
         properties.put("resteasy.jaxrs.app.registration", "property");
         properties.put("resteasy.jaxrs.app.classes", "com.test.NonSpringBeanJaxrsApplication");
 
-        final CtxAndPort ctxAndPort = configureAndStartApp(properties, com.sample.app.Application.class);
+        final CtxAndPort ctxAndPort = configureAndStartApp(properties, com.sample.app.MyApp.class);
 
         assertResourceNotFound(ctxAndPort.port, "sample-app");
         assertResourceFound(ctxAndPort.port, "sample-app-test");
@@ -140,7 +140,7 @@ public class ConfigurationIT {
         properties.put("resteasy.jaxrs.app.classes", "com.foor.bar.NonExistentApplicationClass");
 
         try {
-            configureAndStartApp(properties, false, com.sample.app.Application.class);
+            configureAndStartApp(properties, false, com.sample.app.MyApp.class);
 
             Assert.fail("Expected exception, due to class not found, has not been thrown");
         } catch (BeansException ex) {
@@ -154,7 +154,7 @@ public class ConfigurationIT {
         final Properties properties = new Properties();
         properties.put("resteasy.jaxrs.app.registration", "scanning");
 
-        final CtxAndPort ctxAndPort = configureAndStartApp(properties, com.sample.app.Application.class);
+        final CtxAndPort ctxAndPort = configureAndStartApp(properties, com.sample.app.MyApp.class);
 
         // we expect that the scanning will only find jax-rs application classes that are located
         // under the package that the main Spring Boot application class is found
@@ -167,7 +167,7 @@ public class ConfigurationIT {
 
     @Test
     public void noJaxrsApplicationAndImplicitAutoTest() {
-        final CtxAndPort ctxAndPort = configureAndStartApp(null, com.sample.app2.Application.class);
+        final CtxAndPort ctxAndPort = configureAndStartApp(null, com.sample.app2.MyApp.class);
 
         // since there is no jax-rs application class, we expect the app to respond on the root path
         assertResourceFound(ctxAndPort.port, "/");
@@ -180,7 +180,7 @@ public class ConfigurationIT {
     public void noJaxrsApplicationAndImplicitAutoWithDefaultPathTest() {
         final Properties properties = new Properties();
         properties.put("resteasy.jaxrs.defaultPath", "/testpath");
-        final CtxAndPort ctxAndPort = configureAndStartApp(properties, com.sample.app2.Application.class);
+        final CtxAndPort ctxAndPort = configureAndStartApp(properties, com.sample.app2.MyApp.class);
 
         // since there is no jax-rs application class, we expect the app to respond on the root path
         assertResourceFound(ctxAndPort.port, "/testpath");

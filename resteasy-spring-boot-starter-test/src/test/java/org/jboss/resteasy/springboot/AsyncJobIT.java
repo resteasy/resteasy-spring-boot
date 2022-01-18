@@ -13,7 +13,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import com.sample.app.Application;
+import com.sample.app.MyApp;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
@@ -35,7 +35,7 @@ public class AsyncJobIT {
         Properties properties = new Properties();
         properties.put("server.servlet.context-parameters.resteasy.async.job.service.enabled", true);
 
-        SpringApplication app = new SpringApplication(Application.class);
+        SpringApplication app = new SpringApplication(MyApp.class);
         app.setDefaultProperties(properties);
         app.addListeners(new LogbackTestApplicationListener());
         app.run("--server.port=" + appPort).registerShutdownHook();
