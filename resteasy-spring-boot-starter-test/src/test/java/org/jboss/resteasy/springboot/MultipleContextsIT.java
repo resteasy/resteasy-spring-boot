@@ -12,7 +12,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import com.sample.app.Application;
+import com.sample.app.MyApp;
 import com.test.multicontexttest.MultiContextTestApp;
 
 import io.restassured.RestAssured;
@@ -43,7 +43,7 @@ public class MultipleContextsIT {
         Properties properties = new Properties();
         properties.put("spring.jmx.enabled", false);
 
-        SpringApplication app1 = new SpringApplication(Application.class);
+        SpringApplication app1 = new SpringApplication(MyApp.class);
         app1.setDefaultProperties(properties);
         app1.addListeners(new LogbackTestApplicationListener());
         app1.run("--server.port=" + app1Port).registerShutdownHook();
