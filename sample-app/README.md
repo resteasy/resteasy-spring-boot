@@ -34,5 +34,19 @@ You should receive a response message with a payload similar to this as result:
 }
 ```
 
+To access the second application, using the following command to do so:
+
+```bash
+$ curl --location --request POST 'http://localhost:8080/sample-app2/echo2' \
+      --header 'Content-Type: text/plain' \
+      --data-raw 'is there anybody out there?'
+```
+
+And you will get echo from `Echo2` service:
+
+```json
+{"timestamp":1643988604837,"echoText":":::ECHO2:::is there anybody out there?"}
+```
+
 The request message payload can be anything as plain text.
 The response message is supposed to echo that, plus a timestamp of the moment the echo response was created on the server side. The response message will be in JSON format.
