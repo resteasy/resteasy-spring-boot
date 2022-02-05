@@ -107,7 +107,7 @@ public class ConfigurationIT {
     public void propertySpringBeanClassTest() {
         final Properties properties = new Properties();
         properties.put("resteasy.jaxrs.app.registration", "property");
-        properties.put("resteasy.jaxrs.app.classes", "com.sample.app.configuration.JaxrsApplication");
+        properties.put("resteasy.jaxrs.app.classes", "com.sample.app.configuration.App1");
 
         final CtxAndPort ctxAndPort = configureAndStartApp(properties, com.sample.app.MyApp.class);
 
