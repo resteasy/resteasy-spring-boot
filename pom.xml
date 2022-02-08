@@ -19,9 +19,9 @@
     <properties>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <springboot.version>2.5.7</springboot.version>
-        <resteasy.version>5.0.0.Final</resteasy.version>
-        <resteasy.spring.version>2.0.0.Final</resteasy.spring.version>
+        <springboot.version>3.0.0-M1</springboot.version>
+        <resteasy.version>6.0.0.Final</resteasy.version>
+        <resteasy.spring.version>3.0.0.Alpha1</resteasy.spring.version>
         <resteasy.jackson.version>2.12.3</resteasy.jackson.version>
         <jboss-logging.ver>3.4.0.Final</jboss-logging.ver>
         <ver.mockito>3.12.4</ver.mockito>
@@ -47,6 +47,14 @@
             <url>https://repository.jboss.org/nexus/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
+
+    <repositories>
+        <repository>
+            <id>spring-repo</id>
+            <name>Spring Repository</name>
+            <url>https://repo.spring.io/milestone</url>
+        </repository>
+    </repositories>
 
     <build>
         <plugins>
