@@ -4,8 +4,8 @@ import java.lang.annotation.Annotation;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.ws.rs.Path;
-import javax.ws.rs.ext.Provider;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.ext.Provider;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

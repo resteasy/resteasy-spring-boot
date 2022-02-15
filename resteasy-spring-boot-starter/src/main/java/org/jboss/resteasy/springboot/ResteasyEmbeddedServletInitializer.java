@@ -14,10 +14,10 @@ import org.springframework.boot.autoconfigure.AutoConfigurationPackages;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.core.env.ConfigurableEnvironment;
 
-import javax.ws.rs.ApplicationPath;
-import javax.ws.rs.Path;
-import javax.ws.rs.core.Application;
-import javax.ws.rs.ext.Provider;
+import jakarta.ws.rs.ApplicationPath;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.core.Application;
+import jakarta.ws.rs.ext.Provider;
 import java.util.*;
 
 /**
@@ -54,7 +54,7 @@ public class ResteasyEmbeddedServletInitializer implements BeanFactoryPostProces
      * 1- By having them defined as Spring beans
      * 2- By setting property {@code resteasy.jaxrs.app.classes} via Spring Boot application properties file.
      *    This property should contain a comma separated list of JAX-RS sub-classes
-     * 3- Via classpath scanning (looking for javax.ws.rs.core.Application sub-classes)
+     * 3- Via classpath scanning (looking for jakarta.ws.rs.core.Application sub-classes)
      *
      * First try to find JAX-RS Application sub-classes defined as Spring beans. If that is existent,
      * the search stops, and those are the only JAX-RS applications to be registered.

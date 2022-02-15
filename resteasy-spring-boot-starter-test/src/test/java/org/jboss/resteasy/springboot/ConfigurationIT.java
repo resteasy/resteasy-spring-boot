@@ -10,7 +10,7 @@ import org.springframework.util.SocketUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import javax.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.MediaType;
 import java.util.Properties;
 
 import static io.restassured.RestAssured.given;

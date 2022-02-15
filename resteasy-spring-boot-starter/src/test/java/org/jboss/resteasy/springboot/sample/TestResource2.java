@@ -2,8 +2,8 @@ package org.jboss.resteasy.springboot.sample;
 
 import org.springframework.stereotype.Component;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
 
 /**
  * Created by facarvalho on 6/9/16.

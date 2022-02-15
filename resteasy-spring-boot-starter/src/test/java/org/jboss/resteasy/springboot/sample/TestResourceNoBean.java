@@ -1,7 +1,7 @@
 package org.jboss.resteasy.springboot.sample;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
 
 @Path("resourceNoBean")
 public class TestResourceNoBean {
