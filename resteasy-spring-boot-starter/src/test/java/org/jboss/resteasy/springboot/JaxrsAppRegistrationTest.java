@@ -1,8 +1,6 @@
 package org.jboss.resteasy.springboot;
 
-import org.jboss.resteasy.springboot.ResteasyEmbeddedServletInitializer;
 import org.jboss.resteasy.springboot.sample.*;
-import org.junit.jupiter.api.Disabled;
 import org.mockito.internal.verification.VerificationModeFactory;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.api.mockito.mockpolicies.Slf4jMockPolicy;
