@@ -624,7 +624,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
-                    <argLine>${modular.jdk.args} ${modular.jdk.props}</argLine>
+                    <argLine>${modular.jdk.args} ${modular.jdk.props} --add-opens java.base/java.lang=ALL-UNNAMED -Dillegal-access=permit</argLine>
                 </configuration>
             </plugin>
             <!--            <plugin>-->

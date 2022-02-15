@@ -29,7 +29,7 @@
         <resteasy.spring.version>3.0.0.Alpha1</resteasy.spring.version>
         <resteasy.version>6.0.0.Final</resteasy.version>
         <springboot.version>3.0.0-M1</springboot.version>
-        <ver.mockito>3.12.4</ver.mockito>
+        <ver.mockito>4.3.1</ver.mockito>
         <ver.objenesis>3.2</ver.objenesis>
         <ver.powermock>2.0.9</ver.powermock>
         <version.jakarta.annotation.annotation-api>2.1.0-B1</version.jakarta.annotation.annotation-api>
