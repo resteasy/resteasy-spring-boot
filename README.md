@@ -40,8 +40,8 @@ See section _JAX-RS application registration methods_ in [How to use RESTEasy Sp
 package com.sample.app;
 
 import org.springframework.stereotype.Component;
-import javax.ws.rs.ApplicationPath;
-import javax.ws.rs.core.Application;
+import jakarta.ws.rs.ApplicationPath;
+import jakarta.ws.rs.core.Application;
 
 @Component
 @ApplicationPath("/sample-app/")

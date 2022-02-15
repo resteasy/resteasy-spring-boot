@@ -2,8 +2,8 @@ package org.jboss.resteasy.springboot;
 
 import java.util.Set;
 
-import javax.servlet.Servlet;
-import javax.servlet.ServletContainerInitializer;
+import jakarta.servlet.Servlet;
+import jakarta.servlet.ServletContainerInitializer;
 
 import org.jboss.resteasy.plugins.server.servlet.HttpServlet30Dispatcher;
 import org.jboss.resteasy.plugins.server.servlet.ResteasyContextParameters;
@@ -47,7 +47,7 @@ public class ResteasyApplicationBuilder {
 		servletRegistrationBean.setName(applicationClassName);
 		servletRegistrationBean.setLoadOnStartup(1);
 		servletRegistrationBean.setAsyncSupported(true);
-		servletRegistrationBean.addInitParameter("javax.ws.rs.Application", applicationClassName);
+		servletRegistrationBean.addInitParameter("jakarta.ws.rs.Application", applicationClassName);
 
 		if (path != null) {
 			String mapping = path;

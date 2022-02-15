@@ -17,27 +17,33 @@
     <packaging>pom</packaging>
 
     <properties>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <springboot.version>3.0.0-M1</springboot.version>
-        <resteasy.version>6.0.0.Final</resteasy.version>
-        <resteasy.spring.version>3.0.0.Alpha1</resteasy.spring.version>
-        <resteasy.jackson.version>2.12.3</resteasy.jackson.version>
+        <java.version>17</java.version>
         <jboss-logging.ver>3.4.0.Final</jboss-logging.ver>
-        <ver.mockito>3.12.4</ver.mockito>
-        <ver.powermock>2.0.9</ver.powermock>
-        <ver.objenesis>3.2</ver.objenesis>
-        <version.spring>5.3.13</version.spring>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <modular.jdk.args/>
         <modular.jdk.props/>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <resteasy.jackson.version>2.12.3</resteasy.jackson.version>
+        <resteasy.spring.version>3.0.0.Alpha1</resteasy.spring.version>
+        <resteasy.version>6.0.0.Final</resteasy.version>
+        <springboot.version>3.0.0-M1</springboot.version>
+        <ver.mockito>3.12.4</ver.mockito>
+        <ver.objenesis>3.2</ver.objenesis>
+        <ver.powermock>2.0.9</ver.powermock>
+        <version.jakarta.annotation.annotation-api>2.1.0-B1</version.jakarta.annotation.annotation-api>
+        <version.jakarta.servlet.servlet-api>5.0.0</version.jakarta.servlet.servlet-api>
+        <version.jakarta.ws.rs>3.0.0</version.jakarta.ws.rs>
+        <version.org.springframework>6.0.0-M2</version.org.springframework>
     </properties>
 
     <modules>
         <module>resteasy-spring-boot-starter</module>
-        <module>sample-app</module>
-        <module>sample-app-for-wildfly</module>
-        <module>sample-app-no-jaxrs-application</module>
-        <module>resteasy-spring-boot-starter-test</module>
+        <!--        <module>sample-app</module>-->
+        <!--        <module>sample-app-for-wildfly</module>-->
+        <!--        <module>sample-app-no-jaxrs-application</module>-->
+        <!--        <module>resteasy-spring-boot-starter-test</module>-->
     </modules>
 
     <distributionManagement>

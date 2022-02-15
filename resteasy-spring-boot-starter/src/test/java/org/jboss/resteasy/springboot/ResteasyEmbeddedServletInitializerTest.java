@@ -55,7 +55,7 @@ public class ResteasyEmbeddedServletInitializerTest extends AbstractTestNGSpring
     private void testApplicaton(String applicationClassName, ServletRegistrationBean servletRegistrationBean) {
         Assert.assertEquals(applicationClassName, servletRegistrationBean.getServletName());
         Assert.assertTrue(servletRegistrationBean.isAsyncSupported());
-        Assert.assertEquals(applicationClassName, servletRegistrationBean.getInitParameters().get("javax.ws.rs.Application"));        
+        Assert.assertEquals(applicationClassName, servletRegistrationBean.getInitParameters().get("jakarta.ws.rs.Application"));        
                 
     }
 

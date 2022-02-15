@@ -1,6 +1,6 @@
 package org.jboss.resteasy.springboot.sample;
 
-import javax.ws.rs.core.Application;
+import jakarta.ws.rs.core.Application;
 
 /**
  * This application, although extending Application class,
