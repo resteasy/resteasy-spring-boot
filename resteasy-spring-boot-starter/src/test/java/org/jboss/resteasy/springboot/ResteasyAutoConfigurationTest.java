@@ -5,6 +5,7 @@ import org.jboss.resteasy.plugins.spring.SpringBeanProcessor;
 import org.jboss.resteasy.spi.Dispatcher;
 import org.jboss.resteasy.spi.Registry;
 import org.jboss.resteasy.spi.ResteasyProviderFactory;
+import org.junit.jupiter.api.Disabled;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.mock.web.MockServletContext;
 import org.testng.Assert;
