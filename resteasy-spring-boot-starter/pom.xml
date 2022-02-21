@@ -107,7 +107,8 @@
 <!--                    <artifactId>jackson-datatype-jsr310</artifactId>-->
 <!--                </exclusion>-->
 <!--                <exclusion>-->
-<!--                    <groupId>jakarta.validation</groupId>-->
+<!--                    <groupId>
+</groupId>-->
 <!--                    <artifactId>jakarta.validation-api</artifactId>-->
 <!--                </exclusion>-->
 <!--            </exclusions>-->
@@ -476,7 +477,7 @@
         <dependency>
             <groupId>jakarta.validation</groupId>
             <artifactId>jakarta.validation-api</artifactId>
-            <version>2.0.2</version>
+            <version>${ver.jakarta.validation-api}</version>
         </dependency>
         <dependency>
             <groupId>commons-codec</groupId>

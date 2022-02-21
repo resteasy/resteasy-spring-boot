@@ -14,7 +14,8 @@
     <packaging>jar</packaging>
 
     <description>Simple test application for the Resteasy Spring Boot starter</description>
-    
+
+
 
     <dependencyManagement>
         <dependencies>
@@ -46,7 +47,7 @@
         <dependency>
             <groupId>jakarta.ws.rs</groupId>
             <artifactId>jakarta.ws.rs-api</artifactId>
-            <version>2.1</version>
+            <version>${version.jakarta.ws.rs}</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
@@ -56,7 +57,8 @@
         </dependency>
         <dependency>
             <groupId>jakarta.validation</groupId>
-            <artifactId>validation-api</artifactId>
+            <artifactId>jakarta.validation-api</artifactId>
+            <version>${ver.jakarta.validation-api}</version>
         </dependency>
         <dependency>
             <groupId>org.hibernate.validator</groupId>
@@ -76,17 +78,19 @@
         </dependency>
     </dependencies>
 
+
     <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-jar-plugin</artifactId>
-                    <version>3.1.0</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
+<!--        <pluginManagement>-->
+<!--            <plugins>-->
+<!--                <plugin>-->
+<!--                    <groupId>org.apache.maven.plugins</groupId>-->
+<!--                    <artifactId>maven-jar-plugin</artifactId>-->
+<!--                    <version>3.1.0</version>-->
+<!--                </plugin>-->
+<!--            </plugins>-->
+<!--        </pluginManagement>-->
         <plugins>
+<!--            https://repo.spring.io/ui/native/milestone/org/springframework/boot/spring-boot-maven-plugin/-->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
