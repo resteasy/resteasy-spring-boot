@@ -32,16 +32,17 @@
         <springboot.version>3.0.0-M1</springboot.version>
         <ver.mockito>4.3.1</ver.mockito>
         <ver.objenesis>3.2</ver.objenesis>
-        <ver.powermock>2.0.9</ver.powermock>
+        <!--        <ver.powermock>2.0.9</ver.powermock>-->
         <version.jakarta.annotation.annotation-api>2.1.0-B1</version.jakarta.annotation.annotation-api>
         <version.jakarta.servlet.servlet-api>5.0.0</version.jakarta.servlet.servlet-api>
         <version.jakarta.ws.rs>3.0.0</version.jakarta.ws.rs>
         <version.org.springframework>6.0.0-M2</version.org.springframework>
+        <ver.jakarta.validation-api>3.0.1</ver.jakarta.validation-api>
     </properties>
 
     <modules>
         <module>resteasy-spring-boot-starter</module>
-        <!--        <module>sample-app</module>-->
+        <module>sample-app</module>
         <!--        <module>sample-app-for-wildfly</module>-->
         <!--        <module>sample-app-no-jaxrs-application</module>-->
         <!--        <module>resteasy-spring-boot-starter-test</module>-->
@@ -62,6 +63,14 @@
             <url>https://repo.spring.io/milestone</url>
         </repository>
     </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-repo</id>
+            <name>Spring Repository</name>
+            <url>https://repo.spring.io/milestone</url>
+        </pluginRepository>
+    </pluginRepositories>
 
     <build>
         <plugins>
