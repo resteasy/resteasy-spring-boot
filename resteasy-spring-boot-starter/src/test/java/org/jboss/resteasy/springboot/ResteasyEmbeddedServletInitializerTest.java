@@ -4,6 +4,7 @@ import java.util.Map;
 
 import org.jboss.resteasy.springboot.sample.TestProviderNoBean;
 import org.jboss.resteasy.springboot.sample.TestResourceNoBean;
+import org.junit.jupiter.api.Disabled;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;
@@ -12,12 +13,14 @@ import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 /**
  * Created by facarvalho on 11/25/15.
  * @author Fabio Carvalho (facarvalho@paypal.com or fabiocarvalho777@gmail.com)
  */
+@Ignore
 @ContextConfiguration("classpath:test-config.xml")
 public class ResteasyEmbeddedServletInitializerTest extends AbstractTestNGSpringContextTests {
 
