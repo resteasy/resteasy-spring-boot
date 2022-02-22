@@ -38,13 +38,14 @@
         <version.jakarta.ws.rs>3.0.0</version.jakarta.ws.rs>
         <version.org.springframework>6.0.0-M2</version.org.springframework>
         <ver.jakarta.validation-api>3.0.1</ver.jakarta.validation-api>
+        <version.org.eclipse>2.0.4</version.org.eclipse>
     </properties>
 
     <modules>
         <module>resteasy-spring-boot-starter</module>
         <module>sample-app</module>
         <!--        <module>sample-app-for-wildfly</module>-->
-        <!--        <module>sample-app-no-jaxrs-application</module>-->
+        <module>sample-app-no-jaxrs-application</module>
         <!--        <module>resteasy-spring-boot-starter-test</module>-->
     </modules>
 
