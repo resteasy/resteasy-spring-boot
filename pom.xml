@@ -39,6 +39,9 @@
         <version.org.springframework>6.0.0-M2</version.org.springframework>
         <ver.jakarta.validation-api>3.0.1</ver.jakarta.validation-api>
         <version.org.eclipse>2.0.4</version.org.eclipse>
+        <ver.rest-assured>3.1.0</ver.rest-assured>
+        <ver.testng>6.14.3</ver.testng>
+        <ver.jakarta.xml.bind-api>4.0.0-RC3</ver.jakarta.xml.bind-api>
     </properties>
 
     <modules>
