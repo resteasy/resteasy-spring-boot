@@ -32,7 +32,6 @@
         <springboot.version>3.0.0-M1</springboot.version>
         <ver.mockito>4.3.1</ver.mockito>
         <ver.objenesis>3.2</ver.objenesis>
-        <!--        <ver.powermock>2.0.9</ver.powermock>-->
         <version.jakarta.annotation.annotation-api>2.1.0-B1</version.jakarta.annotation.annotation-api>
         <version.jakarta.servlet.servlet-api>5.0.0</version.jakarta.servlet.servlet-api>
         <version.jakarta.ws.rs>3.0.0</version.jakarta.ws.rs>
@@ -42,6 +41,10 @@
         <ver.rest-assured>3.1.0</ver.rest-assured>
         <ver.testng>6.14.3</ver.testng>
         <ver.jakarta.xml.bind-api>4.0.0-RC3</ver.jakarta.xml.bind-api>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <modular.jdk.args/>
+        <modular.jdk.props/>
     </properties>
 
     <modules>
@@ -82,7 +85,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-deploy-plugin</artifactId>
-                <version>2.8.2</version>
                 <configuration>
                     <skip>true</skip>
                 </configuration>
@@ -90,7 +92,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-install-plugin</artifactId>
-                <version>2.5.2</version>
                 <configuration>
                     <skip>false</skip>
                 </configuration>
