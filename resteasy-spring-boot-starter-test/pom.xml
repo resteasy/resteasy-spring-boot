@@ -108,68 +108,7 @@
         </dependency>
     </dependencies>
 
-<!--    <profiles>-->
-<!--        <profile>-->
-<!--            <id>JDK9</id>-->
-<!--            <activation>-->
-<!--                <jdk>[9,)</jdk>-->
-<!--            </activation>-->
-<!--            <properties>-->
-<!--                <modular.jdk.args>-->
-<!--                    &#45;&#45;add-modules=java.se-->
-<!--                </modular.jdk.args>-->
-<!--                <modular.jdk.props>-->
-<!--                    &#45;&#45;add-opens java.xml/jdk.xml.internal=ALL-UNNAMED-->
-<!--                </modular.jdk.props>-->
-<!--                &lt;!&ndash;modular.jdk.props>-Dsun.util.logging.disableCallerCheck=true -Dsun.reflect.debugModuleAccessChecks=true -Djaxb.debug=true</modular.jdk.props&ndash;&gt;-->
-<!--            </properties>-->
-<!--        </profile>-->
-<!--        &lt;!&ndash; Added for Fortify Support &ndash;&gt;-->
-<!--        <profile>-->
-<!--            <id>fortify</id>-->
-<!--            <activation></activation>-->
-<!--            <build>-->
-<!--                <plugins>-->
-<!--                    <plugin>-->
-<!--                        <groupId>com.fortify.ps.maven.plugin</groupId>-->
-<!--                        <artifactId>sca-maven-plugin</artifactId>-->
-<!--                        <version>4.22</version>-->
-<!--                    </plugin>-->
-<!--                </plugins>-->
-<!--            </build>-->
-<!--        </profile>-->
-<!--    </profiles>-->
-
     <build>
-<!--        <pluginManagement>-->
-<!--            <plugins>-->
-<!--                &lt;!&ndash; Added for Fortify Support &ndash;&gt;-->
-<!--                <plugin>-->
-<!--                    <groupId>com.fortify.ps.maven.plugin</groupId>-->
-<!--                    <artifactId>sca-maven-plugin</artifactId>-->
-<!--                    <configuration>-->
-<!--                        <source>1.8</source>-->
-<!--                        <maxHeap>1G</maxHeap>-->
-<!--                    </configuration>-->
-<!--                    <executions>-->
-<!--                        <execution>-->
-<!--                            <id>sca-clean</id>-->
-<!--                            <goals>-->
-<!--                                <goal>clean</goal>-->
-<!--                            </goals>-->
-<!--                        </execution>-->
-<!--                        <execution>-->
-<!--                            <id>sca-translate-exec</id>-->
-<!--                            <goals>-->
-<!--                                <goal>translate</goal>-->
-<!--                            </goals>-->
-<!--                        </execution>-->
-<!--                    </executions>-->
-<!--                    <version>4.22</version>-->
-<!--                </plugin>-->
-<!--                &lt;!&ndash; End Added For Fortify Support &ndash;&gt;-->
-<!--            </plugins>-->
-<!--        </pluginManagement>-->
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
