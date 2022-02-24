@@ -60,6 +60,7 @@
         </repository>
     </distributionManagement>
 
+<!--    once Spring is final we can remove this.-->
     <repositories>
         <repository>
             <id>spring-repo</id>
