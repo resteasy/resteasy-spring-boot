@@ -81,156 +81,156 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
             <version>${springboot.version}</version>
-<!--            <exclusions>-->
-<!--                <exclusion>-->
-<!--                    <groupId>org.jboss.logging</groupId>-->
-<!--                    <artifactId>jboss-logging</artifactId>-->
-<!--                </exclusion>-->
-<!--                <exclusion>-->
-<!--                    <groupId>com.fasterxml.jackson.core</groupId>-->
-<!--                    <artifactId>jackson-databind</artifactId>-->
-<!--                </exclusion>-->
-<!--                <exclusion>-->
-<!--                    <groupId>com.fasterxml.jackson.core</groupId>-->
-<!--                    <artifactId>jackson-annotations</artifactId>-->
-<!--                </exclusion>-->
-<!--                <exclusion>-->
-<!--                    <groupId>com.fasterxml.jackson.datatype</groupId>-->
-<!--                    <artifactId>jackson-datatype-jdk8</artifactId>-->
-<!--                </exclusion>-->
-<!--                <exclusion>-->
-<!--                    <groupId>com.fasterxml.jackson.module</groupId>-->
-<!--                    <artifactId>jackson-module-parameter-names</artifactId>-->
-<!--                </exclusion>-->
-<!--                <exclusion>-->
-<!--                    <groupId>com.fasterxml.jackson.datatype</groupId>-->
-<!--                    <artifactId>jackson-datatype-jsr310</artifactId>-->
-<!--                </exclusion>-->
-<!--                <exclusion>-->
-<!--                    <groupId>
-</groupId>-->
-<!--                    <artifactId>jakarta.validation-api</artifactId>-->
-<!--                </exclusion>-->
-<!--            </exclusions>-->
+            <!--            <exclusions>-->
+            <!--                <exclusion>-->
+            <!--                    <groupId>org.jboss.logging</groupId>-->
+            <!--                    <artifactId>jboss-logging</artifactId>-->
+            <!--                </exclusion>-->
+            <!--                <exclusion>-->
+            <!--                    <groupId>com.fasterxml.jackson.core</groupId>-->
+            <!--                    <artifactId>jackson-databind</artifactId>-->
+            <!--                </exclusion>-->
+            <!--                <exclusion>-->
+            <!--                    <groupId>com.fasterxml.jackson.core</groupId>-->
+            <!--                    <artifactId>jackson-annotations</artifactId>-->
+            <!--                </exclusion>-->
+            <!--                <exclusion>-->
+            <!--                    <groupId>com.fasterxml.jackson.datatype</groupId>-->
+            <!--                    <artifactId>jackson-datatype-jdk8</artifactId>-->
+            <!--                </exclusion>-->
+            <!--                <exclusion>-->
+            <!--                    <groupId>com.fasterxml.jackson.module</groupId>-->
+            <!--                    <artifactId>jackson-module-parameter-names</artifactId>-->
+            <!--                </exclusion>-->
+            <!--                <exclusion>-->
+            <!--                    <groupId>com.fasterxml.jackson.datatype</groupId>-->
+            <!--                    <artifactId>jackson-datatype-jsr310</artifactId>-->
+            <!--                </exclusion>-->
+            <!--                <exclusion>-->
+            <!--                    <groupId>
+            </groupId>-->
+            <!--                    <artifactId>jakarta.validation-api</artifactId>-->
+            <!--                </exclusion>-->
+            <!--            </exclusions>-->
         </dependency>
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-core</artifactId>
             <version>${resteasy.version}</version>
-<!--            <exclusions>-->
-<!--                <exclusion>-->
-<!--                    <groupId>org.jboss.logging</groupId>-->
-<!--                    <artifactId>jboss-logging</artifactId>-->
-<!--                </exclusion>-->
-<!--                <exclusion>-->
-<!--                    <groupId>org.ow2.asm</groupId>-->
-<!--                    <artifactId>asm</artifactId>-->
-<!--                </exclusion>-->
-<!--            </exclusions>-->
+            <!--            <exclusions>-->
+            <!--                <exclusion>-->
+            <!--                    <groupId>org.jboss.logging</groupId>-->
+            <!--                    <artifactId>jboss-logging</artifactId>-->
+            <!--                </exclusion>-->
+            <!--                <exclusion>-->
+            <!--                    <groupId>org.ow2.asm</groupId>-->
+            <!--                    <artifactId>asm</artifactId>-->
+            <!--                </exclusion>-->
+            <!--            </exclusions>-->
         </dependency>
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-core-spi</artifactId>
             <version>${resteasy.version}</version>
-<!--            <exclusions>-->
-<!--                <exclusion>-->
-<!--                    <groupId>jakarta.xml.bind</groupId>-->
-<!--                    <artifactId>jakarta.xml.bind-api</artifactId>-->
-<!--                </exclusion>-->
-<!--                <exclusion>-->
-<!--                    <groupId>org.jboss.logging</groupId>-->
-<!--                    <artifactId>jboss-logging</artifactId>-->
-<!--                </exclusion>-->
-<!--                <exclusion>-->
-<!--                    <groupId>org.apache.logging.log4j</groupId>-->
-<!--                    <artifactId>log4j-api</artifactId>-->
-<!--                </exclusion>-->
-<!--            </exclusions>-->
+            <!--            <exclusions>-->
+            <!--                <exclusion>-->
+            <!--                    <groupId>jakarta.xml.bind</groupId>-->
+            <!--                    <artifactId>jakarta.xml.bind-api</artifactId>-->
+            <!--                </exclusion>-->
+            <!--                <exclusion>-->
+            <!--                    <groupId>org.jboss.logging</groupId>-->
+            <!--                    <artifactId>jboss-logging</artifactId>-->
+            <!--                </exclusion>-->
+            <!--                <exclusion>-->
+            <!--                    <groupId>org.apache.logging.log4j</groupId>-->
+            <!--                    <artifactId>log4j-api</artifactId>-->
+            <!--                </exclusion>-->
+            <!--            </exclusions>-->
         </dependency>
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-servlet-initializer</artifactId>
             <version>${resteasy.version}</version>
-<!--            <exclusions>-->
-<!--                <exclusion>-->
-<!--                    <groupId>org.jboss.logging</groupId>-->
-<!--                    <artifactId>jboss-logging</artifactId>-->
-<!--                </exclusion>-->
-<!--            </exclusions>-->
+            <!--            <exclusions>-->
+            <!--                <exclusion>-->
+            <!--                    <groupId>org.jboss.logging</groupId>-->
+            <!--                    <artifactId>jboss-logging</artifactId>-->
+            <!--                </exclusion>-->
+            <!--            </exclusions>-->
         </dependency>
         <dependency>
             <groupId>org.jboss.resteasy.spring</groupId>
             <artifactId>resteasy-spring</artifactId>
             <version>${resteasy.spring.version}</version>
-<!--            <exclusions>-->
-<!--                <exclusion>-->
-<!--                    <groupId>org.jboss.resteasy</groupId>-->
-<!--                    <artifactId>resteasy-core-spi</artifactId>-->
-<!--                </exclusion>-->
-<!--                <exclusion>-->
-<!--                    <groupId>org.jboss.resteasy</groupId>-->
-<!--                    <artifactId>resteasy-core</artifactId>-->
-<!--                </exclusion>-->
-<!--                <exclusion>-->
-<!--                    <groupId>org.jboss.resteasy</groupId>-->
-<!--                    <artifactId>resteasy-jettison-provider</artifactId>-->
-<!--                </exclusion>-->
-<!--                <exclusion>-->
-<!--                    <groupId>org.jboss.logging</groupId>-->
-<!--                    <artifactId>jboss-logging</artifactId>-->
-<!--                </exclusion>-->
-<!--                <exclusion>-->
-<!--                    <groupId>commons-codec</groupId>-->
-<!--                    <artifactId>commons-codec</artifactId>-->
-<!--                </exclusion>-->
-<!--                <exclusion>-->
-<!--                    <groupId>org.springframework</groupId>-->
-<!--                    <artifactId>spring-test</artifactId>-->
-<!--                </exclusion>-->
-<!--                <exclusion>-->
-<!--                    <groupId>org.springframework</groupId>-->
-<!--                    <artifactId>spring-core</artifactId>-->
-<!--                </exclusion>-->
-<!--                <exclusion>-->
-<!--                    <groupId>org.springframework</groupId>-->
-<!--                    <artifactId>spring-webmvc</artifactId>-->
-<!--                </exclusion>-->
-<!--            </exclusions>-->
+            <!--            <exclusions>-->
+            <!--                <exclusion>-->
+            <!--                    <groupId>org.jboss.resteasy</groupId>-->
+            <!--                    <artifactId>resteasy-core-spi</artifactId>-->
+            <!--                </exclusion>-->
+            <!--                <exclusion>-->
+            <!--                    <groupId>org.jboss.resteasy</groupId>-->
+            <!--                    <artifactId>resteasy-core</artifactId>-->
+            <!--                </exclusion>-->
+            <!--                <exclusion>-->
+            <!--                    <groupId>org.jboss.resteasy</groupId>-->
+            <!--                    <artifactId>resteasy-jettison-provider</artifactId>-->
+            <!--                </exclusion>-->
+            <!--                <exclusion>-->
+            <!--                    <groupId>org.jboss.logging</groupId>-->
+            <!--                    <artifactId>jboss-logging</artifactId>-->
+            <!--                </exclusion>-->
+            <!--                <exclusion>-->
+            <!--                    <groupId>commons-codec</groupId>-->
+            <!--                    <artifactId>commons-codec</artifactId>-->
+            <!--                </exclusion>-->
+            <!--                <exclusion>-->
+            <!--                    <groupId>org.springframework</groupId>-->
+            <!--                    <artifactId>spring-test</artifactId>-->
+            <!--                </exclusion>-->
+            <!--                <exclusion>-->
+            <!--                    <groupId>org.springframework</groupId>-->
+            <!--                    <artifactId>spring-core</artifactId>-->
+            <!--                </exclusion>-->
+            <!--                <exclusion>-->
+            <!--                    <groupId>org.springframework</groupId>-->
+            <!--                    <artifactId>spring-webmvc</artifactId>-->
+            <!--                </exclusion>-->
+            <!--            </exclusions>-->
         </dependency>
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-jackson2-provider</artifactId>
             <version>${resteasy.version}</version>
-<!--            <exclusions>-->
-<!--                <exclusion>-->
-<!--                    <groupId>org.jboss.logging</groupId>-->
-<!--                    <artifactId>jboss-logging</artifactId>-->
-<!--                </exclusion>-->
-<!--                <exclusion>-->
-<!--                    <groupId>com.fasterxml.jackson.core</groupId>-->
-<!--                    <artifactId>jackson-databind</artifactId>-->
-<!--                </exclusion>-->
-<!--                <exclusion>-->
-<!--                    <groupId>com.fasterxml.jackson.core</groupId>-->
-<!--                    <artifactId>jackson-core</artifactId>-->
-<!--                </exclusion>-->
-<!--                <exclusion>-->
-<!--                    <groupId>com.fasterxml.jackson.core</groupId>-->
-<!--                    <artifactId>jackson-annotations</artifactId>-->
-<!--                </exclusion>-->
-<!--                <exclusion>-->
-<!--                    <groupId>com.fasterxml.jackson.jaxrs</groupId>-->
-<!--                    <artifactId>jackson-jaxrs-json-provider</artifactId>-->
-<!--                </exclusion>-->
-<!--                <exclusion>-->
-<!--                    <groupId>com.google.guava</groupId>-->
-<!--                    <artifactId>guava</artifactId>-->
-<!--                </exclusion>-->
-<!--                <exclusion>-->
-<!--                    <groupId>org.jboss.resteasy</groupId>-->
-<!--                    <artifactId>resteasy-client</artifactId>-->
-<!--                </exclusion>-->
-<!--            </exclusions>-->
+            <!--            <exclusions>-->
+            <!--                <exclusion>-->
+            <!--                    <groupId>org.jboss.logging</groupId>-->
+            <!--                    <artifactId>jboss-logging</artifactId>-->
+            <!--                </exclusion>-->
+            <!--                <exclusion>-->
+            <!--                    <groupId>com.fasterxml.jackson.core</groupId>-->
+            <!--                    <artifactId>jackson-databind</artifactId>-->
+            <!--                </exclusion>-->
+            <!--                <exclusion>-->
+            <!--                    <groupId>com.fasterxml.jackson.core</groupId>-->
+            <!--                    <artifactId>jackson-core</artifactId>-->
+            <!--                </exclusion>-->
+            <!--                <exclusion>-->
+            <!--                    <groupId>com.fasterxml.jackson.core</groupId>-->
+            <!--                    <artifactId>jackson-annotations</artifactId>-->
+            <!--                </exclusion>-->
+            <!--                <exclusion>-->
+            <!--                    <groupId>com.fasterxml.jackson.jaxrs</groupId>-->
+            <!--                    <artifactId>jackson-jaxrs-json-provider</artifactId>-->
+            <!--                </exclusion>-->
+            <!--                <exclusion>-->
+            <!--                    <groupId>com.google.guava</groupId>-->
+            <!--                    <artifactId>guava</artifactId>-->
+            <!--                </exclusion>-->
+            <!--                <exclusion>-->
+            <!--                    <groupId>org.jboss.resteasy</groupId>-->
+            <!--                    <artifactId>resteasy-client</artifactId>-->
+            <!--                </exclusion>-->
+            <!--            </exclusions>-->
         </dependency>
         <dependency>
             <groupId>jakarta.servlet</groupId>
@@ -242,11 +242,11 @@
             <artifactId>jakarta.annotation-api</artifactId>
             <version>${version.jakarta.annotation.annotation-api}</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.glassfish</groupId>-->
-<!--            <artifactId>javax.json</artifactId>-->
-<!--            <version>1.1.2</version>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.glassfish</groupId>-->
+        <!--            <artifactId>javax.json</artifactId>-->
+        <!--            <version>1.1.2</version>-->
+        <!--        </dependency>-->
 
         <!-- Test dependencies -->
         <dependency>
@@ -290,12 +290,12 @@
             <artifactId>spring-boot-starter-jdbc</artifactId>
             <version>${springboot.version}</version>
             <scope>test</scope>
-<!--            <exclusions>-->
-<!--                <exclusion>-->
-<!--                    <artifactId>HikariCP</artifactId>-->
-<!--                    <groupId>com.zaxxer</groupId>-->
-<!--                </exclusion>-->
-<!--            </exclusions>-->
+            <!--            <exclusions>-->
+            <!--                <exclusion>-->
+            <!--                    <artifactId>HikariCP</artifactId>-->
+            <!--                    <groupId>com.zaxxer</groupId>-->
+            <!--                </exclusion>-->
+            <!--            </exclusions>-->
         </dependency>
         <dependency>
             <groupId>org.testng</groupId>
@@ -317,12 +317,12 @@
                 </exclusion>
             </exclusions>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.mockito</groupId>-->
-<!--            <artifactId>mockito-core</artifactId>-->
-<!--            <version>${ver.mockito}</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.mockito</groupId>-->
+        <!--            <artifactId>mockito-core</artifactId>-->
+        <!--            <version>${ver.mockito}</version>-->
+        <!--            <scope>test</scope>-->
+        <!--        </dependency>-->
         <!--        <dependency>-->
         <!--            <groupId>org.powermock</groupId>-->
         <!--            <artifactId>powermock-core</artifactId>-->
@@ -406,56 +406,56 @@
         <!--            <artifactId>objenesis</artifactId>-->
         <!--            <version>${ver.objenesis}</version>-->
         <!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.slf4j</groupId>-->
-<!--            <artifactId>slf4j-api</artifactId>-->
-<!--            <version>1.7.26</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.jboss.logging</groupId>-->
-<!--            <artifactId>jboss-logging</artifactId>-->
-<!--            <version>${jboss-logging.ver}</version>-->
-<!--            <exclusions>-->
-<!--                <exclusion>-->
-<!--                    <groupId>org.slf4j</groupId>-->
-<!--                    <artifactId>slf4j-api</artifactId>-->
-<!--                </exclusion>-->
-<!--                <exclusion>-->
-<!--                    <groupId>org.apache.logging.log4j</groupId>-->
-<!--                    <artifactId>log4j-api</artifactId>-->
-<!--                </exclusion>-->
-<!--            </exclusions>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>com.fasterxml.jackson.core</groupId>-->
-<!--            <artifactId>jackson-databind</artifactId>-->
-<!--            <version>${resteasy.jackson.version}</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>com.fasterxml.jackson.jaxrs</groupId>-->
-<!--            <artifactId>jackson-jaxrs-json-provider</artifactId>-->
-<!--            <version>${resteasy.jackson.version}</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>com.fasterxml.jackson.datatype</groupId>-->
-<!--            <artifactId>jackson-datatype-jdk8</artifactId>-->
-<!--            <version>${resteasy.jackson.version}</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>com.fasterxml.jackson.module</groupId>-->
-<!--            <artifactId>jackson-module-parameter-names</artifactId>-->
-<!--            <version>${resteasy.jackson.version}</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>com.fasterxml.jackson.datatype</groupId>-->
-<!--            <artifactId>jackson-datatype-jsr310</artifactId>-->
-<!--            <version>${resteasy.jackson.version}</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>com.fasterxml.jackson.core</groupId>-->
-<!--            <artifactId>jackson-annotations</artifactId>-->
-<!--            <version>${resteasy.jackson.version}</version>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.slf4j</groupId>-->
+        <!--            <artifactId>slf4j-api</artifactId>-->
+        <!--            <version>1.7.26</version>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.jboss.logging</groupId>-->
+        <!--            <artifactId>jboss-logging</artifactId>-->
+        <!--            <version>${jboss-logging.ver}</version>-->
+        <!--            <exclusions>-->
+        <!--                <exclusion>-->
+        <!--                    <groupId>org.slf4j</groupId>-->
+        <!--                    <artifactId>slf4j-api</artifactId>-->
+        <!--                </exclusion>-->
+        <!--                <exclusion>-->
+        <!--                    <groupId>org.apache.logging.log4j</groupId>-->
+        <!--                    <artifactId>log4j-api</artifactId>-->
+        <!--                </exclusion>-->
+        <!--            </exclusions>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.fasterxml.jackson.core</groupId>-->
+        <!--            <artifactId>jackson-databind</artifactId>-->
+        <!--            <version>${resteasy.jackson.version}</version>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.fasterxml.jackson.jaxrs</groupId>-->
+        <!--            <artifactId>jackson-jaxrs-json-provider</artifactId>-->
+        <!--            <version>${resteasy.jackson.version}</version>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.fasterxml.jackson.datatype</groupId>-->
+        <!--            <artifactId>jackson-datatype-jdk8</artifactId>-->
+        <!--            <version>${resteasy.jackson.version}</version>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.fasterxml.jackson.module</groupId>-->
+        <!--            <artifactId>jackson-module-parameter-names</artifactId>-->
+        <!--            <version>${resteasy.jackson.version}</version>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.fasterxml.jackson.datatype</groupId>-->
+        <!--            <artifactId>jackson-datatype-jsr310</artifactId>-->
+        <!--            <version>${resteasy.jackson.version}</version>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.fasterxml.jackson.core</groupId>-->
+        <!--            <artifactId>jackson-annotations</artifactId>-->
+        <!--            <version>${resteasy.jackson.version}</version>-->
+        <!--        </dependency>-->
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
@@ -620,6 +620,13 @@
         <!--            </plugins>-->
         <!--        </pluginManagement>-->
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <configuration>
+                    <skip>false</skip>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
