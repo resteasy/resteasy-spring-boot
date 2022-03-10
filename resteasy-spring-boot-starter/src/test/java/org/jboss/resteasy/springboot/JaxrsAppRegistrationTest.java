@@ -49,13 +49,13 @@ public class JaxrsAppRegistrationTest {
         allPossibleAppClasses = Collections.unmodifiableSet(_allPossibleAppClasses);
     }
 
-    @BeforeMethod
-    public void beforeTest() {
-//        PowerMockito.mockStatic(AutoConfigurationPackages.class);
-        List<String> packages = new ArrayList<String>();
-        packages.add("org.jboss.resteasy.springboot.sample");
-//        PowerMockito.when(AutoConfigurationPackages.get(any(BeanFactory.class))).thenReturn(packages);
-    }
+//    @BeforeMethod
+//    public void beforeTest() {
+////        PowerMockito.mockStatic(AutoConfigurationPackages.class);
+//        List<String> packages = new ArrayList<String>();
+//        packages.add("org.jboss.resteasy.springboot.sample");
+////        PowerMockito.when(AutoConfigurationPackages.get(any(BeanFactory.class))).thenReturn(packages);
+//    }
 
     @Test
     public void beansTest() {
