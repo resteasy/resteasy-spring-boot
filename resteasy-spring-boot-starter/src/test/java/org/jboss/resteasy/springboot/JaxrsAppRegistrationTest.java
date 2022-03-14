@@ -9,6 +9,7 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.GenericBeanDefinition;
 import org.springframework.boot.autoconfigure.AutoConfigurationPackages;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Ignore;
@@ -20,6 +21,8 @@ import jakarta.ws.rs.ext.Provider;
 
 import java.util.*;
 
+import org.mockito.*;
+
 import static org.mockito.Mockito.*;
 
 /**
@@ -29,6 +32,7 @@ import static org.mockito.Mockito.*;
  */
 //@PrepareForTest(AutoConfigurationPackages.class)
 //@MockPolicy(Slf4jMockPolicy.class)
+//@SpringBootTest
 public class JaxrsAppRegistrationTest {
 
     static final String DEFINITION_PROPERTY = "resteasy.jaxrs.app.registration";
@@ -70,6 +74,26 @@ public class JaxrsAppRegistrationTest {
     }
 
     @Test
+    public void nullTest() {
+        List<String> packages = new ArrayList<String>();
+        packages.add("org.jboss.resteasy.springboot.sample");
+        try (MockedStatic<AutoConfigurationPackages> acp = Mockito.mockStatic(AutoConfigurationPackages.class)) {
+            acp.when(() -> AutoConfigurationPackages.get(any(BeanFactory.class))).thenReturn(packages);
+
+            ConfigurableEnvironment configurableEnvironmentMock = mock(ConfigurableEnvironment.class);
+            when(configurableEnvironmentMock.getProperty(DEFINITION_PROPERTY)).thenReturn(null);
+
+            Set<Class> expectedRegisteredAppClasses = new HashSet<Class>();
+            expectedRegisteredAppClasses.add(TestApplication1.class);
+            expectedRegisteredAppClasses.add(TestApplication2.class);
+            expectedRegisteredAppClasses.add(TestApplication4.class);
+            expectedRegisteredAppClasses.add(TestApplication5.class);
+
+            test(configurableEnvironmentMock, expectedRegisteredAppClasses);
+        }
+    }
+
+    @Test
     public void propertyTest() {
         ConfigurableEnvironment configurableEnvironmentMock = mock(ConfigurableEnvironment.class);
         when(configurableEnvironmentMock.getProperty(DEFINITION_PROPERTY)).thenReturn("property");
@@ -82,9 +106,7 @@ public class JaxrsAppRegistrationTest {
         test(configurableEnvironmentMock, expectedRegisteredAppClasses);
     }
 
-    @Test(expectedExceptions = IllegalArgumentException.class,
-            expectedExceptionsMessageRegExp = "Property " + DEFINITION_PROPERTY +
-                    " has not been properly set, value blah is invalid. JAX-RS Application classes registration is being set to AUTO.")
+    @Test(expectedExceptions = IllegalArgumentException.class, expectedExceptionsMessageRegExp = "Property " + DEFINITION_PROPERTY + " has not been properly set, value blah is invalid. JAX-RS Application classes registration is being set to AUTO.")
     public void invalidRegistrationTest() {
         ConfigurableEnvironment configurableEnvironmentMock = mock(ConfigurableEnvironment.class);
         when(configurableEnvironmentMock.getProperty(DEFINITION_PROPERTY)).thenReturn("blah");
@@ -126,10 +148,7 @@ public class JaxrsAppRegistrationTest {
     }
 
     private ConfigurableListableBeanFactory prepareTest(ConfigurableEnvironment envMock) {
-        ConfigurableListableBeanFactory beanFactory = mock(
-                ConfigurableListableBeanFactory.class,
-                withSettings().extraInterfaces(BeanDefinitionRegistry.class)
-        );
+        ConfigurableListableBeanFactory beanFactory = mock(ConfigurableListableBeanFactory.class, withSettings().extraInterfaces(BeanDefinitionRegistry.class));
 
         when(beanFactory.getBean(ConfigurableEnvironment.class)).thenReturn(envMock);
         when(beanFactory.getBeanNamesForAnnotation(Path.class)).thenReturn(new String[]{"testResource1", "testResource2"});
