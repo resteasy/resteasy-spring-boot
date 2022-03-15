@@ -94,6 +94,47 @@ public class JaxrsAppRegistrationTest {
     }
 
     @Test
+    public void scanningTest() {
+        List<String> packages = new ArrayList<String>();
+        packages.add("org.jboss.resteasy.springboot.sample");
+        try (MockedStatic<AutoConfigurationPackages> acp = Mockito.mockStatic(AutoConfigurationPackages.class)) {
+            acp.when(() -> AutoConfigurationPackages.get(any(BeanFactory.class))).thenReturn(packages);
+
+            ConfigurableEnvironment configurableEnvironmentMock = mock(ConfigurableEnvironment.class);
+            when(configurableEnvironmentMock.getProperty(DEFINITION_PROPERTY)).thenReturn("scanning");
+
+            Set<Class> expectedRegisteredAppClasses = new HashSet<Class>();
+            expectedRegisteredAppClasses.add(TestApplication1.class);
+            expectedRegisteredAppClasses.add(TestApplication2.class);
+            expectedRegisteredAppClasses.add(TestApplication4.class);
+            expectedRegisteredAppClasses.add(TestApplication5.class);
+
+            test(configurableEnvironmentMock, expectedRegisteredAppClasses);
+        }
+    }
+
+
+    @Test
+    public void autoTest() {
+        List<String> packages = new ArrayList<String>();
+        packages.add("org.jboss.resteasy.springboot.sample");
+        try (MockedStatic<AutoConfigurationPackages> acp = Mockito.mockStatic(AutoConfigurationPackages.class)) {
+            acp.when(() -> AutoConfigurationPackages.get(any(BeanFactory.class))).thenReturn(packages);
+
+            ConfigurableEnvironment configurableEnvironmentMock = mock(ConfigurableEnvironment.class);
+            when(configurableEnvironmentMock.getProperty(DEFINITION_PROPERTY)).thenReturn("auto");
+
+            Set<Class> expectedRegisteredAppClasses = new HashSet<Class>();
+            expectedRegisteredAppClasses.add(TestApplication1.class);
+            expectedRegisteredAppClasses.add(TestApplication2.class);
+            expectedRegisteredAppClasses.add(TestApplication4.class);
+            expectedRegisteredAppClasses.add(TestApplication5.class);
+
+            test(configurableEnvironmentMock, expectedRegisteredAppClasses);
+        }
+    }
+
+    @Test
     public void propertyTest() {
         ConfigurableEnvironment configurableEnvironmentMock = mock(ConfigurableEnvironment.class);
         when(configurableEnvironmentMock.getProperty(DEFINITION_PROPERTY)).thenReturn("property");
