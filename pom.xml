@@ -27,14 +27,14 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <resteasy.jackson.version>2.12.3</resteasy.jackson.version>
-        <resteasy.spring.version>3.0.0.Alpha1</resteasy.spring.version>
-        <resteasy.version>6.0.0.Final</resteasy.version>
+        <resteasy.spring.version>3.0.0.Alpha2</resteasy.spring.version>
+        <resteasy.version>6.1.0.Beta1</resteasy.version>
         <springboot.version>3.0.0-M1</springboot.version>
         <ver.mockito>4.3.1</ver.mockito>
         <ver.objenesis>3.2</ver.objenesis>
         <version.jakarta.annotation.annotation-api>2.1.0-B1</version.jakarta.annotation.annotation-api>
         <version.jakarta.servlet.servlet-api>5.0.0</version.jakarta.servlet.servlet-api>
-        <version.jakarta.ws.rs>3.0.0</version.jakarta.ws.rs>
+        <version.jakarta.ws.rs>3.1.0.RC1-jbossorg-1</version.jakarta.ws.rs>
         <version.org.springframework>6.0.0-M2</version.org.springframework>
         <ver.jakarta.validation-api>3.0.1</ver.jakarta.validation-api>
         <version.org.eclipse>2.0.4</version.org.eclipse>
@@ -63,8 +63,22 @@
         </repository>
     </distributionManagement>
 
-<!--    once Spring is final we can remove this.-->
+    <!--    once Spring is final we can remove this.-->
     <repositories>
+        <repository>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </snapshots>
+            <id>jboss-public-repository-group</id>
+            <name>JBoss Public Repository Group</name>
+            <url>https://repository.jboss.org/nexus/content/groups/public/</url>
+            <layout>default</layout>
+        </repository>
         <repository>
             <id>spring-repo</id>
             <name>Spring Repository</name>
