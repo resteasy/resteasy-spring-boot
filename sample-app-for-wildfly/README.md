@@ -1,4 +1,4 @@
-# Sample application for Wildfly Deployment
+mvn # Sample application for Wildfly Deployment
 
 This example is for deploying to Wildfly Java EE Full & Web Distribution.
 
