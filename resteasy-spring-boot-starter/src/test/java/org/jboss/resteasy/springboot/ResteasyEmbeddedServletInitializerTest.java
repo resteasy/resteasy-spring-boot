@@ -20,7 +20,6 @@ import org.testng.annotations.Test;
  * Created by facarvalho on 11/25/15.
  * @author Fabio Carvalho (facarvalho@paypal.com or fabiocarvalho777@gmail.com)
  */
-@Ignore
 @ContextConfiguration("classpath:test-config.xml")
 public class ResteasyEmbeddedServletInitializerTest extends AbstractTestNGSpringContextTests {
 
