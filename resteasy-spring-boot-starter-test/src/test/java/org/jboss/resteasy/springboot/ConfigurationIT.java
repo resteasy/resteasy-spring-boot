@@ -142,7 +142,7 @@ public class ConfigurationIT {
             configureAndStartApp(properties, false, com.sample.app.MyApp.class);
 
             Assert.fail("Expected exception, due to class not found, has not been thrown");
-        } catch (BeansException ex) {
+        } catch (Exception ex) {
             Assert.assertEquals(ex.getCause().getClass(), ClassNotFoundException.class);
             Assert.assertEquals(ex.getCause().getMessage(), "com.foor.bar.NonExistentApplicationClass");
         }
