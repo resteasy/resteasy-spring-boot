@@ -6,7 +6,6 @@ import org.springframework.beans.BeansException;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.util.SocketUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
