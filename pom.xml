@@ -50,11 +50,7 @@
     </properties>
 
     <modules>
-        <module>resteasy-spring-boot-starter</module>
-        <module>sample-app</module>
-        <module>sample-app-for-wildfly</module>
-        <module>sample-app-no-jaxrs-application</module>
-        <module>resteasy-spring-boot-starter-test</module>
+        <module>servers/servlet</module>
     </modules>
 
     <distributionManagement>

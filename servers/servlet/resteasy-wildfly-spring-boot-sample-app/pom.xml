@@ -5,12 +5,12 @@
 
     <parent>
         <groupId>org.jboss.resteasy</groupId>
-        <artifactId>resteasy-spring-boot-starter-parent</artifactId>
+        <artifactId>resteasy-servet-spring-boot-starter-parent</artifactId>
         <version>6.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>spring-boot-sample-app-for-wildfly</artifactId>
+    <artifactId>resteasy-wildfly-spring-boot-sample-app</artifactId>
     <packaging>war</packaging>
 
     <description>Simple test application for the Resteasy Spring Boot starter to deploy to Wildfly</description>

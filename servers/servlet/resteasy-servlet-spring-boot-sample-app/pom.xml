@@ -5,17 +5,15 @@
 
     <parent>
         <groupId>org.jboss.resteasy</groupId>
-        <artifactId>resteasy-spring-boot-starter-parent</artifactId>
+        <artifactId>resteasy-servet-spring-boot-starter-parent</artifactId>
         <version>6.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>spring-boot-sample-app</artifactId>
+    <artifactId>resteasy-servlet-spring-boot-sample-app</artifactId>
     <packaging>jar</packaging>
 
-    <description>Simple test application for the Resteasy Spring Boot starter</description>
-
-
+    <description>Sample test application for the Resteasy Spring Boot Servlet starter</description>
 
     <dependencyManagement>
         <dependencies>
