@@ -30,11 +30,13 @@
         <resteasy.spring.version>3.0.0.Alpha2</resteasy.spring.version>
         <resteasy.version>6.1.0.Beta1</resteasy.version>
         <springboot.version>3.0.0-M3</springboot.version>
+        <slf4j.version>1.7.36</slf4j.version>
         <ver.mockito>4.3.1</ver.mockito>
         <ver.objenesis>3.2</ver.objenesis>
         <version.jakarta.annotation.annotation-api>2.1.0-B1</version.jakarta.annotation.annotation-api>
         <version.jakarta.servlet.servlet-api>5.0.0</version.jakarta.servlet.servlet-api>
         <version.jakarta.ws.rs>3.1.0</version.jakarta.ws.rs>
+        <version.jakarta.inject.api>2.0.1</version.jakarta.inject.api>
         <version.org.springframework>6.0.0-M4</version.org.springframework>
         <ver.jakarta.validation-api>3.0.1</ver.jakarta.validation-api>
         <version.org.eclipse>2.0.4</version.org.eclipse>
@@ -50,7 +52,9 @@
     </properties>
 
     <modules>
-        <module>servers/servlet</module>
+        <module>common</module>
+        <module>servlet</module>
+        <module>reactor-netty</module>
     </modules>
 
     <distributionManagement>
