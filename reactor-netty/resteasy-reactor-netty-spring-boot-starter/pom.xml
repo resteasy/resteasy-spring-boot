@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.jboss.resteasy</groupId>
+        <artifactId>resteasy-reactor-netty-spring-boot-starter-parent</artifactId>
+        <version>6.0.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>resteasy-reactor-netty-spring-boot-starter</artifactId>
+    <name>${project.artifactId}</name>
+
+    <description>A Spring Boot starter for RESTEasy using Reactor Netty as server</description>
+    <url>https://github.com/resteasy/resteasy-spring-boot</url>
+
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:git:git@github.com:resteasy/resteasy-spring-boot.git</connection>
+        <developerConnection>scm:git:git@github.com:resteasy/resteasy-spring-boot.git</developerConnection>
+        <url>git@github.com:resteasy/resteasy-spring-boot.git</url>
+    </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>jboss-releases-repository</id>
+            <name>JBoss Releases Repository</name>
+            <url>https://repository.jboss.org/nexus/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
+
+    <issueManagement>
+        <system>JIRA</system>
+        <url>http://jira.jboss.com/jira/browse/RESTEASY</url>
+    </issueManagement>
+
+    <dependencies>
+
+    </dependencies>
+
+</project>
