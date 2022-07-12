@@ -51,12 +51,23 @@
         </repository>
     </distributionManagement>
 
-
     <issueManagement>
         <system>JIRA</system>
         <url>http://jira.jboss.com/jira/browse/RESTEASY</url>
     </issueManagement>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-parent</artifactId>
+                <version>${springboot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    
     <dependencies>
 	    <dependency>
 	       <groupId>org.jboss.resteasy</groupId>
@@ -66,7 +77,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
-            <version>${springboot.version}</version>
             <exclusions>
                 <!--                <exclusion>-->
                 <!--                    <groupId>org.slf4j</groupId>-->
@@ -85,19 +95,16 @@
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>4.4.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-inline</artifactId>
-            <version>4.4.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <version>${springboot.version}</version>
             <!--            <exclusions>-->
             <!--                <exclusion>-->
             <!--                    <groupId>org.jboss.logging</groupId>-->
@@ -252,12 +259,10 @@
         <dependency>
             <groupId>jakarta.servlet</groupId>
             <artifactId>jakarta.servlet-api</artifactId>
-            <version>${version.jakarta.servlet.servlet-api}</version>
         </dependency>
         <dependency>
             <groupId>jakarta.annotation</groupId>
             <artifactId>jakarta.annotation-api</artifactId>
-            <version>${version.jakarta.annotation.annotation-api}</version>
         </dependency>
         <!--        <dependency>-->
         <!--            <groupId>org.glassfish</groupId>-->
@@ -269,7 +274,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <version>${springboot.version}</version>
             <exclusions>
                 <!--                <exclusion>-->
                 <!--                    <groupId>jakarta.xml.bind</groupId>-->
@@ -400,12 +404,10 @@
         <dependency>
             <groupId>jakarta.validation</groupId>
             <artifactId>jakarta.validation-api</artifactId>
-            <version>${ver.jakarta.validation-api}</version>
         </dependency>
         <dependency>
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>
-            <version>1.13</version>
         </dependency>
         <!--        <dependency>-->
         <!--            <groupId>org.junit.platform</groupId>-->

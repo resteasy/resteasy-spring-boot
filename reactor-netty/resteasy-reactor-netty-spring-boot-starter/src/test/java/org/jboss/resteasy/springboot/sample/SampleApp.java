@@ -1,4 +1,11 @@
 package org.jboss.resteasy.springboot.sample;
 
-public class SampleApp {
-}
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.stereotype.Component;
+
+/**
+ * Sample app for test purposes
+ */
+@EnableAutoConfiguration
+@Component
+public class SampleApp {}

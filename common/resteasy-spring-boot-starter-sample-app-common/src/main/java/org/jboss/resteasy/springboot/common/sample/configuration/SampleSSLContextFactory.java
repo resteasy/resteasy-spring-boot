@@ -18,8 +18,9 @@ public class SampleSSLContextFactory {
         final char[] password = keystoreSecret.toCharArray();
         
         try {
-           final KeyStore keyStore = KeyStore.getInstance("JKS");
-            final InputStream stream = SSLContext.class.getClass().getResourceAsStream("/" + keystoreFileName);
+            final KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
+            final InputStream stream = ClassLoader.getSystemResourceAsStream(keystoreFileName);
+            
             keyStore.load(stream, password);
 
             return SSLContextBuilder.create()

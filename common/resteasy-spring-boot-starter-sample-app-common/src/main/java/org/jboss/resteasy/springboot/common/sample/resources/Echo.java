@@ -37,4 +37,5 @@ public class Echo {
     public EchoMessage echo(@NotEmpty(message = "must not be empty") String echoText) {
         return echoer.createEchoMessage(echoText);
     }
+
 }

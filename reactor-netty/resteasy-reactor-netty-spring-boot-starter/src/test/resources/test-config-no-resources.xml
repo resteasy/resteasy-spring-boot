@@ -1,0 +1,17 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	   http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+	   http://www.springframework.org/schema/context/spring-context.xsd
+	">
+
+	<context:component-scan base-package="org.jboss.resteasy.springboot">
+		<context:exclude-filter type="assignable" expression="org.jboss.resteasy.springboot.sample.TestResource1" />
+		<context:exclude-filter type="assignable" expression="org.jboss.resteasy.springboot.sample.TestResource2" />
+		<context:exclude-filter type="assignable" expression="org.jboss.resteasy.springboot.sample.TestProvider1" />
+	</context:component-scan>
+
+</beans>

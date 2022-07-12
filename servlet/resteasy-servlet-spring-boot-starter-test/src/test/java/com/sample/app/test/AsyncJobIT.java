@@ -2,8 +2,9 @@ package com.sample.app.test;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.hamcrest.Matchers.emptyString;
 import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.isEmptyString;
+import static org.hamcrest.Matchers.is;
 
 import java.util.Properties;
 
@@ -54,7 +55,7 @@ public class AsyncJobIT {
     @Test
     public void asyncRequestTest() {
         Response response = given().body("is there anybody out there?").post("/echo?asynch=true");
-        response.then().statusCode(202).body(isEmptyString());
+        response.then().statusCode(202).body(is(emptyString()));
 
         String location = response.getHeader("Location");
         response = given().get(location + "?wait=1000");
@@ -64,7 +65,7 @@ public class AsyncJobIT {
     @Test
     public void fireAndForgetRequestTest() {
         Response response = given().body("is there anybody out there?").post("/echo?oneway=true");
-        response.then().statusCode(202).body(isEmptyString());
+        response.then().statusCode(202).body(is(emptyString()));
     }
 
     @AfterClass
