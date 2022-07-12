@@ -35,6 +35,7 @@
         <ver.objenesis>3.2</ver.objenesis>
         <version.jakarta.annotation.annotation-api>2.1.0-B1</version.jakarta.annotation.annotation-api>
         <version.jakarta.servlet.servlet-api>5.0.0</version.jakarta.servlet.servlet-api>
+        <version.glassfish.jakarta.el>5.0.0-M1</version.glassfish.jakarta.el>
         <version.jakarta.ws.rs>3.1.0</version.jakarta.ws.rs>
         <version.jakarta.inject.api>2.0.1</version.jakarta.inject.api>
         <version.org.springframework>6.0.0-M4</version.org.springframework>
