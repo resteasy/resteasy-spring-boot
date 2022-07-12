@@ -3,9 +3,9 @@
 
 # RESTEasy Spring Boot Starter
 
-This Spring Boot starter can be used by any regular Spring Boot application that wants to have REST endpoints and prefers RESTEasy as the JAX-RS implementation.
-
-Also, this RESTEasy Spring Boot starter integrates with Spring as expected, which means every JAX-RS REST resource that is also a Spring bean will be automatically auto-scanned, integrated, and available.
+The RESTEasy Spring Boot starters can be used by any regular Spring Boot application that wants to have REST endpoints and prefers RESTEasy as the JAX-RS implementation. They integrate with Spring as expected, which means every JAX-RS REST resource that is also a Spring bean will be automatically auto-scanned, integrated, and available. There are two flavors of starters available that provide integration with the following types of application servers:
+- Servlet based (e.g. Tomcat)
+- Reactor Netty
 
 ## Features
 * Enables RESTEasy for Spring Boot applications
@@ -14,6 +14,8 @@ Also, this RESTEasy Spring Boot starter integrates with Spring as expected, whic
 * Supports optional registration of [JAX-RS Application](http://docs.oracle.com/javaee/7/api/javax/ws/rs/core/Application.html) classes via class-path scanning, or manually, via configuration properties (or YAML) file
 * Leverages and supports RESTEasy configuration
 * Supports RESTEasy Asynchronous Job Service
+* Servlet based server integration
+* Reactor Netty integration
 
 *This project has been kindly donated by PayPal. Please refer to https://github.com/paypal/resteasy-spring-boot for old versions.*
 
@@ -22,10 +24,23 @@ Also, this RESTEasy Spring Boot starter integrates with Spring as expected, whic
 ### Adding POM dependency
 Add the Maven dependency below to your Spring Boot application pom file.<br>
 
+**Servlet**
+
 ``` xml
 <dependency>
    <groupId>org.jboss.resteasy</groupId>
-   <artifactId>resteasy-spring-boot-starter</artifactId>
+   <artifactId>resteasy-servlet-spring-boot-starter</artifactId>
+   <version>6.0.1-SNAPSHOT</version>
+   <scope>runtime</scope>
+</dependency>
+```
+
+**Reactor Netty**
+
+``` xml
+<dependency>
+   <groupId>org.jboss.resteasy</groupId>
+   <artifactId>resteasy-reactor-netty-spring-boot-starter</artifactId>
    <version>6.0.1-SNAPSHOT</version>
    <scope>runtime</scope>
 </dependency>
@@ -55,11 +70,20 @@ Notice that JAX-RS resources can be singleton or request scoped, while JAX-RS pr
 ### Further information
 See [How to use RESTEasy Spring Boot Starter](mds/USAGE.md).
 
-## Projects
+## Core Projects
 
-  - **sample-app**: A simple Spring Boot application that exposes JAX-RS endpoints as Spring beans using RESTEasy via this RESTEasy Spring Boot starter.
-  - **resteasy-spring-boot-starter**: The RESTEasy Spring Boot Starter project.
-  - **resteasy-spring-boot-starter-test**: Integration tests for the RESTEasy Spring Boot Starter project.
+**Servlet**
+
+  - **resteasy-servlet-spring-boot-starter**: The RESTEasy Spring Boot Starter project for servlet based application servers.
+  - **resteasy-servlet-spring-boot-sample-app**: A simple Spring Boot application that exposes JAX-RS endpoints as Spring beans using RESTEasy via the RESTEasy Spring Boot servlet starter.
+  - **resteasy-servlet-spring-boot-starter-test**: Integration tests for the RESTEasy Spring Boot servlet starter.
+  
+  
+**Reactor Netty**  
+  - **resteasy-reactor-netty-spring-boot-starter**: The RESTEasy Spring Boot Starter project using Reactor Netty as application server.
+  - **resteasy-reactor-netty-spring-boot-sample-app**: A simple Spring Boot application that exposes JAX-RS endpoints as Spring beans using RESTEasy via the RESTEasy Spring Boot starter using Reactor Netty.
+  - **resteasy-reactor-netty-spring-boot-starter-test**: Integration tests for the RESTEasy Spring Boot Starter with Reactor Netty as application server.
+  
 
 ## Reporting an issue
 Please open an issue using [JIRA](https://issues.jboss.org/browse/RESTEASY) (be sure to set *Spring / Spring Boot* in the *Component/s* field).
