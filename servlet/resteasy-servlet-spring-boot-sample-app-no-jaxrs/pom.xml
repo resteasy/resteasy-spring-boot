@@ -54,7 +54,7 @@
         </dependency>
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-spring-boot-starter</artifactId>
+            <artifactId>resteasy-servlet-spring-boot-starter</artifactId>
             <version>${project.version}</version>
             <scope>runtime</scope>
         </dependency>
