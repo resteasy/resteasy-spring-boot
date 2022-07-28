@@ -20,7 +20,7 @@ is there anybody out there?
 You can use the following command to send the request:
 
 ```bash
-$ curl --location --request POST 'http://localhost:8080/sample-app/echo' \
+$ curl -k --location --request POST 'https://localhost:8443/sample-app/echo' \
 --header 'Content-Type: text/plain' \
 --data-raw 'is there anybody out there?'
 ```
