@@ -18,5 +18,7 @@ jobs:
         with:
           java-version: '17'
           distribution: 'adopt'
-      - name: Build with Maven
+      - name: Test With Maven
+        run: mvn -B -fae test
+      - name: Build With Maven
         run: mvn -B package --file pom.xml
