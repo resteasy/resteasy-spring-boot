@@ -1,7 +1,7 @@
 package org.jboss.resteasy.springboot.utilities;
 
 import java.util.Optional;
-import org.jboss.resteasy.springboot.ReactorNettyServerConfig;
+import org.jboss.resteasy.springboot.reactor.ReactorNettyServerConfig;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;

@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import org.jboss.resteasy.springboot.reactor.ResteasyBeanProcessorReactorNetty;
 import org.jboss.resteasy.springboot.sample.TestApplication1;
 import org.jboss.resteasy.springboot.sample.TestApplication2;
 import org.jboss.resteasy.springboot.sample.TestApplication3;

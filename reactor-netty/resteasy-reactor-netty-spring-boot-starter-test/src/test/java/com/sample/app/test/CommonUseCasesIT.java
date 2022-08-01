@@ -5,7 +5,7 @@ import static org.hamcrest.CoreMatchers.any;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.hasItems;
 import static org.hamcrest.CoreMatchers.notNullValue;
-import org.jboss.resteasy.springboot.ResteasyAutoConfiguration.ResteasyReactorNettyServerBean;
+import org.jboss.resteasy.springboot.reactor.ResteasyAutoConfiguration.ResteasyReactorNettyServerBean;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.testng.Assert;

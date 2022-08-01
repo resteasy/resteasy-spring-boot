@@ -1,6 +1,6 @@
 package com.sample.app;
 
-import org.jboss.resteasy.springboot.ReactorNettyServerConfig;
+import org.jboss.resteasy.springboot.reactor.ReactorNettyServerConfig;
 import org.jboss.resteasy.springboot.common.sample.configuration.SampleSSLContextFactory;
 import org.jboss.resteasy.springboot.common.sample.resources.IEchoMessageCreator;
 import org.springframework.boot.SpringApplication;
