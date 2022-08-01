@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-org.jboss.resteasy.springboot.ResteasyAutoConfiguration
+org.jboss.resteasy.springboot.reactor.ResteasyAutoConfiguration

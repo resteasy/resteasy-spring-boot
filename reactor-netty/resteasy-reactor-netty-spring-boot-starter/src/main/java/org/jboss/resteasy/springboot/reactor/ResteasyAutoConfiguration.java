@@ -1,4 +1,4 @@
-package org.jboss.resteasy.springboot;
+package org.jboss.resteasy.springboot.reactor;
 
 import java.lang.invoke.MethodHandles;
 import java.util.Optional;

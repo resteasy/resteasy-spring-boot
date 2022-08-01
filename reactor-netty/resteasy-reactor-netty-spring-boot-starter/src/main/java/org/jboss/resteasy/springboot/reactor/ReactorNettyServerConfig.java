@@ -1,4 +1,4 @@
-package org.jboss.resteasy.springboot;
+package org.jboss.resteasy.springboot.reactor;
 
 import java.time.Duration;
 import java.util.Arrays;

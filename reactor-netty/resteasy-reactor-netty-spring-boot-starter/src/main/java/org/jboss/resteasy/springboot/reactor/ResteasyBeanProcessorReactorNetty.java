@@ -1,4 +1,4 @@
-package org.jboss.resteasy.springboot;
+package org.jboss.resteasy.springboot.reactor;
 
 import org.jboss.resteasy.springboot.common.ResteasyResourcesFinder;
 import org.slf4j.Logger;
