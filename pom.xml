@@ -42,6 +42,8 @@
         <ver.jakarta.validation-api>3.0.1</ver.jakarta.validation-api>
         <version.org.eclipse>2.0.4</version.org.eclipse>
         <ver.wildfly.maven.plugin>3.0.0.Final</ver.wildfly.maven.plugin>
+        <!--        We need to keep netty version sync with resteasy-->
+        <version.io.netty.netty4>4.1.78.Final</version.io.netty.netty4>
         <ver.wildfly>26.0.1.Final</ver.wildfly>
         <ver.rest-assured>3.1.0</ver.rest-assured>
         <ver.testng>6.14.3</ver.testng>
