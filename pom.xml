@@ -27,7 +27,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <resteasy.jackson.version>2.12.3</resteasy.jackson.version>
-        <resteasy.spring.version>3.0.0.Alpha2</resteasy.spring.version>
+        <resteasy.spring.version>3.0.0.Beta1</resteasy.spring.version>
         <resteasy.version>6.1.0.Final</resteasy.version>
         <springboot.version>3.0.0-M3</springboot.version>
         <slf4j.version>1.7.36</slf4j.version>
