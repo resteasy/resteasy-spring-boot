@@ -8,7 +8,7 @@ Add the Maven dependency below to your Spring Boot application pom file.<br>
 <dependency>
    <groupId>org.jboss.resteasy</groupId>
    <artifactId>resteasy-spring-boot-starter</artifactId>
-   <version>5.0.0.Final</version>
+   <version>5.0.1-SNAPSHOT</version>
    <scope>runtime</scope>
 </dependency>
 ```
@@ -59,17 +59,17 @@ __Important notes__
 
 - If no JAX-RS application classes are found, a default one will be automatically created mapping to `/*` (_according to section 2.3.2 in the JAX-RS 2.0 specification_). Notice that, in this case, if you have any other Servlet in your application, their URL matching might conflict. For example, if you have Spring Boot actuator and its mapped to `/`, its endpoints might not be reachable.
 - It is recommended to always have at least one JAX-RS application class.
-- A JAX-RS application class with no `javax.ws.rs.ApplicationPath` annotation will not be registered, unless `resteasy.servlet.mapping.prefix` is specified.
+- A JAX-RS application class with no `javax.ws.rs.core.ApplicationPath` annotation will not be registered, unless `resteasy.servlet.mapping.prefix` is specified.
 - Avoid setting the JAX-RS application base URI to simply `/` to prevent URI conflicts, as explained in item 1.
 - Property `resteasy.jaxrs.app` was deprecated in version *2.2.0-RELEASE* (see [issue 35](https://github.com/paypal/resteasy-spring-boot/issues/35)) 
 and replaced `resteasy.jaxrs.app.classes`.  Property `resteasy.jaxrs.app` has been fully removed from version 4.0.1.Final.
 - Starting on version 3.0.0, the behavior of the `scanning` JAX-RS Application subclass registration method will change, being more restrictive. Instead of scanning the whole classpath, it will scan only packages registered to be scanned by Spring framework (regardless of the JAX-RS Application subclass being a Spring bean or not). The reason is to improve application startup performance. Having said that, it is recommended that every application use any method, other than `scanning`. Or, if using `scanning`, make sure your JAX-RS Application subclass is under a package to be scanned by Spring framework. If not, starting on version 3.0.0,it won't be found.
 - When no JAX-RS Application is configured, the property `resteasy.jaxrs.defaultPath` can be used to define the base path. It defaults to `/` if not set
-- `resteasy.servlet.mapping.prefix` will override `javax.ws.rs.ApplicationPath` if both are specified.
+- `resteasy.servlet.mapping.prefix` will override `javax.ws.rs.core.ApplicationPath` if both are specified.
 
 #### RESTEasy configuration
 
-RESTEasy offers a few configuration switches, [as seen here](https://docs.jboss.org/resteasy/docs/4.7.0.Final/userguide/html_single/index.html#configuration_switches), and they are set as Servlet context init parameters. In Spring Boot, Servlet context init parameters are defined via Spring Boot `application.properties` file, using the property prefix `server.servlet.context-parameters.*` (search for it in [Spring Boot reference guide](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/)).</br>
+RESTEasy offers a few configuration switches, [as seen here](https://docs.jboss.org/resteasy/docs/4.7.3.Final/userguide/html_single/index.html#configuration_switches), and they are set as Servlet context init parameters. In Spring Boot, Servlet context init parameters are defined via Spring Boot `application.properties` file, using the property prefix `server.servlet.context-parameters.*` (search for it in [Spring Boot reference guide](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/)).</br>
 
 As an example, to set RESTEasy property `resteasy.role.based.security` to `true`, just add the property bellow to Spring Boot `application.properties` file.
 
@@ -82,5 +82,5 @@ All other RESTEasy configuration options are supported normally.
 
 | Configuration option | Why it is not applicable |
 |---|---|
-|`javax.ws.rs.Application`|JAX-RS application classes are registered as explained in section _"JAX-RS application registration methods"_ above|
+|`javax.ws.rs.core.Application`|JAX-RS application classes are registered as explained in section _"JAX-RS application registration methods"_ above|
 |`resteasy.scan`<br/>`resteasy.scan.providers`<br/>`resteasy.scan.resources`<br/>`resteasy.providers`<br/>`resteasy.use.builtin.providers`<br/>`resteasy.resources`<br/>`resteasy.jndi.resources`|All JAX-RS resources and providers are always supposed to be Spring beans, and they are automatically discovered|

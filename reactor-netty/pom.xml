@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<project
+        xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.jboss.resteasy</groupId>
+        <artifactId>resteasy-spring-boot-starter-parent</artifactId>
+        <version>5.0.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>resteasy-reactor-netty-spring-boot-starter-parent</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>resteasy-reactor-netty-spring-boot-starter</module>
+        <module>resteasy-reactor-netty-spring-boot-starter-test</module>
+        <module>resteasy-reactor-netty-spring-boot-sample-app</module>
+        <module>resteasy-reactor-netty-spring-boot-sample-app-no-jaxrs</module>
+    </modules>
+
+</project>

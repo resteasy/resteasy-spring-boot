@@ -5,17 +5,17 @@
         xsi:schemaLocation = "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+
+
     <groupId>org.jboss.resteasy</groupId>
     <artifactId>resteasy-spring-boot-starter-parent</artifactId>
-    <version>5.0.0.Final</version>
+    <version>5.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
-        <module>resteasy-spring-boot-starter</module>
-        <module>sample-app</module>
-        <module>sample-app-for-wildfly</module>
-        <module>sample-app-no-jaxrs-application</module>
-        <module>resteasy-spring-boot-starter-test</module>
+        <module>common</module>
+        <module>servlet</module>
+        <module>reactor-netty</module>
     </modules>
 
     <distributionManagement>
@@ -25,6 +25,21 @@
             <url>https://repository.jboss.org/nexus/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
+
+    <properties>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <springboot.version>2.5.7</springboot.version>
+        <resteasy.version>5.0.0.Final</resteasy.version>
+        <resteasy.spring.version>4.7.7.Final</resteasy.spring.version>
+        <resteasy.jackson.version>2.12.3</resteasy.jackson.version>
+        <jboss-logging.ver>3.4.0.Final</jboss-logging.ver>
+        <ver.testng>6.14.3</ver.testng>
+        <!-- We need to keep netty version sync with resteasy-->
+        <netty-all.version>4.1.70.Final</netty-all.version>
+        <modular.jdk.args/>
+        <modular.jdk.props/>
+    </properties>
 
     <build>
         <plugins>
@@ -37,13 +52,14 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-install-plugin</artifactId>
-                <version>2.5.2</version>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.10.1</version>
                 <configuration>
-                    <skip>true</skip>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
         </plugins>
     </build>
+
 </project>
