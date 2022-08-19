@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<project
+        xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.jboss.resteasy</groupId>
+        <artifactId>resteasy-spring-boot-starter-parent</artifactId>
+        <version>5.0.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>resteasy-servlet-spring-boot-starter-parent</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>resteasy-servlet-spring-boot-starter</module>
+        <module>resteasy-servlet-spring-boot-starter-test</module>
+        <module>resteasy-servlet-spring-boot-sample-app</module>
+        <module>resteasy-servlet-spring-boot-sample-app-no-jaxrs</module>
+        <module>resteasy-wildfly-spring-boot-sample-app</module>
+    </modules>
+
+</project>
