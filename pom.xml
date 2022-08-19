@@ -7,15 +7,27 @@
 
     <groupId>org.jboss.resteasy</groupId>
     <artifactId>resteasy-spring-boot-starter-parent</artifactId>
-    <version>4.9.2.Final</version>
+    <version>4.9.3-SNAPSHOT</version>
     <packaging>pom</packaging>
 
+    <properties>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <springboot.version>2.5.7</springboot.version>
+        <resteasy.version>4.7.3.Final</resteasy.version>
+        <resteasy.jackson.version>2.12.3</resteasy.jackson.version>
+        <jboss-logging.ver>3.4.0.Final</jboss-logging.ver>
+        <ver.testng>6.14.3</ver.testng>
+        <!-- We need to keep netty version sync with resteasy-->
+        <netty-all.version>4.1.70.Final</netty-all.version>
+        <modular.jdk.args/>
+        <modular.jdk.props/>
+    </properties>
+
     <modules>
-        <module>resteasy-spring-boot-starter</module>
-        <module>sample-app</module>
-        <module>sample-app-for-wildfly</module>
-        <module>sample-app-no-jaxrs-application</module>
-        <module>resteasy-spring-boot-starter-test</module>
+        <module>common</module>
+        <module>servlet</module>
+        <module>reactor-netty</module>
     </modules>
 
     <distributionManagement>
@@ -37,11 +49,11 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-install-plugin</artifactId>
-                <version>2.5.2</version>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.10.1</version>
                 <configuration>
-                    <skip>true</skip>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
         </plugins>
