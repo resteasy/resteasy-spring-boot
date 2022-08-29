@@ -63,7 +63,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <springboot.version>2.7.3</springboot.version>
         <resteasy.version>4.7.3.Final</resteasy.version>
-        <resteasy.jackson.version>2.12.3</resteasy.jackson.version>
+        <resteasy.jackson.version>2.13.3</resteasy.jackson.version>
         <jboss-logging.ver>3.4.0.Final</jboss-logging.ver>
         <modular.jdk.args/>
         <modular.jdk.props/>
