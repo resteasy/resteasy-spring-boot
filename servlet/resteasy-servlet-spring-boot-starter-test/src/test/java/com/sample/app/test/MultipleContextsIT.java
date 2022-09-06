@@ -37,23 +37,6 @@ public class MultipleContextsIT {
 
         RestAssured.basePath = "sample-app";
     }
-    
-    
-    @Test
-    public void tested() {
-    	Properties properties = new Properties();
-        properties.put("spring.jmx.enabled", false);
-        
-        SpringApplication app1 = new SpringApplication(Application.class);
-        app1.setDefaultProperties(properties);
-        app1.addListeners(new LogbackTestApplicationListener());
-        app1.run("--server.port=" + app1Port).registerShutdownHook();
-
-        SpringApplication app2 = new SpringApplication(MultiContextTestApp.class);
-        app2.setDefaultProperties(properties);
-        app2.addListeners(new LogbackTestApplicationListener());
-        app2.run("--server.port=" + app2Port).registerShutdownHook();
-    }
 
     @Test
     public void test() {
