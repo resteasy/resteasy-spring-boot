@@ -230,9 +230,9 @@ public class JaxrsAppRegistrationTest extends PowerMockTestCase {
         resteasyBeanProcessorTomcat.postProcessBeanFactory(beanFactory);
 
         if(getAppsProperty) {
-            verify(beanFactory, VerificationModeFactory.atLeast(3)).getBean(ConfigurableEnvironment.class);
+            verify(beanFactory, VerificationModeFactory.atLeast(2)).getBean(ConfigurableEnvironment.class);
         } else {
-            verify(beanFactory, VerificationModeFactory.times(2)).getBean(ConfigurableEnvironment.class);
+            verify(beanFactory, VerificationModeFactory.times(1)).getBean(ConfigurableEnvironment.class);
         }
         
         verify(beanFactory, VerificationModeFactory.times(findSpringBeans ? 1 : 0)).getBeansOfType(Application.class, true, false);

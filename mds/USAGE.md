@@ -2,12 +2,24 @@
 
 #### Adding POM dependency
 
-Add the Maven dependency below to your Spring Boot application pom file.<br>
+Add one of the following Maven dependencies to your Spring Boot application pom file.<br>
+
+**Servlet**
+``` xml
+<dependency>
+   <groupId>org.jboss.resteasy</groupId>
+   <artifactId>resteasy-servlet-spring-boot-starter</artifactId>
+   <version>5.0.1-SNAPSHOT</version>
+   <scope>runtime</scope>
+</dependency>
+```
+
+**Reactor Netty**
 
 ``` xml
 <dependency>
    <groupId>org.jboss.resteasy</groupId>
-   <artifactId>resteasy-spring-boot-starter</artifactId>
+   <artifactId>resteasy-reactor-netty-spring-boot-starter</artifactId>
    <version>5.0.1-SNAPSHOT</version>
    <scope>runtime</scope>
 </dependency>
@@ -67,7 +79,7 @@ and replaced `resteasy.jaxrs.app.classes`.  Property `resteasy.jaxrs.app` has be
 - When no JAX-RS Application is configured, the property `resteasy.jaxrs.defaultPath` can be used to define the base path. It defaults to `/` if not set
 - `resteasy.servlet.mapping.prefix` will override `javax.ws.rs.core.ApplicationPath` if both are specified.
 
-#### RESTEasy configuration
+#### RESTEasy Servlet Configuration
 
 RESTEasy offers a few configuration switches, [as seen here](https://docs.jboss.org/resteasy/docs/4.7.3.Final/userguide/html_single/index.html#configuration_switches), and they are set as Servlet context init parameters. In Spring Boot, Servlet context init parameters are defined via Spring Boot `application.properties` file, using the property prefix `server.servlet.context-parameters.*` (search for it in [Spring Boot reference guide](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/)).</br>
 
@@ -84,3 +96,12 @@ All other RESTEasy configuration options are supported normally.
 |---|---|
 |`javax.ws.rs.core.Application`|JAX-RS application classes are registered as explained in section _"JAX-RS application registration methods"_ above|
 |`resteasy.scan`<br/>`resteasy.scan.providers`<br/>`resteasy.scan.resources`<br/>`resteasy.providers`<br/>`resteasy.use.builtin.providers`<br/>`resteasy.resources`<br/>`resteasy.jndi.resources`|All JAX-RS resources and providers are always supposed to be Spring beans, and they are automatically discovered|
+
+
+#### Reactor Netty Configuration
+
+The following parameters can be set in `application.properties` to configure Reactor Netty:
+
+| Parameter | Description |
+|---|---|
+|`server.port` | Port to use for running reactor netty server. Default is `8080`. Set to `0` to let Reactor Netty choose any available|
