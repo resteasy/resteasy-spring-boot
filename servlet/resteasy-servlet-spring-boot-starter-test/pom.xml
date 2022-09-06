@@ -13,7 +13,7 @@
     <artifactId>resteasy-servlet-spring-boot-starter-test</artifactId>
     <name>${project.artifactId}</name>
 
-    <description>Integration test project for RESTEasy Spring Boot starter</description>
+    <description>Integration test project for RESTEasy Spring Boot servlet starter</description>
     <url>https://github.com/resteasy/resteasy-spring-boot</url>
 
     <licenses>

@@ -67,7 +67,7 @@
             <scope>runtime</scope>
         </dependency>
         <dependency>
-            <groupId>org.jboss.resteasy</groupId>
+            <groupId>org.jboss.resteasy.spring</groupId>
             <artifactId>resteasy-spring</artifactId>
             <version>${resteasy.spring.version}</version>
         </dependency>
@@ -78,13 +78,13 @@
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-jackson2-provider</artifactId>
-            <version>${resteasy.spring.version}</version>
+            <version>${resteasy.version}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-reactor-netty</artifactId>
-            <version>${resteasy.spring.version}</version>
+            <version>${resteasy.version}</version>
         </dependency>
         <dependency>
             <groupId>io.netty</groupId>

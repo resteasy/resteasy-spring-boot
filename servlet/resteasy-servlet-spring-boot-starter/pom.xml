@@ -57,21 +57,6 @@
         <url>http://jira.jboss.com/jira/browse/RESTEASY</url>
     </issueManagement>
 
-    <properties>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <springboot.version>2.5.7</springboot.version>
-        <resteasy.version>5.0.0.Final</resteasy.version>
-        <!--<resteasy.spring.version>2.0.0.Final</resteasy.spring.version>-->
-        <resteasy.jackson.version>2.12.3</resteasy.jackson.version>
-        <jboss-logging.ver>3.4.0.Final</jboss-logging.ver>
-        <ver.mockito>3.12.4</ver.mockito>
-        <ver.powermock>2.0.9</ver.powermock>
-        <ver.objenesis>3.2</ver.objenesis>
-        <modular.jdk.args/>
-        <modular.jdk.props/>
-    </properties>
-
     <dependencies>
        <dependency>
             <groupId>org.jboss.resteasy</groupId>
@@ -182,7 +167,7 @@
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>org.jboss.resteasy</groupId>
+            <groupId>org.jboss.resteasy.spring</groupId>
             <artifactId>resteasy-spring</artifactId>
             <version>${resteasy.spring.version}</version>
             <exclusions>

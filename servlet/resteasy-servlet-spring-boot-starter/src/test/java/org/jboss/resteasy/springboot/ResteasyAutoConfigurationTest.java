@@ -5,6 +5,7 @@ import org.jboss.resteasy.plugins.spring.SpringBeanProcessor;
 import org.jboss.resteasy.spi.Dispatcher;
 import org.jboss.resteasy.spi.Registry;
 import org.jboss.resteasy.spi.ResteasyProviderFactory;
+import org.jboss.resteasy.springboot.common.ResteasyBeanProcessorFactory;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.mock.web.MockServletContext;
 import org.testng.Assert;
@@ -20,9 +21,11 @@ import javax.servlet.ServletContextListener;
  */
 public class ResteasyAutoConfigurationTest {
 
+    private static final String JAXRS_APP_ASYNC_JOB_ENABLE_PROPERTY = "resteasy.async.job.service.enabled";
+
     @Test
     public void springBeanProcessor() {
-        BeanFactoryPostProcessor beanFactoryPostProcessor = ResteasyAutoConfiguration.resteasySpringBeanProcessor();
+        BeanFactoryPostProcessor beanFactoryPostProcessor = ResteasyBeanProcessorFactory.resteasySpringBeanProcessor();
 
         Assert.assertNotNull(beanFactoryPostProcessor);
         Assert.assertEquals(SpringBeanProcessor.class, beanFactoryPostProcessor.getClass());
@@ -38,6 +41,7 @@ public class ResteasyAutoConfigurationTest {
 
     @Test
     public void syncDispatcherServletContextListenerTest() throws Exception {
+        System.setProperty(JAXRS_APP_ASYNC_JOB_ENABLE_PROPERTY, "false");
         ServletContext servletContext = new MockServletContext();
         testServletContextListener(servletContext);
     }
@@ -45,14 +49,16 @@ public class ResteasyAutoConfigurationTest {
     @Test
     public void asyncDispatcherServletContextListenerTest() throws Exception {
         ServletContext servletContext = new MockServletContext();
-        servletContext.setInitParameter("resteasy.async.job.service.enabled", "true");
+        servletContext.setInitParameter(JAXRS_APP_ASYNC_JOB_ENABLE_PROPERTY, "true");
+        System.setProperty(JAXRS_APP_ASYNC_JOB_ENABLE_PROPERTY, "true");
         testServletContextListener(servletContext);
     }
 
     private void testServletContextListener(ServletContext servletContext) throws Exception {
         ResteasyAutoConfiguration resteasyAutoConfiguration = new ResteasyAutoConfiguration();
-        BeanFactoryPostProcessor beanFactoryPostProcessor = ResteasyAutoConfiguration.resteasySpringBeanProcessor();
-        ServletContextListener servletContextListener = resteasyAutoConfiguration.resteasyBootstrapListener((SpringBeanProcessor)beanFactoryPostProcessor);        Assert.assertNotNull(servletContextListener);
+        BeanFactoryPostProcessor beanFactoryPostProcessor = ResteasyBeanProcessorFactory.resteasySpringBeanProcessor();
+        ServletContextListener servletContextListener = resteasyAutoConfiguration.resteasyBootstrapListener((SpringBeanProcessor)beanFactoryPostProcessor);
+        Assert.assertNotNull(servletContextListener);
 
         ServletContextEvent sce = new ServletContextEvent(servletContext);
         servletContextListener.contextInitialized(sce);
@@ -66,6 +72,8 @@ public class ResteasyAutoConfigurationTest {
         Assert.assertNotNull(servletContextRegistry);
 
         servletContextListener.contextDestroyed(sce);
+        ServletContextListener servletContextListener2 = resteasyAutoConfiguration.resteasyBootstrapListener((SpringBeanProcessor)beanFactoryPostProcessor);
+        servletContextListener2.contextDestroyed(sce);
     }
 
 
