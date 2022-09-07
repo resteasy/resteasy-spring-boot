@@ -31,7 +31,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <springboot.version>2.5.7</springboot.version>
         <resteasy.version>5.0.0.Final</resteasy.version>
-        <resteasy.spring.version>1.0.0.Final</resteasy.spring.version>
+        <resteasy.spring.version>2.0.0.Final</resteasy.spring.version>
         <resteasy.jackson.version>2.12.3</resteasy.jackson.version>
         <jboss-logging.ver>3.4.0.Final</jboss-logging.ver>
         <ver.testng>6.14.3</ver.testng>
