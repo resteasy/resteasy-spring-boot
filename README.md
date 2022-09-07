@@ -31,7 +31,7 @@ Add the Maven dependency below to your Spring Boot application pom file.<br>
 <dependency>
    <groupId>org.jboss.resteasy</groupId>
    <artifactId>resteasy-servlet-spring-boot-starter</artifactId>
-   <version>5.0.1-SNAPSHOT</version>
+   <version>5.1.0-SNAPSHOT</version>
    <scope>runtime</scope>
 </dependency>
 ```
@@ -42,7 +42,7 @@ Add the Maven dependency below to your Spring Boot application pom file.<br>
 <dependency>
    <groupId>org.jboss.resteasy</groupId>
    <artifactId>resteasy-reactor-netty-spring-boot-starter</artifactId>
-   <version>5.0.1-SNAPSHOT</version>
+   <version>5.1.0-SNAPSHOT</version>
    <scope>runtime</scope>
 </dependency>
 ```
