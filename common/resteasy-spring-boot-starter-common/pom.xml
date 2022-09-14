@@ -8,7 +8,7 @@
     <parent>
         <groupId>org.jboss.resteasy</groupId>
         <artifactId>resteasy-spring-boot-starter-common-parent</artifactId>
-        <version>5.1.0.Final</version>
+        <version>5.1.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
