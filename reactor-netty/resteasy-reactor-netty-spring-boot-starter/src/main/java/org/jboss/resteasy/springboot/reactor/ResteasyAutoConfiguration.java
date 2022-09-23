@@ -13,9 +13,9 @@ import org.jboss.resteasy.springboot.common.ResteasyBeanProcessorFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.core.env.Environment;
 
@@ -28,7 +28,7 @@ import jakarta.ws.rs.core.Application;
 /**
  * This is the main class that prepares a Resteasy deployment and starts a Reactor Netty server.
  */
-@Configuration
+@AutoConfiguration
 @EnableConfigurationProperties
 public class ResteasyAutoConfiguration {
 
