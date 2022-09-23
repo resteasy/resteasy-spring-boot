@@ -16,19 +16,17 @@ import org.jboss.resteasy.springboot.common.ResteasyBeanProcessorFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.autoconfigure.AutoConfigureAfter;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 /**
  * This is the main class that configures this Resteasy Sring Boot starter
  *
  * @author Fabio Carvalho (facarvalho@paypal.com or fabiocarvalho777@gmail.com)
  */
-@Configuration
-@AutoConfigureAfter(WebMvcAutoConfiguration.class)
+@AutoConfiguration(after = WebMvcAutoConfiguration.class)
 @EnableConfigurationProperties
 public class ResteasyAutoConfiguration {
 
@@ -38,13 +36,13 @@ public class ResteasyAutoConfiguration {
     /**
      * This is a modified version of {@link ResteasyBootstrap}
      * @param resteasySpringBeanProcessor - A bean processor for Resteasy.
-     * 
+     *
      * @return a ServletContextListener object that configures and start a ResteasyDeployment
      */
     @Bean
     public ServletContextListener resteasyBootstrapListener(
             final @Qualifier("resteasySpringBeanProcessor") SpringBeanProcessor resteasySpringBeanProcessor) {
-        
+
         ServletContextListener servletContextListener = new ServletContextListener() {
 
             protected ResteasyDeployment deployment;
@@ -83,7 +81,7 @@ public class ResteasyAutoConfiguration {
     public static ResteasyBeanProcessorTomcat resteasyBeanProcessorTomcat() {
         return new ResteasyBeanProcessorTomcat();
     }
-    
+
     @Bean("resteasySpringBeanProcessor")
     public static SpringBeanProcessor resteasySpringBeanProcessor() {
         return ResteasyBeanProcessorFactory.resteasySpringBeanProcessor();
