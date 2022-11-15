@@ -18,40 +18,22 @@
 
     <properties>
         <java.version>17</java.version>
-        <jboss-logging.ver>3.4.0.Final</jboss-logging.ver>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <modular.jdk.args/>
         <modular.jdk.props/>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <resteasy.jackson.version>2.13.3</resteasy.jackson.version>
-        <resteasy.spring.version>3.0.0.Beta1</resteasy.spring.version>
-        <resteasy.version>6.2.0.Final</resteasy.version>
-        <springboot.version>3.0.0-RC1</springboot.version>
-        <slf4j.version>1.7.36</slf4j.version>
-        <ver.mockito>4.3.1</ver.mockito>
-        <ver.objenesis>3.2</ver.objenesis>
-        <version.jakarta.annotation.annotation-api>2.1.0-B1</version.jakarta.annotation.annotation-api>
-        <version.jakarta.servlet.servlet-api>5.0.0</version.jakarta.servlet.servlet-api>
-        <version.glassfish.jakarta.el>5.0.0-M1</version.glassfish.jakarta.el>
-        <version.jakarta.ws.rs>3.1.0</version.jakarta.ws.rs>
-        <version.jakarta.inject.api>2.0.1</version.jakarta.inject.api>
-        <version.org.springframework>6.0.0-RC2</version.org.springframework>
-        <ver.jakarta.validation-api>3.0.1</ver.jakarta.validation-api>
-        <version.org.eclipse>2.0.4</version.org.eclipse>
-        <ver.wildfly.maven.plugin>3.0.0.Final</ver.wildfly.maven.plugin>
-        <!--        We need to keep netty version sync with resteasy-->
-        <version.io.netty.netty4>4.1.78.Final</version.io.netty.netty4>
-        <ver.wildfly>26.0.1.Final</ver.wildfly>
-        <ver.rest-assured>3.1.0</ver.rest-assured>
+        <resteasy.spring.version>3.0.0.Beta3</resteasy.spring.version>
+        <resteasy.version>6.2.1.Final</resteasy.version>
+        <springboot.version>3.0.0-RC2</springboot.version>
         <ver.testng>6.14.3</ver.testng>
-        <ver.jakarta.xml.bind-api>4.0.0-RC3</ver.jakarta.xml.bind-api>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <modular.jdk.args/>
-        <modular.jdk.props/>
+        <ver.wildfly.maven.plugin>3.0.0.Final</ver.wildfly.maven.plugin>
+        <wildfly.version>26.0.1.Final</wildfly.version>
+        <version.io.netty.netty4>4.1.78.Final</version.io.netty.netty4>
+        <version.jakarta.inject.api>2.0.1</version.jakarta.inject.api>
+        <version.jakarta.el-api>4.0.2</version.jakarta.el-api>
+        <version.org.springframework>6.0.0-RC4</version.org.springframework>
     </properties>
 
     <modules>
@@ -100,6 +82,27 @@
     </pluginRepositories>
 
     <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-enforcer-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <id>dep-convergence</id>
+                            <goals>
+                                <goal>enforce</goal>
+                            </goals>
+                            <configuration>
+                                <rules>
+                                    <dependencyConvergence/>
+                                </rules>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
