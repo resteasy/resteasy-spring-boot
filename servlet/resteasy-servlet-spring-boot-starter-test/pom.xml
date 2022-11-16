@@ -42,14 +42,6 @@
         <url>git@github.com:resteasy/resteasy-spring-boot.git</url>
     </scm>
 
-    <distributionManagement>
-        <repository>
-            <id>jboss-releases-repository</id>
-            <name>JBoss Releases Repository</name>
-            <url>https://repository.jboss.org/nexus/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
-
     <issueManagement>
         <system>JIRA</system>
         <url>http://jira.jboss.com/jira/browse/RESTEASY</url>
@@ -132,6 +124,10 @@
                 <configuration>
                     <skip>true</skip>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
