@@ -162,9 +162,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-deploy-plugin</artifactId>
-                <configuration>
-                    <skip>true</skip>
-                </configuration>
             </plugin>
             <!-- https://mvnrepository.com/artifact/org.wildfly.plugins/wildfly-maven-plugin -->
             <plugin>
@@ -183,8 +180,6 @@
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
-
         </plugins>
     </build>
-
 </project>
