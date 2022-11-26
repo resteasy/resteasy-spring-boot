@@ -44,7 +44,7 @@ public class ConfigurationIT {
 
         final int port = SocketUtils.findAvailableTcpPort();
 
-        final ConfigurableApplicationContext ctx = builder.run("--server.port=" + port);
+        final ConfigurableApplicationContext ctx = builder.run("--debug", "--server.port=" + port);
         ctx.registerShutdownHook();
 
         return new CtxAndPort(ctx, port);
