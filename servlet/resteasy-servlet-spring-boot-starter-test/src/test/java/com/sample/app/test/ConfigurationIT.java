@@ -30,7 +30,7 @@ public class ConfigurationIT {
         return configureAndStartApp(properties, true, springBootApplicationClass);
     }
 
-    private CtxAndPort configureAndStartApp(Properties properties, boolean assertPerfectLog,
+    CtxAndPort configureAndStartApp(Properties properties, boolean assertPerfectLog,
                                             Class springBootApplicationClass) {
         final SpringApplicationBuilder builder = new SpringApplicationBuilder(springBootApplicationClass);
 
@@ -134,21 +134,7 @@ public class ConfigurationIT {
         shutdownCtx(ctxAndPort);
     }
 
-    @Test
-    public void invalidClassTest() {
-        final Properties properties = new Properties();
-        properties.put("resteasy.jaxrs.app.registration", "property");
-        properties.put("resteasy.jaxrs.app.classes", "com.foor.bar.NonExistentApplicationClass");
 
-        try {
-            configureAndStartApp(properties, false, com.sample.app.Application.class);
-
-            Assert.fail("Expected exception, due to class not found, has not been thrown");
-        } catch (Exception ex) {
-            Assert.assertEquals(ex.getCause().getClass(), ClassNotFoundException.class);
-            Assert.assertEquals(ex.getCause().getMessage(), "com.foor.bar.NonExistentApplicationClass");
-        }
-    }
 
     @Test
     public void scanningTest() {
