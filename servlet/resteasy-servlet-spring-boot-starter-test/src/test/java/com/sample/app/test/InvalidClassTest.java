@@ -14,10 +14,12 @@ public class InvalidClassTest extends ConfigurationIT {
 
         try {
             configureAndStartApp(properties, false, com.sample.app.Application.class);
-            Assert.fail("Expected exception, due to class not found, has not been thrown");
         } catch (Throwable ex) {
             Assert.assertEquals(ex.getCause().getClass(), ClassNotFoundException.class);
             Assert.assertEquals(ex.getCause().getMessage(), "com.foor.bar.NonExistentApplicationClass");
+            return;
         }
+
+        Assert.fail("Expected exception, due to class not found, has not been thrown");
     }
 }
