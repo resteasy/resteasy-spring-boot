@@ -48,7 +48,7 @@ public class ResteasyApplicationBuilder {
 		servletRegistrationBean.setName(applicationClassName);
 		servletRegistrationBean.setLoadOnStartup(1);
 		servletRegistrationBean.setAsyncSupported(true);
-		servletRegistrationBean.addInitParameter(Application.class.getTypeName(), applicationClassName);
+		servletRegistrationBean.addInitParameter("jakarta.ws.rs.Application", applicationClassName);
 
 		if (path != null) {
 			String mapping = path;
