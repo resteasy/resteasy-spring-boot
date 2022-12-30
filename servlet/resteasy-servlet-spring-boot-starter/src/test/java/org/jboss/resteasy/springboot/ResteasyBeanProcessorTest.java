@@ -38,7 +38,7 @@ public class ResteasyBeanProcessorTest extends AbstractTestNGSpringContextTests 
     
     private void testApplication(String applicationClassName, ServletRegistrationBean servletRegistrationBean) {
         Assert.assertEquals(applicationClassName, servletRegistrationBean.getServletName());
-        Assert.assertEquals(applicationClassName, servletRegistrationBean.getInitParameters().get(Application.class.getTypeName()));
+        Assert.assertEquals(applicationClassName, servletRegistrationBean.getInitParameters().get("jakarta.ws.rs.Application"));
         Assert.assertTrue(servletRegistrationBean.isAsyncSupported());
     }
 
