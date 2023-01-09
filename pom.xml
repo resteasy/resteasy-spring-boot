@@ -25,7 +25,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <resteasy.spring.version>3.0.0.Final</resteasy.spring.version>
-        <resteasy.version>6.2.1.Final</resteasy.version>
+        <resteasy.version>6.2.2.Final</resteasy.version>
         <springboot.version>3.0.1</springboot.version>
         <ver.testng>6.14.3</ver.testng>
         <ver.wildfly.maven.plugin>3.0.0.Final</ver.wildfly.maven.plugin>
@@ -33,7 +33,7 @@
         <version.io.netty.netty4>4.1.78.Final</version.io.netty.netty4>
         <version.jakarta.inject.api>2.0.1</version.jakarta.inject.api>
         <version.jakarta.el-api>4.0.2</version.jakarta.el-api>
-        <version.org.springframework>6.0.2</version.org.springframework>
+        <version.org.springframework>6.0.3</version.org.springframework>
     </properties>
 
     <modules>
