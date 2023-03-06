@@ -69,14 +69,14 @@
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-jackson2-provider</artifactId>
-            <version>${resteasy.version}</version>
+            <version>${version.org.jboss.resteasy}</version>
         </dependency>
 
         <!-- Adding RESTEasy support to Bean Validations -->
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-validator-provider</artifactId>
-            <version>${resteasy.version}</version>
+            <version>${version.org.jboss.resteasy}</version>
         </dependency>
     </dependencies>
 
@@ -107,6 +107,9 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-deploy-plugin</artifactId>
+                <configuration>
+                    <skip>false</skip>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
