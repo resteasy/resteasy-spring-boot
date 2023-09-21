@@ -19,4 +19,4 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
       - name: Build With Maven
-        run: mvn -B -fae -T 1 install --file pom.xml
+        run: mvn -B -fae install --file pom.xml
