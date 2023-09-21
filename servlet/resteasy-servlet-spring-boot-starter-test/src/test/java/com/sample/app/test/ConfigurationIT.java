@@ -32,6 +32,7 @@ public class ConfigurationIT {
 
     CtxAndPort configureAndStartApp(Properties properties, boolean assertPerfectLog,
                                             Class springBootApplicationClass) {
+
         final SpringApplicationBuilder builder = new SpringApplicationBuilder(springBootApplicationClass);
 
         builder.web(WebApplicationType.SERVLET);
@@ -44,6 +45,15 @@ public class ConfigurationIT {
 
         final int port = SocketUtils.findAvailableTcpPort();
 
+        // give the SpringApplicationBuilder some time to throw exception firstly.
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        // NOTE: this async operation causes random `invalidClassTest` test failure.
+        // InvalidClassTest -> java.lang.AssertionError: Application run failed
+        // Which comes from: spring-boot-project/spring-boot/src/main/java/org/springframework/boot/SpringApplication.java:818:			logger.error("Application run failed", failure);
         final ConfigurableApplicationContext ctx = builder.run("--debug", "--server.port=" + port);
         ctx.registerShutdownHook();
 
