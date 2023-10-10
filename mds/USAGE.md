@@ -10,7 +10,7 @@ Add one of the following Maven dependencies to your Spring Boot application pom 
 <dependency>
    <groupId>org.jboss.resteasy</groupId>
    <artifactId>resteasy-servlet-spring-boot-starter</artifactId>
-   <version>6.0.5-SNAPSHOT</version>
+   <version>6.1.0.Beta1</version>
    <scope>runtime</scope>
 </dependency>
 ```
@@ -21,7 +21,7 @@ Add one of the following Maven dependencies to your Spring Boot application pom 
 <dependency>
    <groupId>org.jboss.resteasy</groupId>
    <artifactId>resteasy-reactor-netty-spring-boot-starter</artifactId>
-   <version>6.0.5-SNAPSHOT</version>
+   <version>6.1.0.Beta1</version>
    <scope>runtime</scope>
 </dependency>
 ```
