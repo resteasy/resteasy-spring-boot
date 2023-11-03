@@ -25,7 +25,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <resteasy.spring.version>3.1.0.Final</resteasy.spring.version>
-        <version.org.jboss.resteasy>6.2.5.Final</version.org.jboss.resteasy>
+        <version.org.jboss.resteasy>6.2.6.Final</version.org.jboss.resteasy>
         <springboot.version>3.2.0-RC1</springboot.version>
         <ver.testng>7.8.0</ver.testng>
         <ver.wildfly.maven.plugin>4.2.0.Final</ver.wildfly.maven.plugin>
