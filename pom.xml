@@ -30,7 +30,7 @@
         <ver.testng>7.8.0</ver.testng>
         <ver.wildfly.maven.plugin>4.2.0.Final</ver.wildfly.maven.plugin>
         <wildfly.version>28.0.1.Final</wildfly.version>
-        <version.io.netty.netty4>4.1.100.Final</version.io.netty.netty4>
+        <version.io.netty.netty4>4.1.101.Final</version.io.netty.netty4>
         <version.jakarta.inject.api>2.0.1</version.jakarta.inject.api>
         <version.jakarta.el-api>4.0.2</version.jakarta.el-api>
         <version.org.springframework>6.1.0-M5</version.org.springframework>
