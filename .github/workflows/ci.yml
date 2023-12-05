@@ -1,4 +1,4 @@
-name: Java 17 CI with Maven
+name: Java CI with Maven
 
 on:
   push:
