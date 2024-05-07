@@ -55,6 +55,13 @@ public class ConfigurationIT {
         // InvalidClassTest -> java.lang.AssertionError: Application run failed
         // Which comes from: spring-boot-project/spring-boot/src/main/java/org/springframework/boot/SpringApplication.java:818:			logger.error("Application run failed", failure);
         final ConfigurableApplicationContext ctx = builder.run("--debug", "--server.port=" + port);
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
         ctx.registerShutdownHook();
 
         return new CtxAndPort(ctx, port);
