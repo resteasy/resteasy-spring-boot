@@ -24,7 +24,7 @@
         <modular.jdk.props/>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <resteasy.spring.version>3.1.2.Final</resteasy.spring.version>
+        <resteasy.spring.version>3.1.3.Final</resteasy.spring.version>
         <version.org.jboss.resteasy>6.2.9.Final</version.org.jboss.resteasy>
         <springboot.version>3.3.0</springboot.version>
         <ver.testng>7.10.2</ver.testng>
