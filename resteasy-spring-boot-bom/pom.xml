@@ -156,6 +156,7 @@
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-servlet-initializer</artifactId>
                 <version>${version.org.jboss.resteasy}</version>
+                <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>org.mockito</groupId>
