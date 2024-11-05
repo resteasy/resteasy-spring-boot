@@ -13,6 +13,7 @@ public class HelloResource {
     @Autowired
     EchoBean bean;
 
+//    @APIResponse(description = "return hello world")
     @GET
     public String get() {
         return bean.echo("Hello, world!");

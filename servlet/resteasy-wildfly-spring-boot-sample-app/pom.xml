@@ -15,6 +15,10 @@
 
     <description>Simple test application for the Resteasy Spring Boot starter to deploy to Wildfly</description>
 
+    <properties>
+        <version.eclipse.microprofile.openapi>3.1.1</version.eclipse.microprofile.openapi>
+    </properties>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -62,6 +66,13 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
+        <!-- MP OpenAPI -->
+<!--        <dependency>-->
+<!--            <groupId>org.eclipse.microprofile.openapi</groupId>-->
+<!--            <artifactId>microprofile-openapi-api</artifactId>-->
+<!--            <version>${version.eclipse.microprofile.openapi}</version>-->
+<!--            <scope>provided</scope>-->
+<!--        </dependency>-->
     </dependencies>
 
     <build>
@@ -116,7 +127,7 @@
                 <artifactId>wildfly-maven-plugin</artifactId>
                 <version>${ver.wildfly.maven.plugin}</version>
                 <configuration>
-                    <artifactId>wildfly-preview-dist</artifactId>
+                    <artifactId>wildfly-dist</artifactId>
                     <version>${wildfly.version}</version>
                 </configuration>
             </plugin>
