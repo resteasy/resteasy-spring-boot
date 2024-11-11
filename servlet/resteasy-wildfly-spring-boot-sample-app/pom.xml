@@ -88,11 +88,17 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
         <!-- MP OpenAPI -->
+<!--        <dependency>-->
+<!--            <groupId>org.eclipse.microprofile.openapi</groupId>-->
+<!--            <artifactId>microprofile-openapi-api</artifactId>-->
+<!--            <version>${version.eclipse.microprofile.openapi}</version>-->
+<!--            <scope>provided</scope>-->
+<!--        </dependency>-->
+        <!-- springdoc ui -->
         <dependency>
-            <groupId>org.eclipse.microprofile.openapi</groupId>
-            <artifactId>microprofile-openapi-api</artifactId>
-            <version>${version.eclipse.microprofile.openapi}</version>
-            <scope>provided</scope>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>2.6.0</version>
         </dependency>
     </dependencies>
 
