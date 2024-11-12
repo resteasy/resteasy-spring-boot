@@ -211,7 +211,6 @@
                     <layers>
                         <layer>jaxrs</layer>
                         <layer>management</layer>
-                        <layer>microprofile-openapi</layer>
                     </layers>
                     <galleon-options>
                         <jboss-fork-embedded>true</jboss-fork-embedded>
