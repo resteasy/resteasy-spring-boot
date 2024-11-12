@@ -109,7 +109,7 @@
     </dependencies>
 
     <build>
-        <finalName>sample-app</finalName>
+        <finalName>ROOT</finalName>
         <pluginManagement>
             <plugins>
                 <plugin>
