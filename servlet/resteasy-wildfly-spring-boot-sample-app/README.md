@@ -33,3 +33,44 @@ The example includes the `springdoc` integration, and you can access the swagger
 - http://localhost:8080/swagger-ui/index.html
 
 And you can send the request to the `hello` method provided by the service.
+
+To access the generated OpenAPI doc, you should use the following URL:
+
+- http://localhost:8080/openapi.json
+
+Or:
+
+- http://localhost:8080/openapi.yaml
+
+Here's the sample output:
+
+```bash
+➤ curl localhost:8080/openapi.json
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "my-rest-app",
+    "description" : "My Rest App",
+    "version" : "1.0.0"
+  },
+  "paths" : {
+    "/rest/hello" : {
+      "get" : {
+        "operationId" : "get",
+        "responses" : {
+          "default" : {
+            "description" : "return hello world",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```

@@ -6,4 +6,5 @@ resteasy:
 springdoc:
   swagger-ui:
     url: "/openapi.json"
+  enabled: false
 
