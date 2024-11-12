@@ -19,8 +19,17 @@ The above command will download WildFly server, start it, and then deploy the sa
 Here is the command to access the server:
 
 ```bash
-$ curl localhost:8080/sample-app/rest/hello
+$ curl localhost:8080/rest/hello
 Hello, world!                  
 ```
 
-From above we can see the `HelloResource` served the request and output response generated from `EchoBean`, which is a spring bean wired into `HelloResource`.
+From above, we can see the `HelloResource` served the request and output response generated from `EchoBean`, which is a spring bean wired into `HelloResource`.
+
+
+## Play with the Springdoc integration
+
+The example includes the `springdoc` integration, and you can access the swagger-ui by it:
+
+- http://localhost:8080/swagger-ui/index.html
+
+And you can send the request to the `hello` method provided by the service.
