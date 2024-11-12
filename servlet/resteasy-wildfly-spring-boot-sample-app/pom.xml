@@ -17,6 +17,8 @@
 
     <properties>
         <version.eclipse.microprofile.openapi>3.1.1</version.eclipse.microprofile.openapi>
+        <swagger.version>2.2.25</swagger.version>
+        <version.springdoc>2.6.0</version.springdoc>
     </properties>
 
     <dependencyManagement>
@@ -87,19 +89,23 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-        <!-- MP OpenAPI -->
-<!--        <dependency>-->
-<!--            <groupId>org.eclipse.microprofile.openapi</groupId>-->
-<!--            <artifactId>microprofile-openapi-api</artifactId>-->
-<!--            <version>${version.eclipse.microprofile.openapi}</version>-->
-<!--            <scope>provided</scope>-->
-<!--        </dependency>-->
         <!-- springdoc ui -->
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-            <version>2.6.0</version>
+            <version>${version.springdoc}</version>
         </dependency>
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-api</artifactId>
+            <version>${version.springdoc}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <version>${swagger.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -109,7 +115,6 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
-                    <version>3.4.2</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -120,6 +125,31 @@
                 <configuration>
                     <skip>true</skip>
                 </configuration>
+            </plugin>
+            <plugin>
+                <!-- see https://github.com/swagger-api/swagger-core/tree/master/modules/swagger-maven-plugin -->
+                <groupId>io.swagger.core.v3</groupId>
+                <artifactId>swagger-maven-plugin-jakarta</artifactId>
+                <version>${swagger.version}</version>
+                <configuration>
+                    <outputFileName>openapi</outputFileName>
+                    <!--                    https://springdoc.org/faq.html#_how_can_use_custom_jsonyml_file_instead_of_generated_one-->
+                    <outputPath>${project.build.directory}/classes/static</outputPath>
+                    <outputFormat>JSONANDYAML</outputFormat>
+                    <resourcePackages>
+                        <package>com.sample.app</package>
+                    </resourcePackages>
+                    <prettyPrint>true</prettyPrint>
+                    <alwaysResolveAppPath>true</alwaysResolveAppPath>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>resolve</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

@@ -3,3 +3,7 @@ resteasy:
     app:
       registration: property
       classes: com.sample.app.RestApp
+springdoc:
+  swagger-ui:
+    url: "/openapi.json"
+
