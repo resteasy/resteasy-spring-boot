@@ -34,7 +34,7 @@
         <version.jakarta.inject.api>2.0.1.MR</version.jakarta.inject.api>
         <version.jakarta.el-api>4.0.2</version.jakarta.el-api>
         <version.org.springframework>6.2.1</version.org.springframework>
-        <version.mockito>5.17.0</version.mockito>
+        <version.mockito>5.19.0</version.mockito>
         <version.mockito.inline>5.2.0</version.mockito.inline>
     </properties>
 
