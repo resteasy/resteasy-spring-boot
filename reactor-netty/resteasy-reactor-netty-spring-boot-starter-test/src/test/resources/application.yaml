@@ -7,7 +7,7 @@ management:
           - shutdown
   endpoint:
     shutdown:
-      enabled: true
+      access: unrestricted
 logging:
   level:
     org:
