@@ -38,7 +38,7 @@
         <version.mockito>5.19.0</version.mockito>
         <version.mockito.inline>5.2.0</version.mockito.inline>
         <version.rest-assured>5.5.6</version.rest-assured>
-        <groovy.version>4.0.29</groovy.version>
+        <groovy.version>5.0.2</groovy.version>
     </properties>
 
     <modules>
