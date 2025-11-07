@@ -27,7 +27,7 @@
         <resteasy.spring.version>3.2.0.Final</resteasy.spring.version>
         <version.org.jboss.resteasy>7.0.0.Final</version.org.jboss.resteasy>
         <version.dev.resteasy.netty>1.0.0.Final</version.dev.resteasy.netty>
-        <springboot.version>4.0.0-RC1</springboot.version>
+        <springboot.version>4.0.0-RC2</springboot.version>
         <ver.testng>7.11.0</ver.testng>
         <ver.wildfly.maven.plugin>5.1.5.Final</ver.wildfly.maven.plugin>
         <wildfly.version>34.0.0.Final</wildfly.version>
