@@ -18,7 +18,7 @@
     <properties>
         <version.eclipse.microprofile.openapi>3.1.1</version.eclipse.microprofile.openapi>
         <swagger.version>2.2.40</swagger.version>
-        <version.springdoc>2.8.14</version.springdoc>
+        <version.springdoc>3.0.0</version.springdoc>
     </properties>
 
     <dependencyManagement>
